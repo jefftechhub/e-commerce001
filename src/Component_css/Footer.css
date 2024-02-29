@@ -1,0 +1,98 @@
+.info {
+  background-color: var(--thirdColor);
+  padding: 50px;
+}
+
+.info h2 {
+  color: var(--mainColor);
+  font-size: 1.4rem;
+  font-weight: 500;
+  margin: 10px 0;
+  text-transform: uppercase;
+}
+
+.info ul {
+  display: flex;
+  flex-direction: column;
+}
+
+.info ul a {
+  color: var(--mainColor);
+  text-decoration: none;
+  text-transform: capitalize;
+  margin: 3px 0;
+}
+
+.info form {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+}
+
+.info input {
+  width: 400px;
+  font-size: 1.2rem;
+  padding: 5px 10px;
+  background-color: transparent;
+  border: 1px solid var(--secondColor);
+  color: var(--mainColor);
+}
+
+.info input:focus {
+  outline: none;
+}
+
+.info input::placeholder {
+  text-transform: capitalize;
+  font-size: 1rem;
+  color: var(--secondColor);
+}
+
+.info button {
+  margin: 20px 0;
+  padding: 10px 20px;
+  background-color: var(--fourthColor);
+  color: var(--mainColor);
+  text-transform: capitalize;
+  border: none;
+}
+
+.reserved {
+  background-color: #363535;
+  padding: 10px 50px;
+}
+
+.reserved p {
+  font-size: 1.2rem;
+  color: var(--mainColor);
+}
+
+.reserved div {
+  margin-top: 10px;
+  display: flex;
+  gap: 5px;
+  color: var(--mainColor);
+  font-size: 1.7rem;
+}
+
+@media (max-width: 500px) {
+  .info {
+    background-color: var(--thirdColor);
+    padding: 50px;
+  }
+
+  .info h2 {
+    font-size: 1.3rem;
+  }
+
+  .info input {
+    font-size: 1.2rem;
+    width: 100%;
+  }
+
+  .reserved {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+}

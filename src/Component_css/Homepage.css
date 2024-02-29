@@ -1,0 +1,531 @@
+.homeContainer {
+  position: relative;
+}
+
+/* banner  */
+
+.banner {
+  width: 100%;
+  height: 70vh;
+  position: relative;
+}
+
+.banner div {
+  height: 100%;
+  width: 100%;
+}
+
+.banner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.banner div:first-child {
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 70px;
+  gap: 20px;
+}
+
+.banner h1 {
+  font-size: 2.5rem;
+  color: var(--mainColor);
+}
+
+.banner h2 {
+  font-size: 1.3rem;
+  font-weight: 400;
+  color: var(--mainColor);
+}
+
+.banner a {
+  color: var(--mainColor);
+  text-decoration: none;
+  padding: 13px 30px;
+  background-color: var(--fourthColor);
+  font-size: 1rem;
+  text-transform: capitalize;
+}
+
+.homeContainer section {
+  padding: 0 100px;
+}
+
+.collections {
+  padding: 30px 0;
+  padding-top: 60px;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.collections a {
+  border: 2px solid var(--fourthColor);
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  color: var(--thirdColor);
+  text-decoration: none;
+}
+
+.collections img {
+  width: 40px;
+  height: 40px;
+  position: relative;
+  transform: translateX(-50%);
+  left: 50%;
+}
+
+.collections a:hover {
+  color: var(--mainColor);
+  background-color: var(--fourthColor);
+}
+
+.collections a:hover p {
+  color: var(--mainColor);
+}
+
+.collections div p {
+  font-size: 0.6rem;
+}
+
+.top_products {
+  padding: 30px 0;
+}
+
+.top_products header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.top_products header h2,
+.featuredProduct h2 {
+  font-size: 1.4rem;
+  color: var(--fourthColor);
+  text-transform: capitalize;
+}
+.top_products header div {
+  display: flex;
+  column-gap: 10px;
+  align-items: center;
+}
+
+.top_products header div button {
+  padding: 5px 15px;
+  text-transform: capitalize;
+  border: none;
+  background-color: var(--fourthColor);
+  color: var(--mainColor);
+}
+
+.products {
+  padding: 30px 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  justify-content: center;
+  gap: 20px 10px;
+}
+
+.singleProduct {
+  position: relative;
+}
+
+/* add to cart icon  */
+
+.fa-plus {
+  position: absolute;
+  top: 60px;
+  right: 15px;
+  background-color: var(--mainColor);
+  color: var(--fourthColor);
+  width: 30px;
+  height: 30px;
+  display: flex;
+  border-radius: 50%;
+  justify-content: center;
+  align-items: center;
+  font-size: 1rem;
+}
+
+.fa-plus:hover {
+  background-color: var(--fourthColor);
+  color: var(--mainColor);
+}
+
+.singleProduct img {
+  width: 100%;
+  height: 45vh;
+  object-fit: cover;
+}
+
+.singleProduct a {
+  display: flex;
+  text-decoration: none;
+  flex-direction: column;
+  row-gap: 10px;
+  color: var(--thirdColor);
+}
+
+.singleProduct a p {
+  text-align: center;
+  font-size: 1.2rem;
+}
+
+.singleProduct a p i {
+  font-size: 0.9rem;
+  font-weight: 300;
+}
+
+.singleProduct a h3 {
+  text-align: center;
+  font-size: 1rem;
+  font-weight: 400;
+  margin: 5px;
+}
+
+/* display offers  */
+
+.offers-container {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(200px, 1fr));
+  justify-content: center;
+  grid-template-rows: repeat(2, 40vh);
+  padding: 50px 100px;
+  gap: 10px;
+}
+
+.singleOffer:first-child {
+  grid-column: span 2;
+}
+
+.singleOffer {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.singleOffer img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.offerTag {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  width: 50px;
+  height: 50px;
+  background-color: var(--fifthColor);
+  border-radius: 50%;
+  border-bottom-right-radius: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  outline: 5px solid var(--fifthColor);
+  border: 2px dotted var(--mainColor);
+}
+
+.offerTag p {
+  color: var(--mainColor);
+  font-size: 0.6rem;
+  text-align: center;
+}
+
+.offerTag span {
+  font-size: 0.9rem;
+}
+
+#percent {
+  font-size: 0.7rem;
+}
+
+.singleOffer h2 {
+  font-size: 0.9rem;
+  position: absolute;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.2);
+  padding: 5px;
+  width: 100%;
+  color: var(--mainColor);
+}
+
+/* featured product  */
+
+.featuredProduct {
+  padding: 30px 0;
+}
+
+.featuredContainer {
+  display: flex;
+  padding: 30px 0;
+  gap: 20px;
+  align-items: center;
+}
+
+.featuredContainer img {
+  width: 60%;
+  height: auto;
+  object-fit: cover;
+}
+
+.lastChild {
+  display: flex;
+  gap: 30px;
+  flex-direction: column;
+  align-items: start;
+}
+
+.lastChild h3 {
+  font-size: 1.3rem;
+}
+.lastChild h4 {
+  font-size: 1rem;
+  font-weight: 300;
+}
+
+.price {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.price p:first-child {
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.price p:first-child i {
+  font-size: 1rem;
+}
+
+#oldPrice {
+  font-size: 0.8rem;
+  font-weight: 400;
+  text-decoration: line-through;
+}
+
+#oldPrice i {
+  font-size: 0.7rem;
+}
+
+.lastChild button {
+  padding: 10px 20px;
+  background-color: transparent;
+  border: 1px solid var(--fourthColor);
+  color: var(--fourthColor);
+  font-size: 1rem;
+}
+
+/* for tablet  */
+
+@media (max-width: 900px) {
+  .fa-hand-point-up {
+    font-size: 1.5rem;
+  }
+
+  /* banner  */
+
+  .banner {
+    height: 60vh;
+  }
+
+  .banner div:first-child {
+    padding: 60px;
+  }
+
+  .banner h1 {
+    font-size: 2rem;
+  }
+
+  .banner h2 {
+    font-size: 1.2rem;
+  }
+
+  .banner a {
+    padding: 10px 30px;
+  }
+
+  .homeContainer section {
+    padding: 0 60px;
+  }
+
+  .top_products header h2,
+  .featuredProduct h2 {
+    font-size: 1.2rem;
+  }
+
+  .top_products header div {
+    column-gap: 5px;
+  }
+
+  .products {
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  }
+
+  /* add to cart icon  */
+
+  .singleProduct img {
+    height: 40vh;
+  }
+
+  /* display offers  */
+
+  .offers-container {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-template-rows: repeat(auto-fill, 1fr);
+    padding: 50px 0;
+  }
+
+  .singleOffer:first-child {
+    grid-column: span 1;
+  }
+
+  .singleOffer {
+    height: 40vh;
+  }
+
+  /* featured product  */
+
+  .featuredContainer img {
+    width: 50%;
+  }
+
+  .lastChild {
+    display: flex;
+    gap: 20px;
+  }
+
+  .lastChild h3 {
+    font-size: 1.2rem;
+  }
+
+  .lastChild button {
+    padding: 8px 20px;
+  }
+}
+
+/* phone ui  */
+
+@media (max-width: 630px) {
+  /* banner  */
+
+  .banner {
+    height: 60vh;
+  }
+
+  .banner div:first-child {
+    padding: 0 20px;
+  }
+
+  .banner h1 {
+    font-size: 1.7rem;
+  }
+
+  .banner h2 {
+    font-size: 1.2rem;
+  }
+
+  .banner a {
+    padding: 8px 20px;
+    font-size: 0.9rem;
+  }
+
+  .homeContainer section {
+    padding: 0 20px;
+  }
+
+  .collections a {
+    width: 80px;
+    height: 80px;
+  }
+
+  .collections img {
+    width: 25px;
+    height: 25px;
+  }
+
+  .top_products header h2,
+  .featuredProduct h2 {
+    font-size: 1.2rem;
+  }
+
+  .top_products header div {
+    column-gap: 5px;
+  }
+
+  .top_products header div button {
+    padding: 5px 10px;
+  }
+
+  .products {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  }
+
+  /* add to cart icon  */
+
+  .singleProduct img {
+    height: 30vh;
+  }
+
+  .singleProduct a p {
+    font-size: 1rem;
+    text-align: start;
+    margin-left: 3px;
+  }
+
+  .singleProduct a h3 {
+    text-align: start;
+  }
+
+  .singleProduct a p i {
+    font-size: 0.8rem;
+  }
+
+  /* display offers  */
+
+  .offers-container {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-template-rows: repeat(auto-fill, 1fr);
+    padding: 50px 10px;
+  }
+
+  .singleOffer:first-child {
+    grid-column: span 1;
+  }
+
+  .singleOffer {
+    height: 30vh;
+  }
+
+  .singleOffer img {
+    object-fit: cover;
+    height: 100%;
+  }
+
+  /* featured product  */
+
+  .featuredContainer {
+    flex-direction: column;
+  }
+
+  .featuredContainer img {
+    width: 100%;
+    height: 50vh;
+  }
+
+  .lastChild h3 {
+    font-size: 1.2rem;
+  }
+
+  .lastChild button {
+    font-size: 0.9rem;
+  }
+}
