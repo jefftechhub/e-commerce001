@@ -1,0 +1,147 @@
+.containerSignup {
+  display: grid;
+  grid-template-columns: repeat(1, 40vw);
+  justify-content: center;
+  align-content: start;
+  padding-top: 10px;
+  background: linear-gradient(to top right, var(--fifthColor), #e3d287);
+  width: 100%;
+  min-height: 100vh;
+}
+
+#homeink {
+  background-color: var(--fourthColor);
+  padding: 5px 0;
+  text-decoration: none;
+  text-transform: capitalize;
+  border-radius: 4px;
+  width: 100px;
+  text-align: center;
+  color: var(--mainColor);
+}
+
+.containerSignup form {
+  background-color: var(--mainColor);
+  padding: 50px;
+  margin-top: 30px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.containerSignup input {
+  width: 100%;
+  font-size: 1rem;
+  padding: 8px 20px;
+  font-size: 1rem;
+  margin: 5px 0;
+  border-radius: 4px;
+  border: 1px solid var(--secondColor);
+  transition: 0s;
+}
+
+.containerSignup input::placeholder {
+  text-transform: capitalize;
+  font-size: 0.8rem;
+}
+
+.containerSignup input:focus {
+  outline: none;
+  background-color: transparent;
+  border: 2px solid var(--fourthColor);
+}
+
+.containerSignup button {
+  padding: 5px 30px;
+  color: var(--mainColor);
+  background-color: var(--fourthColor);
+  border: none;
+  border-radius: 3px;
+  margin-top: 5px;
+  display: block;
+  margin: 20px 0;
+}
+
+.containerSignup label {
+  margin-top: 10px;
+  font-size: 1rem;
+  display: block;
+  text-transform: capitalize;
+}
+
+.containerSignup a {
+  color: var(--thirdColor);
+  text-decoration: underline;
+  font-size: 0.7rem;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+/* empty input  */
+.empty {
+  border: 1px solid red !important;
+}
+
+.input-container {
+  position: relative;
+  width: auto;
+}
+
+.input-container i {
+  position: absolute;
+  padding: 10px 20px;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  color: var(--fourthColor);
+  font-size: 0.8rem;
+}
+.input-container input {
+  padding-right: 50px;
+}
+
+@media (max-width: 800px) {
+  .containerSignup {
+    grid-template-columns: repeat(1, 90vw);
+    padding-top: 20px;
+  }
+
+  #homeink {
+    width: 80px;
+  }
+
+  .containerSignup form {
+    padding: 40px 20px;
+    margin-top: 20px;
+  }
+
+  .containerSignup input {
+    font-size: 0.9rem;
+    padding: 10px 20px;
+  }
+
+  .containerSignup input::placeholder {
+    font-size: 0.8rem;
+  }
+
+  .containerSignup a {
+    font-size: 0.8rem;
+  }
+
+  .containerSignup button {
+    padding: 5px 20px;
+    margin-bottom: 10px;
+  }
+
+  .containerSignup label {
+    font-size: 0.8rem;
+  }
+
+  .input-container {
+    width: auto;
+  }
+
+  .input-container input {
+    padding-right: 50px;
+  }
+}

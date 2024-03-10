@@ -1,10 +1,19 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./Component_css/NavBar.css";
 import { Link } from "react-router-dom";
 
-function Navbar() {
+function Navbar({ login }) {
   const [showSearch, setSearch] = useState(false);
   const [showMenu, setMenu] = useState(false);
+  const [loggedIn, setLoggedIn] = useState(false);
+
+  useEffect(() => {
+    if (sessionStorage.getItem("loggedIn" === "true")) {
+      setLoggedIn(true);
+    } else {
+      setLoggedIn(false);
+    }
+  }, []);
 
   const submitHandler = (e) => {
     e.preventDefault();
@@ -32,14 +41,17 @@ function Navbar() {
               ></i>
             )}
           </form>
-
-          <Link to="/dashboard">
+          <Link to="dashboard">
             <i class="fa-regular fa-user"></i>
           </Link>
-          <Link to="/dashboard">
+          <Link to="">
             <i class="fa-solid fa-cart-shopping"></i>
           </Link>
-
+          {!login && (
+            <Link id="loginbtn" to="login">
+              Log in
+            </Link>
+          )}
           <div className="menu">
             {showMenu ? (
               <i
@@ -69,7 +81,7 @@ function Navbar() {
               Home
             </Link>
             <Link
-              to="/shop"
+              to="shop"
               onClick={() => {
                 setMenu(!showMenu);
               }}
@@ -77,7 +89,7 @@ function Navbar() {
               Shop
             </Link>
             <Link
-              to="/contactUs"
+              to="contactUs"
               onClick={() => {
                 setMenu(!showMenu);
               }}
@@ -85,7 +97,7 @@ function Navbar() {
               contact us
             </Link>
             <Link
-              to="/aboutUs"
+              to="aboutUs"
               onClick={() => {
                 setMenu(!showMenu);
               }}
@@ -101,8 +113,8 @@ function Navbar() {
       <div class="headerList">
         <ul>
           <Link to="/">Home</Link>
-          <Link to="/shop">Shop</Link>
-          <Link to="/contactUs">contact us</Link>
+          <Link to="shop">Shop</Link>
+          <Link to="contactUs">contact us</Link>
           <Link to="/aboutUs">about us</Link>
         </ul>
       </div>

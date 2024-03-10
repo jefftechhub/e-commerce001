@@ -1,0 +1,114 @@
+.containerLogin {
+  display: grid;
+  grid-template-columns: repeat(1, 40vw);
+  justify-content: center;
+  align-content: start;
+  padding-top: 100px;
+  background: linear-gradient(to top right, var(--fifthColor), #e3d287);
+  width: 100%;
+  min-height: 100vh;
+}
+
+.containerLogin form {
+  background-color: var(--mainColor);
+  padding: 50px;
+  margin-top: 30px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+.containerLogin input {
+  width: 100%;
+  font-size: 1rem;
+  padding: 8px 20px;
+  font-size: 1rem;
+  margin: 5px 0;
+  border-radius: 4px;
+  border: 1px solid var(--secondColor);
+  transition: 0s;
+}
+
+.containerLogin input::placeholder {
+  text-transform: capitalize;
+  font-size: 0.8rem;
+}
+
+.containerLogin input:focus {
+  outline: none;
+  border: 2px solid var(--fourthColor);
+}
+
+.containerLogin button {
+  padding: 5px 30px;
+  color: var(--mainColor);
+  background-color: var(--fourthColor);
+  border: none;
+  border-radius: 3px;
+  margin-top: 5px;
+  display: block;
+  margin: 20px 0;
+}
+
+#checkbox {
+  width: auto;
+  margin: 20px 0;
+  display: inline-block;
+  margin-right: 5px;
+}
+
+label {
+  font-size: 1rem;
+  text-transform: capitalize;
+}
+
+.containerLogin p,
+.containerLogin a {
+  color: var(--thirdColor);
+  text-decoration: underline;
+  font-size: 0.7rem;
+  cursor: pointer;
+}
+
+.loginLinks {
+  display: flex;
+  column-gap: 20px;
+}
+
+@media (max-width: 800px) {
+  .containerLogin {
+    grid-template-columns: repeat(1, 90vw);
+    padding-top: 80px;
+  }
+
+  #homeink {
+    width: 80px;
+  }
+
+  .containerLogin form {
+    padding: 40px 20px;
+    margin-top: 20px;
+    position: relative;
+  }
+
+  .containerLogin input {
+    font-size: 0.9rem;
+    padding: 10px 20px;
+  }
+
+  .containerLogin input::placeholder {
+    font-size: 0.8rem;
+  }
+
+  .containerLogin button {
+    padding: 5px 20px;
+    margin-bottom: 10px;
+  }
+
+  .containerLogin a {
+    font-size: 0.8rem;
+  }
+
+  .containerLogin label {
+    font-size: 0.8rem;
+  }
+}

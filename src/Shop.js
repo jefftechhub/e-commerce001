@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { data } from "./data";
 import ShopPage from "./Component/ShopPage";
 import "./Component_css/Product.css";
+import { Link } from "react-router-dom";
 
 function Shop() {
   const [livingRoom, setLivingRoom] = useState([]);

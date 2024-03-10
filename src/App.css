@@ -3,7 +3,7 @@
   --secondColor: #efeded;
   --thirdColor: #000000;
   --fourthColor: #006400;
-  --fifthColor: #f10f10;
+  --fifthColor: #f17c0f;
 }
 
 * {
@@ -12,6 +12,7 @@
   box-sizing: border-box;
   transition: 0.5s ease-in-out;
   scroll-behavior: smooth;
+  font-family: "Open Sans", sans-serif;
 }
 
 .fa-heart {
@@ -48,4 +49,144 @@
   font-size: 2rem;
   border-radius: 50%;
   z-index: 100;
+}
+
+.offer {
+  position: absolute;
+  left: 15px;
+  background-color: var(--fifthColor);
+  padding: 5px 15px;
+  color: var(--mainColor);
+  font-size: 1rem;
+}
+
+.popNote {
+  background-color: var(--mainColor);
+  position: absolute;
+  font-size: 0.9rem;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 15px 20px;
+  text-transform: capitalize;
+  border-radius: 0;
+  animation: notification 0.3s ease-in-out 2;
+}
+
+.errorNote {
+  color: red;
+  border: 1px solid red;
+}
+
+.success {
+  color: var(--fourthColor);
+  border: 1px solid var(--fourthColor);
+}
+
+.popNote p {
+  text-decoration: none !important;
+  display: flex;
+  align-items: center;
+  column-gap: 20px;
+}
+
+.fa-x {
+  font-size: 0.8rem !important;
+  padding: 8px 9px;
+  background-color: var(--secondColor);
+  border-radius: 50%;
+}
+
+/* fixed notification  */
+
+.fixedNotificationContainer {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1000;
+  background-color: rgba(0, 0, 0, 0.9);
+  display: grid;
+  grid-template-columns: repeat(1, 300px);
+  justify-content: center;
+  align-items: center;
+}
+
+.fixedNotificationContainer main {
+  background-color: var(--secondColor);
+  padding: 20px 30px;
+  border-radius: 5px;
+}
+
+.cancelBtn {
+  display: flex;
+  justify-content: end;
+}
+
+.cancelBtn button {
+  background-color: transparent;
+  border: none;
+}
+
+.cancelBtn i {
+  font-size: 0.9rem;
+  padding: 10px;
+  background-color: #dfdcdc;
+}
+
+.divBtn a {
+  text-decoration: none;
+  color: var(--mainColor);
+  background-color: var(--fourthColor);
+  padding: 5px 10px;
+  font-size: 0.8rem;
+  border-radius: 3px;
+}
+
+.fixedNotificationContainer p {
+  font-size: 0.8rem;
+  margin: 20px 0;
+  margin-top: 0;
+}
+
+.loadingAnimation {
+  border: 3px solid var(--fourthColor);
+  border-bottom: none;
+  border-left: none;
+  margin-right: 20px;
+  border-radius: 50%;
+  animation: loading 1s infinite linear;
+}
+
+@keyframes loading {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes notification {
+  0% {
+    left: 50%;
+    transform: translate(-50%, 0);
+  }
+  50% {
+    left: 50%;
+    transform: translate(-50%, 15px);
+  }
+  100% {
+    left: 50%;
+    transform: translate(-50%, 0);
+  }
+}
+
+.popNote p i {
+  font-size: 1.1rem;
+}
+@media (max-width: 600px) {
+  .offer {
+    font-size: 0.8rem;
+    top: 25px;
+  }
 }

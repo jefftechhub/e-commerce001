@@ -1,16 +1,5 @@
 export const data = [
   {
-    id: 1,
-    name: "Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
-    price: 45.67,
-    oldPrice: "",
-    ratings: 4,
-    collection: "livingroom",
-    image: "/uploads/1.webp",
-    description:
-      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Consequatur voluptates nihil voluptas sed ea velit obcaecati esse, cumque impedit. Beatae soluta excepturi explicabo numquam dolorum nemo quaerat nulla illum nihil cumque repellendus vitae fugiat veniam officiis nobis, illo eaque at est rerum exercitationem aut libero cupiditate vel sequi! Magni, distinctio est placeat ipsa reiciendis aperiam debitis consequuntur veniam consectetur dolorem.",
-  },
-  {
     id: 2,
     name: "Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
     price: 445.67,
@@ -21,17 +10,7 @@ export const data = [
     description:
       "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Consequatur voluptates nihil voluptas sed ea velit obcaecati esse, cumque impedit. Beatae soluta excepturi explicabo numquam dolorum nemo quaerat nulla illum nihil cumque repellendus vitae fugiat veniam officiis nobis, illo eaque at est rerum exercitationem aut libero cupiditate vel sequi! Magni, distinctio est placeat ipsa reiciendis aperiam debitis consequuntur veniam consectetur dolorem.",
   },
-  {
-    id: 3,
-    name: "Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
-    price: 65.67,
-    oldPrice: 345.89,
-    ratings: 4,
-    collection: "livingroom",
-    image: "/uploads/3.webp",
-    description:
-      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Consequatur voluptates nihil voluptas sed ea velit obcaecati esse, cumque impedit. Beatae soluta excepturi explicabo numquam dolorum nemo quaerat nulla illum nihil cumque repellendus vitae fugiat veniam officiis nobis, illo eaque at est rerum exercitationem aut libero cupiditate vel sequi! Magni, distinctio est placeat ipsa reiciendis aperiam debitis consequuntur veniam consectetur dolorem.",
-  },
+
   {
     id: 4,
     name: "Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
@@ -43,61 +22,7 @@ export const data = [
     description:
       "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Consequatur voluptates nihil voluptas sed ea velit obcaecati esse, cumque impedit. Beatae soluta excepturi explicabo numquam dolorum nemo quaerat nulla illum nihil cumque repellendus vitae fugiat veniam officiis nobis, illo eaque at est rerum exercitationem aut libero cupiditate vel sequi! Magni, distinctio est placeat ipsa reiciendis aperiam debitis consequuntur veniam consectetur dolorem.",
   },
-  {
-    id: 5,
-    name: "Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
-    price: 145.67,
-    oldPrice: "",
-    ratings: 4,
-    collection: "livingroom",
-    image: "/uploads/5.webp",
-    description:
-      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Consequatur voluptates nihil voluptas sed ea velit obcaecati esse, cumque impedit. Beatae soluta excepturi explicabo numquam dolorum nemo quaerat nulla illum nihil cumque repellendus vitae fugiat veniam officiis nobis, illo eaque at est rerum exercitationem aut libero cupiditate vel sequi! Magni, distinctio est placeat ipsa reiciendis aperiam debitis consequuntur veniam consectetur dolorem.",
-  },
-  {
-    id: 6,
-    name: "Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
-    price: 5.67,
-    oldPrice: "",
-    ratings: 4,
-    collection: "livingroom",
-    image: "/uploads/6.webp",
-    description:
-      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Consequatur voluptates nihil voluptas sed ea velit obcaecati esse, cumque impedit. Beatae soluta excepturi explicabo numquam dolorum nemo quaerat nulla illum nihil cumque repellendus vitae fugiat veniam officiis nobis, illo eaque at est rerum exercitationem aut libero cupiditate vel sequi! Magni, distinctio est placeat ipsa reiciendis aperiam debitis consequuntur veniam consectetur dolorem.",
-  },
-  {
-    id: 7,
-    name: "Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
-    price: 345.67,
-    oldPrice: "",
-    ratings: 4,
-    collection: "livingroom",
-    image: "/uploads/7.webp",
-    description:
-      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Consequatur voluptates nihil voluptas sed ea velit obcaecati esse, cumque impedit. Beatae soluta excepturi explicabo numquam dolorum nemo quaerat nulla illum nihil cumque repellendus vitae fugiat veniam officiis nobis, illo eaque at est rerum exercitationem aut libero cupiditate vel sequi! Magni, distinctio est placeat ipsa reiciendis aperiam debitis consequuntur veniam consectetur dolorem.",
-  },
-  {
-    id: 8,
-    name: "Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
-    price: 15.67,
-    oldPrice: "",
-    ratings: 4,
-    collection: "livingroom",
-    image: "/uploads/8.webp",
-    description:
-      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Consequatur voluptates nihil voluptas sed ea velit obcaecati esse, cumque impedit. Beatae soluta excepturi explicabo numquam dolorum nemo quaerat nulla illum nihil cumque repellendus vitae fugiat veniam officiis nobis, illo eaque at est rerum exercitationem aut libero cupiditate vel sequi! Magni, distinctio est placeat ipsa reiciendis aperiam debitis consequuntur veniam consectetur dolorem.",
-  },
-  {
-    id: 9,
-    name: "Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
-    price: 35.67,
-    oldPrice: "",
-    ratings: 4,
-    collection: "livingroom",
-    image: "/uploads/10.webp",
-    description:
-      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Consequatur voluptates nihil voluptas sed e10 velit obcaecati esse, cumque impedit. Beatae soluta excepturi explicabo numquam dolorum nemo quaerat nulla illum nihil cumque repellendus vitae fugiat veniam officiis nobis, illo eaque at est rerum exercitationem aut libero cupiditate vel sequi! Magni, distinctio est placeat ipsa reiciendis aperiam debitis consequuntur veniam consectetur dolorem.",
-  },
+
   {
     id: 10,
     name: "Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
@@ -131,50 +56,7 @@ export const data = [
     description:
       "Lorem ipsum dolbanneror, sit amet consectetur adipisicing elit. Consequatur voluptates nihil voluptas sed ea velit obcaecati esse, cumque impedit. Beatae soluta excepturi explicabo numquam dolorum nemo quaerat nulla illum nihil cumque repellendus vitae fugiat veniam officiis nobis, illo eaque at est rerum exercitationem aut libero cupiditate vel sequi! Magni, distinctio est placeat ipsa reiciendis aperiam debitis consequuntur veniam consectetur dolorem.",
   },
-  {
-    id: 13,
-    name: "Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
-    price: 78.67,
-    oldPrice: "",
-    ratings: 4,
-    collection: "diningroom",
-    image: "/uploads/1.webp",
-    description:
-      "Lorem ipsum dolbanneror, sit amet consectetur adipisicing elit. Consequatur voluptates nihil voluptas sed ea velit obcaecati esse, cumque impedit. Beatae soluta excepturi explicabo numquam dolorum nemo quaerat nulla illum nihil cumque repellendus vitae fugiat veniam officiis nobis, illo eaque at est rerum exercitationem aut libero cupiditate vel sequi! Magni, distinctio est placeat ipsa reiciendis aperiam debitis consequuntur veniam consectetur dolorem.",
-  },
-  {
-    id: 14,
-    name: "Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
-    price: 38.67,
-    oldPrice: "",
-    ratings: 4,
-    collection: "diningroom",
-    image: "/uploads/2.webp",
-    description:
-      "Lorem ipsum dolbanneror, sit amet consectetur adipisicing elit. Consequatur voluptates nihil voluptas sed ea velit obcaecati esse, cumque impedit. Beatae soluta excepturi explicabo numquam dolorum nemo quaerat nulla illum nihil cumque repellendus vitae fugiat veniam officiis nobis, illo eaque at est rerum exercitationem aut libero cupiditate vel sequi! Magni, distinctio est placeat ipsa reiciendis aperiam debitis consequuntur veniam consectetur dolorem.",
-  },
-  {
-    id: 15,
-    name: "Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
-    price: 178.67,
-    oldPrice: "",
-    ratings: 4,
-    collection: "diningroom",
-    image: "/uploads/3.webp",
-    description:
-      "Lorem ipsum dolbanneror, sit amet consectetur adipisicing elit. Consequatur voluptates nihil voluptas sed ea velit obcaecati esse, cumque impedit. Beatae soluta excepturi explicabo numquam dolorum nemo quaerat nulla illum nihil cumque repellendus vitae fugiat veniam officiis nobis, illo eaque at est rerum exercitationem aut libero cupiditate vel sequi! Magni, distinctio est placeat ipsa reiciendis aperiam debitis consequuntur veniam consectetur dolorem.",
-  },
-  {
-    id: 16,
-    name: "Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
-    price: 68.67,
-    oldPrice: 678.78,
-    ratings: 4,
-    collection: "diningroom",
-    image: "/uploads/4.webp",
-    description:
-      "Lorem ipsum dolbanneror, sit amet consectetur adipisicing elit. Consequatur voluptates nihil voluptas sed ea velit obcaecati esse, cumque impedit. Beatae soluta excepturi explicabo numquam dolorum nemo quaerat nulla illum nihil cumque repellendus vitae fugiat veniam officiis nobis, illo eaque at est rerum exercitationem aut libero cupiditate vel sequi! Magni, distinctio est placeat ipsa reiciendis aperiam debitis consequuntur veniam consectetur dolorem.",
-  },
+
   {
     id: 17,
     name: "Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
@@ -219,94 +101,7 @@ export const data = [
     description:
       "Lorem ipsum dolbanneror, sit amet consectetur adipisicing elit. Consequatur voluptates nihil voluptas sed ea velit obcaecati esse, cumque impedit. Beatae soluta excepturi explicabo numquam dolorum nemo quaerat nulla illum nihil cumque repellendus vitae fugiat veniam officiis nobis, illo eaque at est rerum exercitationem aut libero cupiditate vel sequi! Magni, distinctio est placeat ipsa reiciendis aperiam debitis consequuntur veniam consectetur dolorem.",
   },
-  {
-    id: 20,
-    name: "Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
-    price: 78.67,
-    oldPrice: 134.78,
-    ratings: 4,
-    collection: "diningroom",
-    image: "/uploads/10.webp",
-    description:
-      "Lorem ipsum dolbanneror, sit amet consectetur adipisicing elit. Consequatur voluptates nihil voluptas sed ea velit obcaecati esse, cumque impedit. Beatae soluta excepturi explicabo numquam dolorum nemo quaerat nulla illum nihil cumque repellendus vitae fugiat veniam officiis nobis, illo eaque at est rerum exercitationem aut libero cupiditate vel sequi! Magni, distinctio est placeat ipsa reiciendis aperiam debitis consequuntur veniam consectetur dolorem.",
-  },
-  {
-    id: 21,
-    name: "Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
-    price: 58.67,
-    oldPrice: "",
-    ratings: 4,
-    collection: "diningroom",
-    image: "/uploads/12.webp",
-    description:
-      "Lorem ipsum dolbanneror, sit amet consectetur adipisicing elit. Consequatur voluptates nihil voluptas sed ea velit obcaecati esse, cumque impedit. Beatae soluta excepturi explicabo numquam dolorum nemo quaerat nulla illum nihil cumque repellendus vitae fugiat veniam officiis nobis, illo eaque at est rerum exercitationem aut libero cupiditate vel sequi! Magni, distinctio est placeat ipsa reiciendis aperiam debitis consequuntur veniam consectetur dolorem.",
-  },
-  {
-    id: 22,
-    name: "Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
-    price: 358.67,
-    oldPrice: "",
-    ratings: 4,
-    collection: "diningroom",
-    image: "/uploads/14.webp",
-    description:
-      "Lorem ipsum dolbanneror, sit amet consectetur adipisicing elit. Consequatur voluptates nihil voluptas sed ea velit obcaecati esse, cumque impedit. Beatae soluta excepturi explicabo numquam dolorum nemo quaerat nulla illum nihil cumque repellendus vitae fugiat veniam officiis nobis, illo eaque at est rerum exercitationem aut libero cupiditate vel sequi! Magni, distinctio est placeat ipsa reiciendis aperiam debitis consequuntur veniam consectetur dolorem.",
-  },
-  {
-    id: 23,
-    name: "Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
-    price: 38.67,
-    oldPrice: 56.89,
-    ratings: 4,
-    collection: "bedroom",
-    image: "/uploads/1.webp",
-    description:
-      "Lorem ipsum dolbanneror, sit amet consectetur adipisicing elit. Consequatur voluptates nihil voluptas sed ea velit obcaecati esse, cumque impedit. Beatae soluta excepturi explicabo numquam dolorum nemo quaerat nulla illum nihil cumque repellendus vitae fugiat veniam officiis nobis, illo eaque at est rerum exercitationem aut libero cupiditate vel sequi! Magni, distinctio est placeat ipsa reiciendis aperiam debitis consequuntur veniam consectetur dolorem.",
-  },
-  {
-    id: 24,
-    name: "Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
-    price: 38.67,
-    oldPrice: "",
-    ratings: 4,
-    collection: "bedroom",
-    image: "/uploads/2.webp",
-    description:
-      "Lorem ipsum dolbanneror, sit amet consectetur adipisicing elit. Consequatur voluptates nihil voluptas sed ea velit obcaecati esse, cumque impedit. Beatae soluta excepturi explicabo numquam dolorum nemo quaerat nulla illum nihil cumque repellendus vitae fugiat veniam officiis nobis, illo eaque at est rerum exercitationem aut libero cupiditate vel sequi! Magni, distinctio est placeat ipsa reiciendis aperiam debitis consequuntur veniam consectetur dolorem.",
-  },
-  {
-    id: 25,
-    name: "Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
-    price: 788.67,
-    oldPrice: "",
-    ratings: 4,
-    collection: "bedroom",
-    image: "/uploads/3.webp",
-    description:
-      "Lorem ipsum dolbanneror, sit amet consectetur adipisicing elit. Consequatur voluptates nihil voluptas sed ea velit obcaecati esse, cumque impedit. Beatae soluta excepturi explicabo numquam dolorum nemo quaerat nulla illum nihil cumque repellendus vitae fugiat veniam officiis nobis, illo eaque at est rerum exercitationem aut libero cupiditate vel sequi! Magni, distinctio est placeat ipsa reiciendis aperiam debitis consequuntur veniam consectetur dolorem.",
-  },
-  {
-    id: 26,
-    name: "Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
-    price: 758.67,
-    oldPrice: "",
-    ratings: 4,
-    collection: "bedroom",
-    image: "/uploads/4.webp",
-    description:
-      "Lorem ipsum dolbanneror, sit amet consectetur adipisicing elit. Consequatur voluptates nihil voluptas sed ea velit obcaecati esse, cumque impedit. Beatae soluta excepturi explicabo numquam dolorum nemo quaerat nulla illum nihil cumque repellendus vitae fugiat veniam officiis nobis, illo eaque at est rerum exercitationem aut libero cupiditate vel sequi! Magni, distinctio est placeat ipsa reiciendis aperiam debitis consequuntur veniam consectetur dolorem.",
-  },
-  {
-    id: 27,
-    name: "Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
-    price: 35.67,
-    oldPrice: 135.78,
-    ratings: 4,
-    collection: "bedroom",
-    image: "/uploads/5.webp",
-    description:
-      "Lorem ipsum dolbanneror, sit amet consectetur adipisicing elit. Consequatur voluptates nihil voluptas sed ea velit obcaecati esse, cumque impedit. Beatae soluta excepturi explica5bo numquam dolorum nemo quaerat nulla illum nihil cumque repellendus vitae fugiat veniam officiis nobis, illo eaque at est rerum exercitationem aut libero cupiditate vel sequi! Magni, distinctio est placeat ipsa reiciendis aperiam debitis consequuntur veniam consectetur dolorem.",
-  },
+
   {
     id: 28,
     name: "Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
@@ -329,17 +124,7 @@ export const data = [
     description:
       "Lorem ipsum dolbanneror, sit amet consectetur adipisicing elit. Consequatur voluptates nihil voluptas sed ea velit obcaecati esse, cumque impedit. Beatae soluta excepturi explicabo numquam dolorum nemo quaerat nulla illum nihil cumque repellendus vitae fugiat veniam officiis nobis, illo eaque at est rerum exercitationem aut libero cupiditate vel sequi! Magni, distinctio est placeat ipsa reiciendis aperiam debitis consequuntur veniam consectetur dolorem.",
   },
-  {
-    id: 30,
-    name: "Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
-    price: 138.67,
-    oldPrice: 234.78,
-    ratings: 4,
-    collection: "bedroom",
-    image: "/uploads/8.webp",
-    description:
-      "Lorem ipsum dolba8nneror, sit amet consectetur adipisicing elit. Consequatur voluptates nihil voluptas sed ea velit obcaecati esse, cumque impedit. Beatae soluta excepturi explicabo numquam dolorum nemo quaerat nulla illum nihil cumque repellendus vitae fugiat veniam officiis nobis, illo eaque at est rerum exercitationem aut libero cupiditate vel sequi! Magni, distinctio est placeat ipsa reiciendis aperiam debitis consequuntur veniam consectetur dolorem.",
-  },
+
   {
     id: 31,
     name: "Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
@@ -351,17 +136,7 @@ export const data = [
     description:
       "Lorem ipsum dolbanneror, sit amet consectetur adipisicing elit. Consequatur voluptates nihil voluptas sed ea velit obcaecati esse, cumque impedit. Beatae soluta excepturi explicabo numquam dolorum nemo quaerat nulla illum nihil cumque repellendus vitae fugiat veniam officiis nobis, illo eaque at est rerum exercitationem aut libero cupiditate vel sequi! Magni, distinctio est placeat ipsa reiciendis aperiam debitis consequuntur veniam consectetur dolorem.",
   },
-  {
-    id: 32,
-    name: "Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
-    price: 28.67,
-    oldPrice: "",
-    ratings: 4,
-    collection: "kitchen",
-    image: "/uploads/1.webp",
-    description:
-      "Lorem ipsum dolbanneror, sit amet consectetur adipisicing elit. Consequatur voluptates nihil voluptas sed ea velit obcaecati esse, cumque impedit. Beatae soluta excepturi explicabo numquam dolorum nemo quaerat nulla illum nihil cumque repellendus vitae fugiat veniam officiis nobis, illo eaque at est rerum exercitationem aut libero cupiditate vel sequi! Magni, distinctio est placeat ipsa reiciendis aperiam debitis consequuntur veniam consectetur dolorem.",
-  },
+
   {
     id: 33,
     name: "Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
@@ -373,28 +148,7 @@ export const data = [
     description:
       "Lorem ipsum dolbanneror, sit amet consectetur adipisicing elit. Consequatur voluptates nihil voluptas sed ea velit obcaecati esse, cumque impedit. Beatae soluta excepturi explicabo numquam dolorum nemo quaerat nulla illum nihil cumque repellendus vitae fugiat veniam officiis nobis, illo eaque at est rerum exercitationem aut libero cupiditate vel sequi! Magni, distinctio est placeat ipsa reiciendis aperiam debitis consequuntur veniam consectetur dolorem.",
   },
-  {
-    id: 34,
-    name: "Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
-    price: 28.67,
-    oldPrice: "",
-    ratings: 4,
-    collection: "kitchen",
-    image: "/uploads/3.webp",
-    description:
-      "Lorem ipsum dolbanneror, sit amet consectetur adipisicing elit. Consequatur voluptates nihil voluptas sed ea velit obcaecati esse, cumque impedit. Beatae soluta excepturi explicabo numquam dolorum nemo quaerat nulla illum nihil cumque repellendus vitae fugiat veniam officiis nobis, illo eaque at est rerum exercitationem aut libero cupiditate vel sequi! Magni, distinctio est placeat ipsa reiciendis aperiam debitis consequuntur veniam consectetur dolorem.",
-  },
-  {
-    id: 35,
-    name: "Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
-    price: 28.67,
-    oldPrice: 65,
-    ratings: 4,
-    collection: "kitchen",
-    image: "/uploads/4.webp",
-    description:
-      "Lorem ipsum dolbanneror, sit amet consectetur adipisicing elit. Consequatur voluptates nihil voluptas sed ea velit obcaecati esse, cumque impedit. Beatae soluta excepturi explicabo numquam dolorum nemo quaerat nulla illum nihil cumque repellendus vitae fugiat veniam officiis nobis, illo eaque at est rerum exercitationem aut libero cupiditate vel sequi! Magni, distinctio est placeat ipsa reiciendis aperiam debitis consequuntur veniam consectetur dolorem.",
-  },
+
   {
     id: 36,
     name: "Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
@@ -417,17 +171,7 @@ export const data = [
     description:
       "Lorem ipsum dolbanneror, sit amet consectetur adipisicing elit. Consequatur voluptates nihil voluptas sed ea velit obcaecati esse, cumque impedit. Beatae soluta excepturi explicabo numquam dolorum nemo quaerat nulla illum nihil cumque repellendus vitae fugiat veniam officiis nobis, illo eaque at est rerum exercitationem aut libero cupiditate vel sequi! Magni, distinctio est placeat ipsa reiciendis aperiam debitis consequuntur veniam consectetur dolorem.",
   },
-  {
-    id: 38,
-    name: "Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
-    price: 118.67,
-    oldPrice: "",
-    ratings: 4,
-    collection: "kitchen",
-    image: "/uploads/7.webp",
-    description:
-      "Lorem ipsum dolbanneror, sit amet consectetur adipisicing elit. Consequatur voluptates nihil voluptas sed ea velit obcaecati esse, cumque impedit. Beatae soluta excepturi explicabo numquam dolorum nemo quaerat nulla illum nihil cumque repellendus vitae fugiat veniam officiis nobis, illo eaque at est rerum exercitationem aut libero cupiditate vel sequi! Magni, distinctio est placeat ipsa reiciendis aperiam debitis consequuntur veniam consectetur dolorem.",
-  },
+
   {
     id: 39,
     name: "Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
@@ -439,17 +183,7 @@ export const data = [
     description:
       "Lorem ipsum dolbanneror, sit amet consectetur adipisicing elit. Consequatur voluptates nihil voluptas sed ea velit obcaecati esse, cumque impedit. Beatae soluta excepturi explicabo numquam dolorum nemo quaerat nulla illum nihil cumque repellendus vitae fugiat veniam officiis nobis, illo eaque at est rerum exercitationem aut libero cupiditate vel sequi! Magni, distinctio est placeat ipsa reiciendis aperiam debitis consequuntur veniam consectetur dolorem.",
   },
-  {
-    id: 40,
-    name: "Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
-    price: 28.67,
-    oldPrice: 56.87,
-    ratings: 4,
-    collection: "kitchen",
-    image: "/uploads/10.webp",
-    description:
-      "Lorem ipsum dolbanneror, sit amet consectetur adipisicing elit. Consequatur voluptates nihil voluptas sed ea velit obcaecati esse, cumque impedit. Beatae soluta excepturi explicabo numquam dolorum nemo quaerat nulla illum nihil cumque repellendus vitae fugiat veniam officiis nobis, illo eaque at est rerum exercitationem aut libero cupiditate vel sequi! Magni, distinctio est placeat ipsa reiciendis aperiam debitis consequuntur veniam consectetur dolorem.",
-  },
+
   {
     id: 41,
     name: "Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
@@ -461,28 +195,7 @@ export const data = [
     description:
       "Lorem ipsum dolbanneror, sit amet consectetur adipisicing elit. Consequatur voluptates nihil voluptas sed ea velit obcaecati esse, cumque impedit. Beatae soluta excepturi explicabo numquam dolorum nemo quaerat nulla illum nihil cumque repellendus vitae fugiat veniam officiis nobis, illo eaque at est rerum exercitationem aut libero cupiditate vel sequi! Magni, distinctio est placeat ipsa reiciendis aperiam debitis consequuntur veniam consectetur dolorem.",
   },
-  {
-    id: 42,
-    name: "Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
-    price: 328.67,
-    oldPrice: "",
-    ratings: 4,
-    collection: "kitchen",
-    image: "/uploads/14.webp",
-    description:
-      "Lorem ipsum dolbanneror, sit amet consectetur adipisicing elit. Consequatur voluptates nihil voluptas sed ea velit obcaecati esse, cumque impedit. Beatae soluta excepturi explicabo numquam dolorum nemo quaerat nulla illum nihil cumque repellendus vitae fugiat veniam officiis nobis, illo eaque at est rerum exercitationem aut libero cupiditate vel sequi! Magni, distinctio est placeat ipsa reiciendis aperiam debitis consequuntur veniam consectetur dolorem.",
-  },
-  {
-    id: 43,
-    name: "Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
-    price: 28.67,
-    oldPrice: "",
-    ratings: 4,
-    collection: "kitchen",
-    image: "/uploads/banner.webp",
-    description:
-      "Lorem ipsum dolbanneror, sit amet consectetur adipisicing elit. Consequatur voluptates nihil voluptas sed ea velit obcaecati esse, cumque impedit. Beatae soluta excepturi explicabo numquam dolorum nemo quaerat nulla illum nihil cumque repellendus vitae fugiat veniam officiis nobis, illo eaque at est rerum exercitationem aut libero cupiditate vel sequi! Magni, distinctio est placeat ipsa reiciendis aperiam debitis consequuntur veniam consectetur dolorem.",
-  },
+
   {
     id: 44,
     name: "Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
@@ -527,59 +240,56 @@ export const data = [
     description:
       "Lorem ipsum dolbanneror, sit amet consectetur adipisicing elit. Consequatur voluptates nihil voluptas sed ea velit obcaecati esse, cumque impedit. Beatae soluta excepturi explicabo numquam dolorum nemo quaerat nulla illum nihil cumque repellendus vitae fugiat veniam officiis nobis, illo eaque at est rerum exercitationem aut libero cupiditate vel sequi! Magni, distinctio est placeat ipsa reiciendis aperiam debitis consequuntur veniam consectetur dolorem.",
   },
+];
+
+export const viewAlsoCollections = [
+  { collection: "livingroom", image: "/icons/livingroom.jpg" },
+  { collection: "bedroom", image: "/icons/bedroom.jpeg" },
+  { collection: "kitchen", image: "/icons/kitchen.jpg" },
+  { collection: "outdoor", image: "/icons/outdoor.jpeg" },
+];
+
+export const cards = [
   {
-    id: 48,
-    name: "Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
-    price: 628.67,
-    oldPrice: "",
-    ratings: 4,
-    collection: "outdoor",
-    image: "/uploads/4.webp",
-    description:
-      "Lorem ipsum dolbanneror, sit amet consectetur adipisicing elit. Consequatur voluptates nihil voluptas sed ea velit obcaecati esse, cumque impedit. Beatae soluta excepturi explicabo numquam dolorum nemo quaerat nulla illum nihil cumque repellendus vitae fugiat veniam officiis nobis, illo eaque at est rerum exercitationem aut libero cupiditate vel sequi! Magni, distinctio est placeat ipsa reiciendis aperiam debitis consequuntur veniam consectetur dolorem.",
+    firstName: "onyinjo",
+    lastName: "Makori",
+    number: 4545345755786688,
+    expiry: "27/24",
+    cv: "071",
   },
   {
-    id: 49,
-    name: "Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
-    price: 4628.67,
-    oldPrice: 5644.89,
-    ratings: 4,
-    collection: "outdoor",
-    image: "/uploads/5.webp",
-    description:
-      "Lorem ipsum dolbanneror, sit amet consectetur adipisicing elit. Consequatur voluptates nihil voluptas sed ea velit obcaecati esse, cumque impedit. Beatae soluta excepturi explicabo numquam dolorum nemo quaerat nulla illum nihil cumque repellendus vitae fugiat veniam officiis nobis, illo eaque at est rerum exercitationem aut libero cupiditate vel sequi! Magni, distinctio est placeat ipsa reiciendis aperiam debitis consequuntur veniam consectetur dolorem.",
+    firstName: "onyinjo",
+    lastName: "jeff",
+    number: 7945345755786688,
+    expiry: "25/24",
+    cv: "071",
   },
   {
-    id: 50,
-    name: "Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
-    price: 628.67,
-    oldPrice: "",
-    ratings: 4,
-    collection: "outdoor",
-    image: "/uploads/6.webp",
-    description:
-      "Lorem ipsum dolbanneror, sit amet consectetur adipisicing elit. Consequatur voluptates nihil voluptas sed ea velit obcaecati esse, cumque impedit. Beatae soluta excepturi explicabo numquam dolorum nemo quaerat nulla illum nihil cumque repellendus vitae fugiat veniam officiis nobis, illo eaque at est rerum exercitationem aut libero cupiditate vel sequi! Magni, distinctio est placeat ipsa reiciendis aperiam debitis consequuntur veniam consectetur dolorem.",
+    firstName: "onyinjo",
+    lastName: "Makori",
+    number: 4545545545755786688,
+    expiry: "27/24",
+    cv: "071",
   },
   {
-    id: 51,
-    name: "Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
-    price: 428.67,
-    oldPrice: "",
-    ratings: 4,
-    collection: "outdoor",
-    image: "/uploads/7.webp",
-    description:
-      "Lorem ipsum dolbanneror, sit amet consectetur adipisicing elit. Consequatur voluptates nihil voluptas sed ea velit obcaecati esse, cumque impedit. Beatae soluta excepturi explicabo numquam dolorum nemo quaerat nulla illum nihil cumque repellendus vitae fugiat veniam officiis nobis, illo eaque at est rerum exercitationem aut libero cupiditate vel sequi! Magni, distinctio est placeat ipsa reiciendis aperiam debitis consequuntur veniam consectetur dolorem.",
+    firstName: "onyinjo",
+    lastName: "Makori",
+    number: 4545345755786688,
+    expiry: "27/24",
+    cv: "071",
   },
   {
-    id: 52,
-    name: "Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
-    price: 48.67,
-    oldPrice: 345.0,
-    ratings: 4,
-    collection: "outdoor",
-    image: "/uploads/8.webp",
-    description:
-      "Lorem ipsum dolbanneror, sit amet consectetur adipisicing elit. Consequatur voluptates nihil voluptas sed ea velit obcaecati esse, cumque impedit. Beatae soluta excepturi explicabo numquam dolorum nemo quaerat nulla illum nihil cumque repellendus vitae fugiat veniam officiis nobis, illo eaque at est rerum exercitationem aut libero cupiditate vel sequi! Magni, distinctio est placeat ipsa reiciendis aperiam debitis consequuntur veniam consectetur dolorem.",
+    firstName: "onyinjo",
+    lastName: "Makori",
+    number: 4545345755786688,
+    expiry: "27/24",
+    cv: "071",
+  },
+  {
+    firstName: "onyinjo",
+    lastName: "Makori",
+    number: 4545345755786688,
+    expiry: "27/24",
+    cv: "071",
   },
 ];

@@ -1,3 +1,7 @@
+.headList-mwitu {
+  height: 80px;
+}
+
 .header {
   position: fixed;
   display: flex;
@@ -52,6 +56,11 @@
 .search {
   display: flex;
   align-items: center;
+
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 0;
 }
 
 .search input {
@@ -80,13 +89,23 @@
   display: none;
 }
 
+#loginbtn {
+  background-color: var(--fifthColor);
+  padding: 8px 20px;
+  border: none;
+  border-radius: 3px;
+  color: var(--mainColor);
+  text-transform: capitalize;
+  font-size: 1rem;
+  text-decoration: none;
+}
+
 .headerList {
   background-color: var(--thirdColor);
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
-  padding-top: 80px;
 }
 
 .headerList ul {
@@ -131,6 +150,11 @@
     height: 60px;
   }
 
+  #loginbtn {
+    padding: 5px 10px;
+    font-size: 0.7rem;
+  }
+
   .cartContainer button {
     margin-right: 5px;
     background-color: transparent;
@@ -149,11 +173,11 @@
   }
 
   .header h1 {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
   }
 
   .cartContainer i {
-    font-size: 1.2rem;
+    font-size: 1rem;
   }
 
   .search {
@@ -168,7 +192,7 @@
   }
 
   .search button i {
-    padding: 6.5px;
+    padding: 9px 7px;
   }
 
   .headerList {
@@ -204,7 +228,7 @@
 
   .menuList a {
     color: var(--mainColor);
-    font-size: 1.4rem;
+    font-size: 1.3rem;
     text-align: center;
     text-decoration: none;
     text-transform: capitalize;

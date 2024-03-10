@@ -48,18 +48,6 @@ section h1 {
   text-transform: capitalize;
 }
 
-/* offer tag */
-
-.offer {
-  position: absolute;
-  /* top: 10px; */
-  left: 15px;
-  background-color: var(--fifthColor);
-  padding: 5px 15px;
-  color: var(--mainColor);
-  font-size: 1rem;
-}
-
 /* favourite  */
 
 .fa-heart {
@@ -92,7 +80,7 @@ section h1 {
 }
 
 .singlecollection a p {
-  font-size: 1.1rem;
+  font-size: 1rem;
   font-weight: 700;
 }
 
@@ -101,18 +89,28 @@ section h1 {
 }
 
 .singlecollection a p i {
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   font-weight: 700;
 }
 
-#oldP {
+.singlecollection h3 {
   font-size: 0.9rem;
-  font-weight: 500;
+  font-weight: 200;
+}
+
+.offer {
+  position: absolute;
+  top: 20px;
+}
+
+#oldP {
+  font-size: 0.8rem;
+  font-weight: 300;
   text-decoration: line-through;
 }
 
 #oldP i {
-  font-size: 0.7rem;
+  font-size: 0.6rem;
   margin-left: 20px;
 }
 
@@ -129,12 +127,13 @@ section h1 {
   color: var(--fifthColor);
 }
 
-.singlecollection a button {
+.singlecollection button {
   width: 50%;
   padding: 8px 0;
   background-color: var(--fourthColor);
   border: none;
   color: var(--mainColor);
+  margin: 10px 0;
 }
 
 @media (max-width: 600px) {
@@ -149,7 +148,7 @@ section h1 {
   }
 
   section h1 {
-    font-size: 1.4rem;
+    font-size: 1rem;
   }
 
   .collectionContainer {
@@ -158,18 +157,20 @@ section h1 {
   }
 
   .head a {
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     padding: 5px 20px;
   }
 
   /* offer tag */
 
   .offer {
-    font-size: 0.9rem;
+    font-size: 0.8rem;
+    top: 25px;
   }
 
-  .singlecollection a button {
+  .singlecollection button {
     padding: 5px 0;
     color: var(--mainColor);
+    width: 100%;
   }
 }

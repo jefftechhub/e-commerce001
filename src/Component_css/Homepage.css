@@ -23,7 +23,7 @@
 
 .banner div:first-child {
   position: absolute;
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: rgba(0, 0, 0, 0.5);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -117,6 +117,14 @@
   align-items: center;
 }
 
+#topProductRating {
+  position: relative;
+  transform: translateX(-50%);
+  left: 50%;
+  display: inline-block;
+  width: 95px;
+}
+
 .top_products header div button {
   padding: 5px 15px;
   text-transform: capitalize;
@@ -139,7 +147,7 @@
 
 /* add to cart icon  */
 
-.fa-plus {
+.singleProduct .fa-plus {
   position: absolute;
   top: 60px;
   right: 15px;
@@ -181,6 +189,13 @@
 .singleProduct a p i {
   font-size: 0.9rem;
   font-weight: 300;
+}
+
+.topProductPrice {
+  display: flex;
+  column-gap: 20px;
+  justify-content: center;
+  align-items: center;
 }
 
 .singleProduct a h3 {
@@ -276,6 +291,41 @@
   object-fit: cover;
 }
 
+.quantity .fa-plus,
+.quantity .fa-minus {
+  background-color: var(--fourthColor);
+  color: var(--mainColor);
+  font-size: 1.2rem;
+  padding: 5px;
+}
+
+.quantity {
+  display: flex;
+  column-gap: 20px;
+  align-items: center;
+}
+
+.quantity input {
+  padding: 5px;
+  width: 60px;
+  display: flex;
+  justify-content: center;
+  font-size: 1.2rem;
+  text-align: center;
+  border-radius: 3px;
+  font-weight: 700;
+}
+
+.quantity input:focus {
+  outline: none;
+}
+
+.quantity input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
 .lastChild {
   display: flex;
   gap: 30px;
@@ -310,6 +360,10 @@
   font-size: 0.8rem;
   font-weight: 400;
   text-decoration: line-through;
+}
+
+#featuredOffer {
+  position: static;
 }
 
 #oldPrice i {
@@ -417,6 +471,12 @@
 @media (max-width: 630px) {
   /* banner  */
 
+  .fa-hand-point-up {
+    font-size: 1.3rem;
+    width: 40px;
+    height: 40px;
+  }
+
   .banner {
     height: 60vh;
   }
@@ -426,16 +486,16 @@
   }
 
   .banner h1 {
-    font-size: 1.7rem;
+    font-size: 1.5rem;
   }
 
   .banner h2 {
-    font-size: 1.2rem;
+    font-size: 1rem;
   }
 
   .banner a {
     padding: 8px 20px;
-    font-size: 0.9rem;
+    font-size: 0.8rem;
   }
 
   .homeContainer section {
@@ -454,7 +514,7 @@
 
   .top_products header h2,
   .featuredProduct h2 {
-    font-size: 1.2rem;
+    font-size: 1rem;
   }
 
   .top_products header div {
@@ -463,6 +523,7 @@
 
   .top_products header div button {
     padding: 5px 10px;
+    font-size: 0.8rem;
   }
 
   .products {
@@ -483,6 +544,8 @@
 
   .singleProduct a h3 {
     text-align: start;
+    font-size: 0.9rem;
+    font-weight: 300;
   }
 
   .singleProduct a p i {
@@ -525,7 +588,13 @@
     font-size: 1.2rem;
   }
 
+  .lastChild h4 {
+    font-size: 0.9rem;
+    font-weight: 200;
+  }
+
   .lastChild button {
     font-size: 0.9rem;
+    border: 1px solid var(--fourthColor);
   }
 }

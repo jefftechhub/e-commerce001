@@ -1,0 +1,784 @@
+.dashbordContainer {
+  display: flex;
+  align-items: start;
+}
+
+.profile-mwitu {
+  width: 350px;
+  height: 100vh;
+  background-color: green;
+}
+
+.fa-xmark {
+  display: none;
+}
+
+/* profile section  */
+
+.profile {
+  width: 350px;
+  position: fixed;
+  top: 0;
+  background-color: var(--mainColor);
+  min-height: 100vh;
+}
+
+.profile header {
+  background-color: #191919;
+  color: var(--mainColor);
+  padding: 30px;
+}
+
+.profile h1 {
+  font-size: 1.5rem;
+}
+
+.profile h2 {
+  padding: 20px 0;
+  color: var(--fourthColor);
+  font-weight: 500;
+  text-transform: capitalize;
+}
+
+.profile h3 {
+  font-weight: 500;
+  font-size: 1rem;
+}
+
+.profile main {
+  border-right: 1px solid var(--secondColor);
+  padding: 30px 0;
+}
+
+.profile main a {
+  padding: 20px 30px;
+  display: block;
+  text-decoration: none;
+  color: var(--thirdColor);
+  text-transform: capitalize;
+  font-size: 0.9rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.profile main a i {
+  position: static;
+  color: var(--thirdColor);
+  width: auto;
+  height: auto;
+  display: block;
+  font-size: 1rem;
+  background-color: transparent;
+}
+
+.profile main a i:hover {
+  background-color: var(--mainColor);
+  color: var(--thirdColor);
+}
+
+.profile main div {
+  display: flex;
+  align-items: center;
+  column-gap: 10px;
+}
+
+.profile main a:hover {
+  background-color: var(--secondColor);
+  padding-left: 35px;
+}
+
+.profile .fa-greater-than {
+  font-size: 0.7rem;
+  font-weight: 200;
+}
+
+/* products  */
+
+.dashboardContent {
+  padding: 30px;
+  width: calc(100vw - 350px);
+  overflow-x: auto;
+  height: 100vh;
+  background-color: var(--mainColor);
+}
+
+.dashboardContent header {
+  padding: 30px 50px;
+  display: flex;
+  justify-content: end;
+  background-color: var(--fifthColor);
+}
+
+.dashboardContent header a {
+  padding: 8px 20px;
+  text-transform: capitalize;
+  color: var(--mainColor);
+  font-size: 0.9rem;
+  background-color: var(--fourthColor);
+  border: none;
+  border-radius: 0.3rem;
+  text-decoration: none;
+}
+
+.tableRow img {
+  width: 50px;
+  height: 40px;
+  object-fit: cover;
+  border: 1px solid var(--secondColor);
+  border-radius: 8px;
+}
+
+.tableRow td {
+  padding: 10px 10px;
+}
+
+.tableRow {
+  display: flex;
+  align-items: center;
+  column-gap: 10px;
+}
+
+.tableRow button {
+  border: none;
+  border-radius: 4px;
+  width: 100px;
+  padding: 5px 0;
+  text-transform: capitalize;
+  color: var(--mainColor);
+}
+
+.productActive {
+  background: var(--fourthColor);
+}
+
+.productInactive {
+  background: var(--fifthColor);
+}
+
+.tableRow #name {
+  font-size: 0.9rem;
+  font-weight: 200;
+  color: var(--thirdColor);
+  width: 250px;
+}
+
+.tableRow #checkbox {
+  background-color: var(--thirdColor);
+}
+
+#removebtn {
+  background-color: var(--mainColor);
+  border: 1px solid var(--fourthColor);
+  color: var(--fourthColor);
+}
+
+/* cards  */
+
+.cards table {
+  text-transform: capitalize;
+  text-align: left;
+  border: 1px solid var(--secondColor);
+  border-left: none;
+}
+
+.cards {
+  padding: 30px;
+  height: 100vh;
+  width: calc(100vw - 350px);
+  padding-left: 0;
+  overflow-x: auto;
+}
+
+.singleCardRow td {
+  padding: 0 20px;
+  padding-left: 30px;
+  text-transform: capitalize;
+  text-align: left;
+}
+
+.singleCardRow:nth-child(even) {
+  background-color: #f6f6f6;
+}
+
+.singleCardRow:hover {
+  background-color: #d9d6d6;
+}
+.singleCardRow table {
+  width: 100%;
+}
+.cards table th {
+  padding: 20px 0;
+  padding-left: 30px;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+}
+
+.cards table thead tr {
+  background-color: var(--fifthColor);
+}
+
+.cards header {
+  display: flex;
+  justify-content: end;
+  padding-bottom: 50px;
+}
+
+.cards header button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 3px;
+  background-color: var(--fourthColor);
+  color: var(--mainColor);
+}
+
+/* add products  */
+
+.addproducts {
+  height: 100vh;
+  width: calc(100vw - 350px);
+  padding-left: 0;
+  overflow: auto;
+  padding: 0 20px;
+  padding-bottom: 50px;
+  background-color: var(--secondColor);
+}
+
+.addproducts header {
+  padding: 30px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.addproducts header i {
+  padding: 10px;
+  border-radius: 50%;
+  background-color: var(--mainColor);
+  font-size: 1rem;
+}
+
+.addproducts header a {
+  text-decoration: none;
+  color: var(--thirdColor);
+}
+
+.addproducts header button {
+  padding: 8px 20px;
+  border: none;
+  background-color: var(--fourthColor);
+  border-radius: 4px;
+  color: var(--mainColor);
+  font: 1rem;
+}
+
+.addproducts h1 {
+  font-size: 1.8rem;
+  text-transform: capitalize;
+}
+
+.addproducts form h2 {
+  text-transform: capitalize;
+  font-weight: 500;
+  font-size: 1.3rem;
+  padding-bottom: 15px;
+}
+
+.addproducts form label {
+  display: block;
+  font-size: 1rem;
+}
+
+.addproducts form select {
+  width: 400px;
+  border-radius: 4px;
+  padding: 5px 20px;
+  margin: 10px 0;
+  transition: 0s ease-in-out;
+}
+
+.addproducts form select:focus {
+  outline: none;
+  border: 2px solid var(--fourthColor);
+}
+
+.addproducts form input {
+  width: 400px;
+  padding: 5px 20px;
+  border-radius: 4px;
+  border: 1px solid #888888;
+  font-size: 1rem;
+  display: block;
+  margin: 10px 0;
+  transition: 0s;
+}
+
+.addproducts form input:focus {
+  border: 2px solid var(--fourthColor);
+  outline: none;
+}
+
+.addproducts form input::placeholder {
+  font-size: 0.8rem;
+}
+
+.addproducts form div {
+  background-color: var(--mainColor);
+  margin: 10px 0;
+  padding: 20px;
+}
+
+/* add products loading animation  */
+
+.addproducts .loadingAnimation {
+  width: 25px;
+  height: 25px;
+}
+
+/* add products image  */
+#media p {
+  border: 1px dotted #888888;
+  padding: 40px 20px;
+  border-radius: 5px;
+}
+
+.imagesContainer {
+  display: flex;
+  padding: 0 !important;
+  align-items: center;
+}
+
+.imagesContainer .addImage {
+  background-color: transparent;
+  font-size: 0.8rem;
+  border: 1px solid var(--fourthColor) !important;
+  display: inline-block;
+  padding: 5px 10px !important;
+  border-radius: 0 !important;
+  color: var(--fourthColor);
+}
+
+.addImage {
+  cursor: pointer;
+}
+
+.imagesContainer div:first-child img {
+  width: 100%;
+  object-fit: cover;
+  height: 100%;
+  margin: 0;
+}
+
+.imagesContainer div:first-child {
+  margin: 0;
+  padding: 0;
+}
+
+.imageDiv {
+  position: relative;
+  padding: 0 !important;
+  width: 400px;
+  height: 400px;
+  margin: 30px 0;
+}
+
+.imageDiv i {
+  color: var(--fourthColor);
+  position: absolute;
+  top: 5%;
+  right: 5%;
+  font-size: 1.4rem;
+  cursor: pointer;
+}
+
+.otherImages {
+  width: 100%;
+  height: 100%;
+  max-width: 100px;
+  max-height: 100px;
+}
+
+.otherImages img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.otherImages i {
+  font-size: 0.9rem;
+}
+
+.otherImagesContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  height: 420px;
+  overflow: auto;
+}
+
+/* tablet  */
+
+/* this is for media section  */
+
+@media (max-width: 1000px) {
+  .imagesContainer {
+    flex-direction: column;
+  }
+
+  .imageDiv {
+    width: 100%;
+    height: 60vh;
+  }
+
+  .otherImages {
+    width: 100px;
+    height: 100px;
+  }
+
+  .otherImages i {
+    font-size: 0.8rem;
+  }
+
+  .otherImagesContainer {
+    flex-direction: row;
+    height: auto;
+    overflow-y: hidden;
+    width: 100%;
+    column-gap: 10px;
+  }
+}
+
+@media (max-width: 800px) {
+  .profile-mwitu {
+    width: 250px;
+  }
+
+  /* profile section  */
+
+  .profile {
+    width: 250px;
+  }
+
+  .profile header {
+    padding: 20px;
+  }
+
+  .profile h1 {
+    font-size: 1.2rem;
+  }
+
+  .profile h2 {
+    font-size: 1.1rem;
+    padding: 10px 0;
+  }
+
+  .profile h3 {
+    font-size: 0.9rem;
+  }
+
+  .profile main {
+    padding: 20px 0;
+  }
+
+  .profile main a {
+    padding: 20px 20px;
+  }
+
+  .profile main a i {
+    font-size: 0.9rem;
+  }
+
+  .profile main a:hover {
+    padding-left: 25px;
+  }
+
+  .profile .fa-greater-than {
+    font-size: 0.6rem;
+  }
+
+  #media p {
+    padding: 30px 20px;
+    border-radius: 4px;
+  }
+
+  /* products  */
+
+  .dashboardContent {
+    padding: 10px;
+    width: calc(100vw - 250px);
+  }
+
+  .dashboardContent header {
+    padding: 20px;
+  }
+
+  .dashboardContent header a {
+    padding: 5px 10px;
+    font-size: 0.8rem;
+    border-radius: 0.2rem;
+  }
+
+  .tableRow img {
+    border-radius: 5px;
+  }
+
+  .tableRow td {
+    padding: 5px;
+  }
+
+  .tableRow {
+    display: flex;
+    column-gap: 10px;
+  }
+
+  .tableRow button {
+    border-radius: 3px;
+    width: 70px;
+    padding: 5px 0;
+  }
+
+  .tableRow #name {
+    font-size: 0.8rem;
+    width: 200px;
+  }
+
+  /* cards  */
+
+  .cards {
+    padding: 10px;
+    width: calc(100vw - 250px);
+    padding-left: 0;
+    background-color: var(--mainColor);
+  }
+
+  .singleCardRow td {
+    padding-left: 20px;
+  }
+
+  .cards table th {
+    padding: 10px 0;
+    padding-left: 10px;
+    font-size: 0.9rem;
+  }
+
+  .cards header {
+    padding: 20px 0;
+  }
+
+  .cards header button {
+    padding: 8px 20px;
+    border: none;
+    border-radius: 2px;
+  }
+
+  /* add products 
+  */
+
+  .addproducts {
+    padding: 10px;
+    width: calc(100vw - 250px);
+  }
+
+  .addproducts header {
+    padding: 10px;
+  }
+
+  .addproducts header button {
+    padding: 6px 15px;
+  }
+
+  .addproducts h1 {
+    font-size: 1.6rem;
+  }
+
+  .addproducts form h2 {
+    font-size: 1.2rem;
+  }
+
+  .addproducts form select {
+    width: 100%;
+    border-radius: 3px;
+  }
+
+  .addproducts form input {
+    width: 100%;
+    border-radius: 3px;
+  }
+}
+
+/* phones layout  */
+
+@media (max-width: 500px) {
+  .dashbordContainer {
+    display: block;
+  }
+
+  .fa-xmark {
+    display: block;
+    background-color: var(--secondColor);
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+  }
+
+  .profile-mwitu {
+    display: none;
+  }
+
+  /* profile section  */
+
+  .profile {
+    width: 100%;
+    position: block;
+    z-index: -100;
+  }
+
+  .profile header {
+    padding: 40px 30px;
+  }
+
+  .profile h1 {
+    font-size: 1.5rem;
+  }
+
+  .profile h2 {
+    font-size: 1.2rem;
+  }
+
+  .profile h3 {
+    font-size: 1rem;
+  }
+
+  .profile main {
+    border: none;
+  }
+
+  .profile main a {
+    padding: 20px 30px;
+    font-size: 1.1rem;
+  }
+
+  .profile main a i {
+    font-size: 1.2rem;
+  }
+
+  .profile main div {
+    column-gap: 15px;
+  }
+
+  .profile main a:hover {
+    padding-left: 35px;
+  }
+
+  .profile .fa-greater-than {
+    font-size: 0.8rem;
+  }
+
+  /* products  */
+
+  .dashboardContent {
+    padding: 20px;
+    padding-top: 0;
+    width: auto;
+    overflow-x: scroll;
+  }
+
+  .dashboardContent header {
+    padding: 30px 0px;
+    background-color: transparent;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  #linkback {
+    width: auto;
+    background-color: transparent;
+    padding: 0;
+    font-size: 0.8rem;
+    border-radius: 0.2rem;
+  }
+
+  #linkback i {
+    color: var(--thirdColor);
+  }
+
+  .dashboardContent header a {
+    padding: 5px 15px;
+    font-size: 0.8rem;
+    border-radius: 0.2rem;
+  }
+
+  .tableRow img {
+    border-radius: 5px;
+  }
+
+  .tableRow td {
+    padding: 5px;
+  }
+
+  .tableRow button {
+    border-radius: 3px;
+    width: 70px;
+    padding: 5px 0;
+  }
+
+  .tableRow #name {
+    font-size: 0.8rem;
+    width: 200px;
+  }
+
+  /* cards  */
+
+  .cards {
+    padding: 20px;
+    width: auto;
+    overflow-x: scroll;
+  }
+
+  .singleCardRow td {
+    padding-left: 10px;
+  }
+
+  .cards table th {
+    padding: 10px 0;
+    padding-left: 10px;
+    font-size: 0.8rem;
+  }
+
+  .cards header {
+    padding-bottom: 30px 0;
+    justify-content: space-between;
+  }
+
+  .cards header button {
+    padding: 5px 15px;
+    font-size: 0.8rem;
+    border-radius: 2px;
+  }
+
+  /* add prodducts  */
+
+  .addproducts {
+    padding: 20px;
+    width: auto;
+    overflow-x: scroll;
+  }
+
+  .addproducts header i {
+    padding: 8px;
+    font-size: 0.9rem;
+  }
+
+  .addproducts h1 {
+    font-size: 1.5rem;
+  }
+
+  .addproducts form h2 {
+    font-size: 1.2rem;
+  }
+}

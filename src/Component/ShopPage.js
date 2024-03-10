@@ -7,7 +7,7 @@ function ShopComp({ collection, heading }) {
     <section>
       <div className="head">
         <h1>{heading}</h1>
-        <Link to="/collection">see more</Link>
+        <Link to={`/collection/${heading}`}>see more</Link>
       </div>
       <div className="collectionContainer">
         {collection.map((item) => {
@@ -19,8 +19,9 @@ function ShopComp({ collection, heading }) {
                 </p>
               )}
               <i class="fa-regular fa-heart"></i>
-              <img src={process.env.PUBLIC_URL + item.image} />
-              <Link to="/product">
+              <Link to={`/product/${item.id}`}>
+                <img src={process.env.PUBLIC_URL + item.image} />
+
                 <h3>{item.name}</h3>
                 <div className="rating">
                   <i class="fa-solid fa-star"></i>
@@ -41,8 +42,8 @@ function ShopComp({ collection, heading }) {
                     </p>
                   )}
                 </div>
-                <button type="button">Add to cart</button>
               </Link>
+              <button type="button">Add to cart</button>
             </div>
           );
         })}

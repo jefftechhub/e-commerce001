@@ -40,7 +40,7 @@ function Home() {
             return <DisplayedOffer {...item} />;
           })}
         </div>
-        <FeaturedProduct product={featuredProduct} />
+        <FeaturedProduct {...featuredProduct} />
       </section>
     </div>
   );
