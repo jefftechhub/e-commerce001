@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { Routes, Route } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { Routes, Route, json } from "react-router-dom";
 import "./App.css";
 
 import MainComponent from "./MainComponent";
@@ -20,9 +20,40 @@ import Products from "./Dashboard/Products";
 import Cards from "./Dashboard/Cards";
 import AddProducts from "./Dashboard/AddProducts";
 import Wallpaper from "./Dashboard/Wallpaper";
+import Users from "./Dashboard/Users";
+import Cart from "./Cart";
+import Completion from "./Completion";
 
 function App() {
   // this is for fixed notification
+  const [cart, setCart] = useState(
+    JSON.parse(localStorage.getItem("cart")) || []
+  );
+
+  const addingToCart = (id, title, image, price) => {
+    const product = { id, title, image, price, quantity: 1 };
+
+    let isPresent = false;
+
+    cart.forEach((product) => {
+      if (product.id === id) {
+        isPresent = true;
+      }
+    });
+
+    if (isPresent) {
+      const updatedCart = cart.map((item) =>
+        item.id === id ? { ...item, quantity: item.quantity + 1 } : item
+      );
+      setCart(updatedCart);
+    } else {
+      setCart([...cart, product]);
+    }
+  };
+
+  useEffect(() => {
+    localStorage.setItem("cart", JSON.stringify(cart));
+  }, [cart]);
 
   const [show, setShow] = useState(false);
   const [login, setLogin] = useState(true);
@@ -36,12 +67,22 @@ function App() {
 
         <Route
           path="/"
-          element={<MainComponent login={login} setLogin={setLogin} />}
+          element={
+            <MainComponent login={login} setLogin={setLogin} cart={cart} />
+          }
         >
-          <Route index={true} element={<Home />} />
-          <Route path="collection/:collection" element={<Collections />} />
+          <Route index={true} element={<Home addtocart={addingToCart} />} />
+          <Route
+            path="cart"
+            element={<Cart cart={cart} setCart={setCart} />}
+          ></Route>
+          <Route path="completion" element={<Completion />} />
+          <Route
+            path="collection/:collection"
+            element={<Collections addtocart={addingToCart} />}
+          />
           <Route path="product/:id" element={<Product />} />
-          <Route path="shop" element={<Shop />} />
+          <Route path="shop" element={<Shop addtocart={addingToCart} />} />
         </Route>
 
         {/* dashboard  */}
@@ -58,6 +99,7 @@ function App() {
           <Route path="cards" element={<Cards />} />
           <Route path="vouchers" element={<Vouchers />} />
           <Route path="addproducts" element={<AddProducts />} />
+          <Route path="users" element={<Users />} />
         </Route>
       </Routes>
     </React.Fragment>

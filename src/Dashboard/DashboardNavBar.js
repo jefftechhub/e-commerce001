@@ -5,6 +5,8 @@ import AdminDashBoard from "./AdminDashBoard";
 import OwnerDashBoard from "./OwnerDashboard";
 import axios from "../Axios";
 import { useNavigate } from "react-router-dom";
+import "./DashboardCss/DashBoardNavBar.css";
+import Loading from "../Loading";
 
 function DashBoardNavBar({ setShow, setLogin }) {
   const navigate = useNavigate();
@@ -18,7 +20,7 @@ function DashBoardNavBar({ setShow, setLogin }) {
     try {
       setLoading(true);
       axios
-        .get("/api/auth/dashboard")
+        .get("/api/dashboard")
         .then((res) => {
           if (res.data.success) {
             setUser(res.data.data);
@@ -49,7 +51,7 @@ function DashBoardNavBar({ setShow, setLogin }) {
   }, []);
 
   if (loading) {
-    return <h3>loading...</h3>;
+    return <Loading />;
   } else if (error) {
     return <h3>{errorContent}</h3>;
   } else {

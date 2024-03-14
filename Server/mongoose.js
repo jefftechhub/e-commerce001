@@ -14,6 +14,10 @@ const userSchema = {
     type: Date,
     default: Date.now,
   },
+  status: {
+    type: Boolean,
+    default: true,
+  },
 };
 
 const productsSchema = {
@@ -25,14 +29,22 @@ const productsSchema = {
   type: String,
   type: String,
   averageRating: String,
-  peopleRated: String,
   date: {
     type: Date,
     default: Date.now,
   },
+  status: {
+    type: Boolean,
+    default: false,
+  },
+};
+
+const refreshTokenSchema = {
+  refreshToken: String,
 };
 
 const Users = mongoose.model("Users", userSchema);
+const RefreshToken = mongoose.model("RefreshToken", refreshTokenSchema);
 const Products = mongoose.model("Products", productsSchema);
 
-module.exports = { Users, Products };
+module.exports = { Users, Products, RefreshToken };

@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 export const CollectionComp = (props) => {
-  const { oldPrice, price, image, name, id } = props;
+  const { oldPrice, price, image, name, id, title, addtocart } = props;
 
   return (
     <div className="singlecollection">
@@ -13,7 +13,7 @@ export const CollectionComp = (props) => {
       )}
       <i class="fa-regular fa-heart"></i>
       <Link to={`/product/${id}`}>
-        <img src={process.env.PUBLIC_URL + image} />
+        {image && <img src={`http://localhost:5000/${image[0]}`} />}
 
         <h3>{name}</h3>
         <div className="rating">
@@ -26,17 +26,24 @@ export const CollectionComp = (props) => {
         <div>
           <p>
             <i class="fa-solid fa-dollar-sign"></i>
-            {price}
+            {parseInt(price).toFixed(2)}
           </p>
           {oldPrice && (
             <p id="oldP">
               <i class="fa-solid fa-dollar-sign"></i>
-              {oldPrice}
+              {parseInt(oldPrice).toFixed(2)}
             </p>
           )}
         </div>
       </Link>
-      <button type="button">Add to cart</button>
+      <button
+        type="button"
+        onClick={() => {
+          addtocart(id, title, image[0], price);
+        }}
+      >
+        Add to cart
+      </button>
     </div>
   );
 };
@@ -45,7 +52,7 @@ export const ViewAlso = ({ collection, image }) => {
   return (
     <Link to={`/collection/${collection}`} className="viewAlso">
       <div>
-        <img src={process.env.PUBLIC_URL + image} />
+        {image && <img src={`http://localhost:5000/${image[0]}`} />}
         <h3>{collection}</h3>
       </div>
     </Link>

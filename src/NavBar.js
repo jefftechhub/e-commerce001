@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./Component_css/NavBar.css";
 import { Link } from "react-router-dom";
 
-function Navbar({ login }) {
+function Navbar({ login, cart }) {
   const [showSearch, setSearch] = useState(false);
   const [showMenu, setMenu] = useState(false);
   const [loggedIn, setLoggedIn] = useState(false);
@@ -14,6 +14,8 @@ function Navbar({ login }) {
       setLoggedIn(false);
     }
   }, []);
+
+  const cartLength = cart.length;
 
   const submitHandler = (e) => {
     e.preventDefault();
@@ -44,7 +46,8 @@ function Navbar({ login }) {
           <Link to="dashboard">
             <i class="fa-regular fa-user"></i>
           </Link>
-          <Link to="">
+          <Link to="cart" id="cart">
+            {cartLength > 0 && <p>{cartLength}</p>}
             <i class="fa-solid fa-cart-shopping"></i>
           </Link>
           {!login && (

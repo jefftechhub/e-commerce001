@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import PopNotifiction from "../PopNotifiction";
+import Loading from "../Loading";
 
 function LoginComp(props) {
   const {
@@ -12,6 +13,7 @@ function LoginComp(props) {
     setShowNote,
     noteContent,
     errorNote,
+    loading,
   } = props;
 
   const [showPassword, setShowPassword] = useState(false);
@@ -78,7 +80,9 @@ function LoginComp(props) {
           )}
         </div>
 
-        <button type="submit">Log in</button>
+        <button disabled={loading} type="submit">
+          {loading ? "loading..." : "Log in"}
+        </button>
 
         <div className="loginLinks">
           <Link>Forgot password?</Link>

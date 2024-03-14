@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import "../Component_css/Homepage.css";
 
 export const Banner = () => {
   return (
@@ -52,16 +51,23 @@ export const Enticement = () => {
   );
 };
 
-export const TopProducts = ({ id, oldPrice, price, image }) => {
+export const Products = ({ _id, oldPrice, price, image, title, addtocart }) => {
   const percentage = Math.floor(((oldPrice - price) / 100) * 100);
 
   return (
     <div class="singleProduct">
       {oldPrice && <p className="offer">-{percentage}%</p>}
       <i class="fa-regular fa-heart"></i>
-      <i class="fa-solid fa-plus"></i>
-      <Link to={`product/${id}`}>
-        <img src={process.env.PUBLIC_URL + image} alt="Top Product" />
+      <i
+        class="fa-solid fa-plus"
+        onClick={() => {
+          addtocart(_id, title, image[0], price);
+        }}
+      ></i>
+      <Link to={`product/${_id}`}>
+        {image && (
+          <img src={`http://localhost:5000/${image[0]}`} alt="Top Product" />
+        )}
 
         <div id="topProductRating" className="rating">
           <i class="fa-solid fa-star"></i>
@@ -73,12 +79,12 @@ export const TopProducts = ({ id, oldPrice, price, image }) => {
         <div class="topProductPrice">
           <p>
             <i class="fa-solid fa-dollar-sign"></i>
-            {price}
+            {parseInt(price).toFixed(2)}
           </p>
           {oldPrice && (
             <p id="oldPrice">
               <i class="fa-solid fa-dollar-sign"></i>
-              {oldPrice}
+              {parseInt(oldPrice).toFixed(2)}
             </p>
           )}
         </div>
@@ -87,7 +93,7 @@ export const TopProducts = ({ id, oldPrice, price, image }) => {
   );
 };
 
-export const DisplayedOffer = ({ price, oldPrice, name, image, id }) => {
+export const DisplayedOffer = ({ price, oldPrice, title, image, id }) => {
   const percentage = Math.floor(((oldPrice - price) / 100) * 100);
 
   return (
@@ -103,15 +109,18 @@ export const DisplayedOffer = ({ price, oldPrice, name, image, id }) => {
             OFF
           </p>
         </div>
-        <img src={process.env.PUBLIC_URL + image} alt="Offer" />
-        <h2>{name}</h2>
+
+        {image && (
+          <img src={`http://localhost:5000/${image[0]}`} alt="offers" />
+        )}
+        <h2>{title}</h2>
       </Link>
     </div>
   );
 };
 
 export const FeaturedProduct = (props) => {
-  const { oldPrice, price, name, description, image } = props;
+  const { _id, addtocart, oldPrice, price, title, image } = props;
   let [value, setValue] = useState(1);
 
   const percentage = Math.floor(((oldPrice - price) / 100) * 100);
@@ -120,10 +129,14 @@ export const FeaturedProduct = (props) => {
     <div class="featuredProduct">
       <h2>Featured Product</h2>
       <div class="featuredContainer">
-        <img src={process.env.PUBLIC_URL + image} alt="Featured Product" />
+        {image && (
+          <img
+            src={`http://localhost:5000/${image[0]}`}
+            alt="Featured Products"
+          />
+        )}
         <div class="lastChild">
-          <h3>{name}</h3>
-          <h4>{description}</h4>
+          <h3>{title}</h3>
 
           <div className="quantity">
             <i
@@ -167,12 +180,12 @@ export const FeaturedProduct = (props) => {
           <div class="price">
             <p>
               <i class="fa-solid fa-dollar-sign"></i>
-              {price}
+              {parseInt(price).toFixed(2)}
             </p>
             {oldPrice && (
               <p id="oldPrice">
                 <i class="fa-solid fa-dollar-sign"></i>
-                {oldPrice}
+                {parseInt(oldPrice).toFixed(2)}
               </p>
             )}
             {oldPrice && (
@@ -181,7 +194,14 @@ export const FeaturedProduct = (props) => {
               </p>
             )}
           </div>
-          <button type="button">Add to cart</button>
+          <button
+            type="button"
+            onClick={() => {
+              addtocart(_id, title, image[0], price);
+            }}
+          >
+            Add to cart
+          </button>
         </div>
       </div>
     </div>

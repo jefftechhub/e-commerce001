@@ -16,6 +16,7 @@ function Signup() {
   const [showNote, setShowNote] = useState(false);
   const [noteContent, setNoteContent] = useState("");
   const [errorNote, setErrorNote] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const inputs = document.querySelectorAll("input");
 
@@ -62,6 +63,7 @@ function Signup() {
             password: userValues.password,
           };
           try {
+            setLoading(true);
             axios
               .post("/api/signup", userDataToSubmit)
 
@@ -76,12 +78,14 @@ function Signup() {
                   });
 
                   setNoteContent(res.data.message);
+                  setLoading(false);
                   setShowNote(true);
                   setErrorNote(false);
 
                   // navigate("/login");
                 } else {
                   setNoteContent(res.data.message);
+                  setLoading(false);
                   setShowNote(true);
                   setErrorNote(true);
                 }
@@ -89,6 +93,7 @@ function Signup() {
               .catch((error) => {
                 console.log(error);
                 setNoteContent("internal server error");
+                setLoading(false);
                 setShowNote(true);
                 setErrorNote(true);
 
@@ -125,6 +130,7 @@ function Signup() {
   return (
     <SignupComp
       {...userValues}
+      loading={loading}
       submitHandler={submitHandler}
       changeHandler={changeHandler}
       showNote={showNote}

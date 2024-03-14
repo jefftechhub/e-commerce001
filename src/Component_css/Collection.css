@@ -32,6 +32,9 @@
   object-fit: cover;
 }
 
+.ollectionloadingAnimationContaine {
+}
+
 @media (max-width: 600px) {
   #collectionHeading {
     padding: 50px;

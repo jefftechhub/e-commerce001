@@ -100,6 +100,25 @@
   padding-right: 50px;
 }
 
+/* loading animation  */
+
+.loadingAnimationContainer {
+  padding: 5px 30px;
+  background-color: var(--fourthColor);
+  border-radius: 3px;
+  margin-top: 5px;
+  display: inline-block;
+  margin: 20px 0;
+}
+
+.loadingAnimation {
+  width: 100%;
+  height: 100%;
+  border-color: var(--mainColor);
+  width: 1.2rem;
+  height: 1.2rem;
+}
+
 @media (max-width: 800px) {
   .containerSignup {
     grid-template-columns: repeat(1, 90vw);

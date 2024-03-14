@@ -1,18 +1,20 @@
 import React, { useEffect, useState } from "react";
 import ProductComp from "./Component/Product";
-import { data } from "./data";
 import { useParams } from "react-router-dom";
 import "./Component_css/Product.css";
+import { useGet } from "./useGet";
 
 function Product() {
   const [product, setProduct] = useState({});
   const { id } = useParams();
-  console.log(id);
+
+  const { data } = useGet(`/api/product/${id}`);
 
   useEffect(() => {
-    const item = data.find((item) => item.id === parseInt(id));
-    setProduct(item);
-  }, [id]);
+    if (data) {
+      setProduct(data);
+    }
+  }, [data]);
 
   return (
     <div className="product">

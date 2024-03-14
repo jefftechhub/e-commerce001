@@ -14,6 +14,7 @@ function Login({ setLogin }) {
   const [showNote, setShowNote] = useState(false);
   const [noteContent, setNoteContent] = useState("");
   const [errorNote, setErrorNote] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const inputs = document.querySelectorAll("input");
 
@@ -30,6 +31,8 @@ function Login({ setLogin }) {
     setUserValues({ ...userValues, [name]: value });
   };
 
+  axios.defaults.withCredentials = true;
+
   const submitHandler = (e) => {
     e.preventDefault();
     // check if all the inputs is filled
@@ -43,6 +46,8 @@ function Login({ setLogin }) {
         return;
       } else {
         try {
+          setLoading(true);
+
           axios
             .post("/api/auth", userValues)
             .then((res) => {
@@ -51,10 +56,12 @@ function Login({ setLogin }) {
                   email: "",
                   password: "",
                 });
+                setLoading(false);
                 setLogin(true);
                 navigate("/");
               } else {
                 setNoteContent(res.data.message);
+                setLoading(false);
                 setShowNote(true);
                 setErrorNote(true);
               }
@@ -62,6 +69,7 @@ function Login({ setLogin }) {
             .catch((error) => {
               console.log(error);
               setNoteContent("internal server error");
+              setLoading(false);
               setShowNote(true);
               setErrorNote(true);
               return;
@@ -85,9 +93,11 @@ function Login({ setLogin }) {
       });
     }
   };
+
   return (
     <LoginComp
       {...userValues}
+      loading={loading}
       submitHandler={submitHandler}
       changeHandler={changeHandler}
       showNote={showNote}

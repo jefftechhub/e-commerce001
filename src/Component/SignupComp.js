@@ -15,6 +15,7 @@ function SignupComp(props) {
     setShowNote,
     noteContent,
     errorNote,
+    loading,
   } = props;
   const [passShow, setPassShow] = useState(false);
   const [confirnPassShow, setConfirmShow] = useState(false);
@@ -130,8 +131,11 @@ function SignupComp(props) {
           )}
         </div>
 
-        <button type="submit">sign up</button>
-        <Link to="/login">Already have an account?</Link>
+        <button disabled={loading} type="submit">
+          {loading ? "loading..." : "Sign up"}
+        </button>
+
+        <Link to="/login">Continue to log in</Link>
       </form>
     </div>
   );

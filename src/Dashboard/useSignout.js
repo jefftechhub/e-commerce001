@@ -6,15 +6,11 @@ export const useSignOut = () => {
 
   const logOut = () => {
     axios
-      .post("/api/logout")
+      .get("/api/logout")
       .then((res) => {
         if (!res.data.success) {
-          console.log(res.data.message);
-          navigate("/");
-        } else if (res.data.login) {
-          console.log(res.data.message);
-        } else if (!res.data.login) {
-          console.log(res.data.message);
+          navigate("dashboard");
+        } else {
           navigate("/");
         }
       })

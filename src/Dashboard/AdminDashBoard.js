@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { Link, Outlet } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
+import { NavLink, Outlet } from "react-router-dom";
 import { useSignOut } from "./useSignout";
 import axios from "../Axios";
 
 function AdminDashBoard({ firstName, email }) {
-  const navigate = useNavigate();
   const { logOut } = useSignOut();
+  const [loading, setLoading] = useState(false);
 
   const [showContent, setShowContent] = useState(
     sessionStorage.getItem("showContent") || false
@@ -40,7 +39,7 @@ function AdminDashBoard({ firstName, email }) {
           <h3>{email}</h3>
         </header>
         <main>
-          <Link
+          <NavLink
             to="/"
             onClick={() => {
               sessionStorage.removeItem("showContent");
@@ -49,8 +48,9 @@ function AdminDashBoard({ firstName, email }) {
             <div>
               <i class="fa-solid fa-house"></i> <p>Home</p>
             </div>
-          </Link>
-          <Link
+          </NavLink>
+          <NavLink
+            activeClassName="active-link"
             to="products"
             onClick={() => {
               setShowContent(true);
@@ -60,8 +60,9 @@ function AdminDashBoard({ firstName, email }) {
               <i class="fa-brands fa-product-hunt"></i> <p>products</p>
             </div>
             <i class="fa-solid fa-greater-than"></i>
-          </Link>
-          <Link
+          </NavLink>
+          <NavLink
+            activeClassName="active-link"
             to="cards"
             onClick={() => {
               setShowContent(true);
@@ -72,9 +73,10 @@ function AdminDashBoard({ firstName, email }) {
               <p>cards</p>
             </div>
             <i class="fa-solid fa-greater-than"></i>
-          </Link>
+          </NavLink>
 
-          <Link
+          <NavLink
+            activeClassName="active-link"
             to="orders"
             onClick={() => {
               setShowContent(true);
@@ -84,9 +86,10 @@ function AdminDashBoard({ firstName, email }) {
               <i class="fa-solid fa-truck"></i> <p>orders</p>
             </div>
             <i class="fa-solid fa-greater-than"></i>
-          </Link>
+          </NavLink>
 
-          <Link
+          <NavLink
+            activeClassName="active-link"
             to="accountManagement"
             onClick={() => {
               setShowContent(true);
@@ -96,9 +99,8 @@ function AdminDashBoard({ firstName, email }) {
               <i class="fa-solid fa-address-card"></i> <p>customers</p>
             </div>
             <i class="fa-solid fa-greater-than"></i>
-          </Link>
-          <Link
-            to="signOut"
+          </NavLink>
+          <NavLink
             onClick={() => {
               sessionStorage.removeItem("showContent");
               logOut();
@@ -108,7 +110,7 @@ function AdminDashBoard({ firstName, email }) {
               <i class="fa-solid fa-right-from-bracket"></i>
               <p>sign out</p>
             </div>
-          </Link>
+          </NavLink>
         </main>
       </div>
       {showContent && <Outlet context={[setShowContent]} />}

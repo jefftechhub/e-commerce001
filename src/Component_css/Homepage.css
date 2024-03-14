@@ -283,11 +283,12 @@
   padding: 30px 0;
   gap: 20px;
   align-items: center;
+  justify-content: center;
 }
 
 .featuredContainer img {
-  width: 60%;
-  height: auto;
+  width: 50%;
+  height: 50vh;
   object-fit: cover;
 }
 
@@ -376,6 +377,18 @@ input[type="number"]::-webkit-outer-spin-button {
   border: 1px solid var(--fourthColor);
   color: var(--fourthColor);
   font-size: 1rem;
+}
+
+/* loading  */
+
+.homeloadingAnimationContainer {
+  width: 100%;
+  height: 40vh;
+  margin: 20px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--secondColor);
 }
 
 /* for tablet  */

@@ -149,7 +149,7 @@
 }
 
 .loadingAnimation {
-  border: 3px solid var(--fourthColor);
+  border: 2px solid var(--fourthColor);
   border-bottom: none;
   border-left: none;
   margin-right: 20px;

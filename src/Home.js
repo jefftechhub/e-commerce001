@@ -1,17 +1,34 @@
-import React from "react";
-import { data } from "./data";
+import React, { useState, useEffect } from "react";
 import {
   Banner,
   Enticement,
-  TopProducts,
+  Products,
   DisplayedOffer,
   FeaturedProduct,
 } from "./Component/HomePage";
+import { useOffer, useFeatured, useTopProducts } from "./useGet";
+import "./Component_css/Homepage.css";
 
-function Home() {
-  const topProducts = data.slice(0, 8);
-  const offers = data.filter((item) => item.oldPrice > 0).splice(0, 5);
-  const featuredProduct = data[Math.floor(Math.random() * data.length)];
+function Home({ addtocart }) {
+  const [offerProducts, setOfferProducts] = useState([]);
+  const [featuredProduct, setFeaturedProduct] = useState({});
+  const [topProducts, setTopProducts] = useState([]);
+
+  const { dataTop, loadingTop } = useTopProducts();
+  const { dataOffer, loadingOffer } = useOffer();
+  const { dataFeatured, loadingFeatured } = useFeatured();
+
+  useEffect(() => {
+    if (dataTop) {
+      setTopProducts(dataTop);
+    }
+    if (dataOffer) {
+      setOfferProducts(dataOffer);
+    }
+    if (dataFeatured) {
+      setFeaturedProduct(dataFeatured);
+    }
+  }, [dataFeatured, dataOffer, dataTop]);
 
   return (
     <div class="homeContainer">
@@ -21,26 +38,43 @@ function Home() {
       <Banner />
       <section>
         <Enticement />
-        <div class="top_products">
-          <header>
-            <h2>Top products</h2>
-            <div>
-              <button>best sellers</button>
-              <button>new arrivals</button>
+
+        {loadingTop ? (
+          <div className="homeloadingAnimationContainer">
+            <p className="loadingAnimation"></p>
+          </div>
+        ) : (
+          <div class="top_products">
+            <header>
+              <h2>Top products</h2>
+            </header>
+            <div class="products">
+              {topProducts.map((item) => {
+                return <Products {...item} addtocart={addtocart} />;
+              })}
             </div>
-          </header>
-          <div class="products">
-            {topProducts.map((item) => {
-              return <TopProducts {...item} />;
+          </div>
+        )}
+
+        {loadingOffer ? (
+          <div className="homeloadingAnimationContainer">
+            <p className="loadingAnimation"></p>
+          </div>
+        ) : (
+          <div class="offers-container">
+            {offerProducts.map((item) => {
+              return <DisplayedOffer {...item} />;
             })}
           </div>
-        </div>
-        <div class="offers-container">
-          {offers.map((item) => {
-            return <DisplayedOffer {...item} />;
-          })}
-        </div>
-        <FeaturedProduct {...featuredProduct} />
+        )}
+
+        {loadingFeatured ? (
+          <div className="homeloadingAnimationContainer">
+            <p className="loadingAnimation"></p>
+          </div>
+        ) : (
+          <FeaturedProduct {...featuredProduct} addtocart={addtocart} />
+        )}
       </section>
     </div>
   );

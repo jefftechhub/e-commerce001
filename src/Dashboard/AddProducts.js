@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { useDropzone } from "react-dropzone";
 import axios from "../Axios";
 import PopNotification from "../PopNotifiction";
+import Loading from "../Loading";
 
 function AddProducts() {
   const [productsValues, setProductsValue] = useState(
@@ -14,7 +15,6 @@ function AddProducts() {
       category: "",
       type: "",
       averageRating: "",
-      peopleRated: "",
     }
   );
   const [loading, setLoading] = useState(false);
@@ -61,8 +61,7 @@ function AddProducts() {
         productsValues.price &&
         productsValues.category &&
         productsValues.type &&
-        productsValues.averageRating &&
-        productsValues.peopleRated
+        productsValues.averageRating
       ) {
         axios
           .post("/api/uploadProduct", productsValues)
@@ -159,11 +158,9 @@ function AddProducts() {
                 <i class="fa-solid fa-arrow-left"></i>
               </Link>
 
-              {loading ? (
-                <p className="loadingAnimation"></p>
-              ) : (
-                <button type="submit">save</button>
-              )}
+              <button disabled={loading} type="submit">
+                {loading ? "loading..." : "save"}
+              </button>
             </header>
             <h1>Add products</h1>
             <diV>
@@ -272,6 +269,7 @@ function AddProducts() {
                 name="category"
                 onChange={changeHandler}
               >
+                <option value="">--choose collection--</option>
                 <option value="livingroom">livingroom</option>
                 <option value="bedroom">bedroom</option>
                 <option value="kitchen">kitchen</option>
@@ -285,6 +283,7 @@ function AddProducts() {
                 value={productsValues.type}
                 onChange={changeHandler}
               >
+                <option value="">--choose type--</option>
                 <option value="sofas">sofas</option>
                 <option value="beds">beds</option>
                 <option value="tvStands">tv stands</option>
@@ -301,14 +300,6 @@ function AddProducts() {
                 name="averageRating"
                 placeholder="Average ratings"
                 value={productsValues.averageRating}
-                onChange={changeHandler}
-              />
-              <label for="type">people rated</label>
-              <input
-                type="number"
-                name="peopleRated"
-                placeholder="Number of people rated"
-                value={productsValues.peopleRated}
                 onChange={changeHandler}
               />
             </div>

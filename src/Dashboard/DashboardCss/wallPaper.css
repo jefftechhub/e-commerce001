@@ -1,0 +1,84 @@
+.wallpaper {
+  height: 100vh;
+  width: calc(100vw - 350px);
+  z-index: -1000;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.wallpaper img {
+  width: 80%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -10;
+  position: absolute;
+  right: 0;
+}
+
+.wallpaper p {
+  font-size: 0.9rem;
+  padding: 50px;
+  width: 50%;
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+.wallpaper span {
+  font-size: 1rem;
+  position: relative;
+  font-weight: 400;
+}
+
+.wallpaper span::after {
+  content: "";
+  background-color: var(--fourthColor);
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  border-radius: 50%;
+  z-index: -5;
+  bottom: -150%;
+  left: -10%;
+}
+
+@media (max-width: 1000px) {
+  .wallpaper span::after {
+    width: 80px;
+    height: 80px;
+    bottom: -130%;
+  }
+
+  .wallpaper p {
+    font-size: 0.9rem;
+    padding: 50px;
+    width: 55%;
+    font-size: 1.4rem;
+  }
+}
+
+@media (max-width: 800px) {
+  .wallpaper {
+    width: calc(100vw - 250px);
+    justify-content: start;
+    overflow: hidden;
+  }
+
+  .wallpaper span::after {
+    width: 80px;
+    height: 80px;
+    bottom: -700%;
+  }
+
+  .wallpaper p {
+    font-size: 0.9rem;
+    padding: 50px;
+    width: 100%;
+    font-size: 1.2rem;
+  }
+
+  .wallpaper img {
+    width: 100%;
+  }
+}

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 function ProductComp(props) {
-  const { oldPrice, price, name, description, image } = props;
+  const { oldPrice, price, title, image } = props;
   let [value, setValue] = useState(1);
 
   const percentage = Math.floor(((oldPrice - price) / 100) * 100);
@@ -9,10 +9,9 @@ function ProductComp(props) {
   return (
     <div class="featuredProduct">
       <div class="featuredContainer">
-        <img src={process.env.PUBLIC_URL + image} alt="Featured Product" />
+        {image && <img src={`http://localhost:5000/${image[0]}`} />}
         <div class="lastChild">
-          <h3>{name}</h3>
-          <h4>{description}</h4>
+          <h3>{title}</h3>
 
           <div className="quantity">
             <i
