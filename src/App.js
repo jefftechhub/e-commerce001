@@ -29,6 +29,8 @@ function App() {
   const [cart, setCart] = useState(
     JSON.parse(localStorage.getItem("cart")) || []
   );
+  const [addtocartMssg, setaddtocartMssg] = useState("");
+  const [showaddedcart, setShowAddecart] = useState(false);
 
   const addingToCart = (id, title, image, price) => {
     const product = { id, title, image, price, quantity: 1 };
@@ -42,12 +44,16 @@ function App() {
     });
 
     if (isPresent) {
+      setaddtocartMssg("Already added to cart");
+      setShowAddecart(true);
       const updatedCart = cart.map((item) =>
         item.id === id ? { ...item, quantity: item.quantity + 1 } : item
       );
       setCart(updatedCart);
     } else {
       setCart([...cart, product]);
+      setaddtocartMssg("Added to cart");
+      setShowAddecart(true);
     }
   };
 
@@ -68,20 +74,37 @@ function App() {
         <Route
           path="/"
           element={
-            <MainComponent login={login} setLogin={setLogin} cart={cart} />
+            <MainComponent
+              login={login}
+              setLogin={setLogin}
+              cart={cart}
+              addtocartMssg={addtocartMssg}
+              setShowAddecart={setShowAddecart}
+              showaddedcart={showaddedcart}
+            />
           }
         >
           <Route index={true} element={<Home addtocart={addingToCart} />} />
           <Route
             path="cart"
-            element={<Cart cart={cart} setCart={setCart} />}
+            element={
+              <Cart
+                cart={cart}
+                setCart={setCart}
+                setShow={setShow}
+                setLogin={setLogin}
+              />
+            }
           ></Route>
           <Route path="completion" element={<Completion />} />
           <Route
             path="collection/:collection"
             element={<Collections addtocart={addingToCart} />}
           />
-          <Route path="product/:id" element={<Product />} />
+          <Route
+            path="product/:id"
+            element={<Product addtocart={addingToCart} />}
+          />
           <Route path="shop" element={<Shop addtocart={addingToCart} />} />
         </Route>
 

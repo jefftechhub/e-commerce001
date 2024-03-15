@@ -22,7 +22,7 @@ function ShopComp({ collection, heading, addtocart }) {
                   )}
                   <i class="fa-regular fa-heart"></i>
                   <Link to={`/product/${item.id}`}>
-                    <img src={`http://localhost:5000/${item.image[0]}`} />
+                    <img src={`/${item.image[0]}`} />
 
                     <h3>{item.name}</h3>
                     <div className="rating">

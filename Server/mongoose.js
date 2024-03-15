@@ -18,6 +18,10 @@ const userSchema = {
     type: Boolean,
     default: true,
   },
+  location: {
+    type: String,
+    default: "",
+  },
 };
 
 const productsSchema = {

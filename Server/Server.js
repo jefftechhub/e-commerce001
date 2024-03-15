@@ -26,8 +26,56 @@ app.use(cookieparser());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
+app.use(express.static(path.join(__dirname, "build")));
+
 app.get("/api/config", async (req, res) => {
   res.status(200).json({ publishingKey: process.env.STRIPE_PUBLIC_KEY });
+});
+
+// verify user
+
+const verifyUser = (req, res, next) => {
+  const accessToken = req.cookies.accessToken;
+  const refreshToken = req.cookies.refreshToken;
+
+  if (!accessToken) {
+    if (!refreshToken) {
+      return res.json({ success: false, message: "please log in to continue" });
+    } else {
+      jwt.verify(refreshToken, "refresh-token", (err, decoded) => {
+        if (err) {
+          return res.json({ success: false, message: "invalid refresh token" });
+        } else {
+          const accessToken = jwt.sign({ id: decoded.id }, "access-token", {
+            expiresIn: "1m",
+          });
+          req.body.id = decoded.id;
+          res.cookie("accessToken", accessToken, { maxAge: 60000 });
+          next();
+        }
+      });
+    }
+  } else {
+    jwt.verify(accessToken, "access-token", (err, decoded) => {
+      if (err) {
+        return res.json({ success: false, message: "invalid access token" });
+      } else {
+        req.body.id = decoded.id;
+        next();
+      }
+    });
+  }
+};
+
+app.get("/api/getEmail", verifyUser, async (req, res) => {
+  try {
+    const findUser = await Users.findOne({ _id: req.body.id });
+    return res.status(200).json({ success: true, data: findUser.email });
+  } catch (error) {
+    return res
+      .status(500)
+      .json({ success: false, message: "internal server error" });
+  }
 });
 
 app.post("/api/create-payment-intent", async (req, res) => {
@@ -72,6 +120,7 @@ app.get("/api/product/:id", async (req, res) => {
     const id = req.params.id;
     let product = await Products.findOne({ _id: id });
     product = {
+      id: product._id,
       title: product.title,
       image: product.image,
       oldPrice: product.oldPrice,
@@ -232,6 +281,8 @@ app.post("/api/products/uploads", upload.single("file"), (req, res) => {
   }
 });
 
+// fetchng image
+
 app.get("/api/uploads/:imageUrl", async (req, res) => {
   const filename = req.params.imageUrl;
   const file = path.join(__dirname, `uploads/${filename}`);
@@ -310,7 +361,7 @@ app.put("/api/updateAccount/:id", async (req, res) => {
   } catch (error) {
     return res
       .status(500)
-      .json({ success: false, message: "inyternal server error" });
+      .json({ success: false, message: "internal server error" });
   }
 });
 
@@ -333,7 +384,7 @@ app.put("/api/status/:id", async (req, res) => {
   } catch (error) {
     return res
       .status(500)
-      .json({ success: false, message: "inyternal server error" });
+      .json({ success: false, message: "internal server error" });
   }
 });
 
@@ -442,39 +493,6 @@ app.post("/api/auth", async (req, res) => {
 
 //verify user
 
-const verifyUser = (req, res, next) => {
-  const accessToken = req.cookies.accessToken;
-  const refreshToken = req.cookies.refreshToken;
-
-  if (!accessToken) {
-    if (!refreshToken) {
-      return res.json({ success: false, message: "please log in to continue" });
-    } else {
-      jwt.verify(refreshToken, "refresh-token", (err, decoded) => {
-        if (err) {
-          return res.json({ success: false, message: "invalid refresh token" });
-        } else {
-          const accessToken = jwt.sign({ id: decoded.id }, "access-token", {
-            expiresIn: "1m",
-          });
-          req.body.id = decoded.id;
-          res.cookie("accessToken", accessToken, { maxAge: 60000 });
-          next();
-        }
-      });
-    }
-  } else {
-    jwt.verify(accessToken, "access-token", (err, decoded) => {
-      if (err) {
-        return res.json({ success: false, message: "invalid access token" });
-      } else {
-        req.body.id = decoded.id;
-        next();
-      }
-    });
-  }
-};
-
 // dashboard
 
 app.get("/api/dashboard", verifyUser, async (req, res) => {
@@ -508,6 +526,10 @@ app.get("/api/logout", async (req, res) => {
       .status(500)
       .json({ success: false, message: "internal server error" });
   }
+});
+
+app.get("*", (req, res) => {
+  res.status(200).sendFile(path.join(__dirname, "build", "index.html"));
 });
 
 app.listen(5000, () => {

@@ -7,6 +7,14 @@
   object-fit: cover;
 }
 
+.productloadingAnimationContainer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40vh;
+}
+
 @media (max-width: 600px) {
   .product {
     padding: 20px;

@@ -4,11 +4,11 @@ import { useParams } from "react-router-dom";
 import "./Component_css/Product.css";
 import { useGet } from "./useGet";
 
-function Product() {
+function Product({ addtocart }) {
   const [product, setProduct] = useState({});
   const { id } = useParams();
 
-  const { data } = useGet(`/api/product/${id}`);
+  const { data, loading } = useGet(`/api/product/${id}`);
 
   useEffect(() => {
     if (data) {
@@ -17,9 +17,17 @@ function Product() {
   }, [data]);
 
   return (
-    <div className="product">
-      <ProductComp {...product} />
-    </div>
+    <React.Fragment>
+      {loading ? (
+        <div className="productloadingAnimationContainer">
+          <p className="loadingAnimation"></p>
+        </div>
+      ) : (
+        <div className="product">
+          <ProductComp {...product} addtocart={addtocart} />
+        </div>
+      )}
+    </React.Fragment>
   );
 }
 

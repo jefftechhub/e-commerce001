@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 function ProductComp(props) {
-  const { oldPrice, price, title, image } = props;
+  const { oldPrice, price, title, image, id, addtocart } = props;
   let [value, setValue] = useState(1);
 
   const percentage = Math.floor(((oldPrice - price) / 100) * 100);
@@ -9,7 +9,7 @@ function ProductComp(props) {
   return (
     <div class="featuredProduct">
       <div class="featuredContainer">
-        {image && <img src={`http://localhost:5000/${image[0]}`} />}
+        {image && <img src={`/${image[0]}`} />}
         <div class="lastChild">
           <h3>{title}</h3>
 
@@ -55,12 +55,12 @@ function ProductComp(props) {
           <div class="price">
             <p>
               <i class="fa-solid fa-dollar-sign"></i>
-              {price}
+              {parseInt(price).toFixed(2)}
             </p>
             {oldPrice && (
               <p id="oldPrice">
                 <i class="fa-solid fa-dollar-sign"></i>
-                {oldPrice}
+                {parseInt(oldPrice).toFixed(2)}
               </p>
             )}
             {oldPrice && (
@@ -69,7 +69,14 @@ function ProductComp(props) {
               </p>
             )}
           </div>
-          <button type="button">Add to cart</button>
+          <button
+            type="button"
+            onClick={() => {
+              addtocart(id, title, image[0], price);
+            }}
+          >
+            Add to cart
+          </button>
         </div>
       </div>
     </div>

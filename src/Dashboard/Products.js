@@ -49,7 +49,7 @@ const SingleProduct = ({ image, title }) => {
         <input id="checkbox" type="checkbox" />
       </td>
       <td>
-        <img src={`http://localhost:5000/${image}`} />
+        <img src={`/${image}`} />
       </td>
       <td id="name">{title}</td>
       <td>

@@ -65,9 +65,7 @@ export const Products = ({ _id, oldPrice, price, image, title, addtocart }) => {
         }}
       ></i>
       <Link to={`product/${_id}`}>
-        {image && (
-          <img src={`http://localhost:5000/${image[0]}`} alt="Top Product" />
-        )}
+        {image && <img src={image[0]} alt="Top Product" />}
 
         <div id="topProductRating" className="rating">
           <i class="fa-solid fa-star"></i>
@@ -110,9 +108,7 @@ export const DisplayedOffer = ({ price, oldPrice, title, image, id }) => {
           </p>
         </div>
 
-        {image && (
-          <img src={`http://localhost:5000/${image[0]}`} alt="offers" />
-        )}
+        {image && <img src={image[0]} alt="offers" />}
         <h2>{title}</h2>
       </Link>
     </div>
@@ -129,12 +125,7 @@ export const FeaturedProduct = (props) => {
     <div class="featuredProduct">
       <h2>Featured Product</h2>
       <div class="featuredContainer">
-        {image && (
-          <img
-            src={`http://localhost:5000/${image[0]}`}
-            alt="Featured Products"
-          />
-        )}
+        {image && <img src={image[0]} alt="Featured Products" />}
         <div class="lastChild">
           <h3>{title}</h3>
 

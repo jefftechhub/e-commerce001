@@ -5,14 +5,41 @@ import axios from "./Axios";
 import CheckOutForm from "./CheckOutForm";
 import { Elements } from "@stripe/react-stripe-js";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
-function Cart({ cart, setCart }) {
+function Cart({ cart, setCart, setShow, setLogin }) {
   const [stripePromise, setStripePromise] = useState(null);
   const [clientSecret, setClientSecret] = useState("");
   const [showCheck, setshowCheck] = useState(false);
   const [totalCost, setTotalCost] = useState(0);
   const [serviceFee, setServiceFee] = useState(0.0);
   const [shipmentFee, setShipmentFee] = useState(0.0);
+  const [whatsapplink, setWhatsappLink] = useState("");
+  const [userEmail, setUserEmail] = useState("");
+  const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
+
+  // getting users email and checking if logged in
+
+  // useEffect(() => {
+  //   try {
+  //     setLoading(true);
+  //     axios.get("/api/getEmail").then((res) => {
+  //       if (res.data.success) {
+  //         setUserEmail(res.data.data);
+  //         setLoading(false);
+  //         setLogin(true);
+  //       } else {
+  //         navigate("/shop");
+  //         setLoading(false);
+  //         setShow(true);
+  //         setLogin(false);
+  //       }
+  //     });
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // }, []);
 
   useEffect(() => {
     const calculatedTotalCost = cart.reduce(
@@ -63,13 +90,37 @@ function Cart({ cart, setCart }) {
 
   // ordr via whatsapp
 
-  const orderWhatsapp = () => {
-    const phoneNumber = "254792415842";
-    const message = encodeURIComponent("how can i help you");
-    // whatsAppLink = `https://wa.me${phoneNumber}?text=${message}`;
+  useEffect(() => {
+    const phoneNumber = encodeURIComponent("+13232860934");
 
-    window.location.href = `https://wa.me${phoneNumber}?text=${message}`;
-  };
+    // message
+
+    let message = cart.map((item, index) => {
+      return `Product: ${item.title}
+              Quantity:${item.quantity} 
+              Price: $${parseInt(item.price * item.quantity).toFixed(2)}
+      `;
+    });
+
+    message = `
+  Hello,
+  I'm interested in placing an order for the following item(s):
+    
+  ${message}
+
+  Service Fee: $${serviceFee.toFixed(2)}
+  Shipment Fee: $${shipmentFee.toFixed(2)}
+  TOTAL: $${totalCost.toFixed(2)}
+
+  Could you please confirm availability and provide information on  payment  and delivery options?
+  `;
+
+    message = encodeURIComponent(message);
+
+    const link = `https://wa.me/${phoneNumber}/?text=${message}`;
+
+    setWhatsappLink(link);
+  }, [totalCost, userEmail]);
 
   const updateQuantity = (id, newQuantity) => {
     const updatedCart = cart.map((item) =>
@@ -148,14 +199,10 @@ function Cart({ cart, setCart }) {
             >
               Check out with paypal<i class="fa-brands fa-paypal"></i>
             </button>
-            <button
-              className="checkoutbtn"
-              type="button"
-              onClick={() => {
-                orderWhatsapp();
-              }}
-            >
-              Order via whatsapp <i class="fa-brands fa-whatsapp"></i>
+            <button className="checkoutbtn" type="button">
+              <a href={whatsapplink} target="_blank">
+                Order via whatsapp <i class="fa-brands fa-whatsapp"></i>
+              </a>
             </button>
           </div>
         </div>
@@ -179,7 +226,7 @@ const Card = ({
 
   return (
     <div className="cart">
-      <img src={`http://localhost:5000/${image}`} alt={title} />
+      <img src={image} alt={title} />
       <div className="cardQuantity">
         <i
           className="fa-solid fa-plus"

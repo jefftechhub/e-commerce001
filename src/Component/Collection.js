@@ -13,7 +13,7 @@ export const CollectionComp = (props) => {
       )}
       <i class="fa-regular fa-heart"></i>
       <Link to={`/product/${id}`}>
-        {image && <img src={`http://localhost:5000/${image[0]}`} />}
+        {image && <img src={`/${image[0]}`} />}
 
         <h3>{name}</h3>
         <div className="rating">
@@ -52,7 +52,7 @@ export const ViewAlso = ({ collection, image }) => {
   return (
     <Link to={`/collection/${collection}`} className="viewAlso">
       <div>
-        {image && <img src={`http://localhost:5000/${image[0]}`} />}
+        {image && <img src={`/${image[0]}`} />}
         <h3>{collection}</h3>
       </div>
     </Link>

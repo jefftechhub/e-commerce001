@@ -157,6 +157,21 @@
   animation: loading 1s infinite linear;
 }
 
+/* add to cart message  */
+
+.addtocartComp {
+  position: fixed;
+  background-color: var(--fourthColor);
+  border: none;
+  color: var(--mainColor);
+  padding: 8px 15px;
+  font-size: 1rem;
+  top: 10%;
+  right: 20px;
+  z-index: 1000;
+  animation: addtoCartNote 0.8s ease-in-out;
+}
+
 @keyframes loading {
   0% {
     transform: rotate(0deg);
@@ -181,6 +196,21 @@
   }
 }
 
+@keyframes addtoCartNote {
+  0% {
+    top: 10%;
+    right: 20px;
+  }
+  50% {
+    top: 10%;
+    right: 40px;
+  }
+  100% {
+    top: 10%;
+    right: 20px;
+  }
+}
+
 .popNote p i {
   font-size: 1.1rem;
 }
@@ -188,5 +218,9 @@
   .offer {
     font-size: 0.8rem;
     top: 25px;
+  }
+  .addtocartComp {
+    padding: 5px 15px;
+    font-size: 0.8rem;
   }
 }
