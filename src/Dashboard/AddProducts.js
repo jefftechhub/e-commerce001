@@ -197,7 +197,7 @@ function AddProducts() {
                         }}
                       ></i>
                       <img
-                        src={`http://localhost:5000/${productsValues.image[0]}`}
+                        src={`/${productsValues.image[0]}`}
                         alt="Product's Image"
                       />
                     </div>
@@ -214,10 +214,7 @@ function AddProducts() {
                                 removeHandler(productsValues.image[0]);
                               }}
                             ></i>
-                            <img
-                              src={`http://localhost:5000/${item}`}
-                              alt="Product's Image"
-                            />
+                            <img src={`/${item}`} alt="Product's Image" />
                           </div>
                         );
                       })}
