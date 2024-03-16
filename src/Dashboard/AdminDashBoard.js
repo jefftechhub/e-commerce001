@@ -1,11 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { NavLink, Outlet } from "react-router-dom";
 import { useSignOut } from "./useSignout";
-import axios from "../Axios";
 
-function AdminDashBoard({ firstName, email }) {
+function AdminDashBoard({ firstName, email, setLogin }) {
   const { logOut } = useSignOut();
-  const [loading, setLoading] = useState(false);
 
   const [showContent, setShowContent] = useState(
     sessionStorage.getItem("showContent") || false
@@ -104,6 +102,7 @@ function AdminDashBoard({ firstName, email }) {
             onClick={() => {
               sessionStorage.removeItem("showContent");
               logOut();
+              setLogin(false);
             }}
           >
             <div>

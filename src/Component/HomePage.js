@@ -52,7 +52,9 @@ export const Enticement = () => {
 };
 
 export const Products = ({ _id, oldPrice, price, image, title, addtocart }) => {
-  const percentage = Math.floor(((oldPrice - price) / 100) * 100);
+  const percentage = Math.floor(
+    ((parseInt(oldPrice) - parseInt(price)) / parseInt(oldPrice)) * 100
+  );
 
   return (
     <div class="singleProduct">
@@ -92,21 +94,25 @@ export const Products = ({ _id, oldPrice, price, image, title, addtocart }) => {
 };
 
 export const DisplayedOffer = ({ price, oldPrice, title, image, id }) => {
-  const percentage = Math.floor(((oldPrice - price) / 100) * 100);
+  const percentage = Math.floor(
+    ((parseInt(oldPrice) - parseInt(price)) / parseInt(oldPrice)) * 100
+  );
 
   return (
     <div class="singleOffer">
       <Link to={`product/${id}`}>
-        <div class="offerTag">
-          <p>
-            upto
-            <br />
-            <span>{percentage}</span>
-            <span id="percent">%</span>
-            <br />
-            OFF
-          </p>
-        </div>
+        {percentage && (
+          <div class="offerTag">
+            <p>
+              upto
+              <br />
+              <span>{percentage}</span>
+              <span id="percent">%</span>
+              <br />
+              OFF
+            </p>
+          </div>
+        )}
 
         {image && <img src={image[0]} alt="offers" />}
         <h2>{title}</h2>
@@ -119,7 +125,9 @@ export const FeaturedProduct = (props) => {
   const { _id, addtocart, oldPrice, price, title, image } = props;
   let [value, setValue] = useState(1);
 
-  const percentage = Math.floor(((oldPrice - price) / 100) * 100);
+  const percentage = Math.floor(
+    ((parseInt(oldPrice) - parseInt(price)) / parseInt(oldPrice)) * 100
+  );
 
   return (
     <div class="featuredProduct">

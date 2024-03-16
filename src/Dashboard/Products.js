@@ -14,6 +14,8 @@ function Products() {
     }
   }, [data]);
 
+  console.log("called");
+
   return (
     <React.Fragment>
       <div className="dashboardContent">
@@ -25,7 +27,7 @@ function Products() {
               setShowContent(false);
             }}
           >
-            <i class="fa-solid fa-xmark"></i>
+            <i class="fa-solid fa-arrow-left"></i>
           </Link>
           <Link to="/dashboard/addproducts">add products</Link>
         </header>

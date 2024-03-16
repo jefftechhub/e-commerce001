@@ -1,16 +1,10 @@
 import React, { useEffect, useState } from "react";
 import "./Component_css/Cart.css";
-import { loadStripe } from "@stripe/stripe-js";
 import axios from "./Axios";
-import CheckOutForm from "./CheckOutForm";
-import { Elements } from "@stripe/react-stripe-js";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
 function Cart({ cart, setCart, setShow, setLogin }) {
-  const [stripePromise, setStripePromise] = useState(null);
-  const [clientSecret, setClientSecret] = useState("");
-  const [showCheck, setshowCheck] = useState(false);
   const [totalCost, setTotalCost] = useState(0);
   const [serviceFee, setServiceFee] = useState(0.0);
   const [shipmentFee, setShipmentFee] = useState(0.0);
@@ -21,76 +15,52 @@ function Cart({ cart, setCart, setShow, setLogin }) {
 
   // getting users email and checking if logged in
 
-  // useEffect(() => {
-  //   try {
-  //     setLoading(true);
-  //     axios.get("/api/getEmail").then((res) => {
-  //       if (res.data.success) {
-  //         setUserEmail(res.data.data);
-  //         setLoading(false);
-  //         setLogin(true);
-  //       } else {
-  //         navigate("/shop");
-  //         setLoading(false);
-  //         setShow(true);
-  //         setLogin(false);
-  //       }
-  //     });
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // }, []);
+  axios.defaults.withCredentials = true;
+  useEffect(() => {
+    try {
+      setLoading(true);
+      axios.get("/api/getEmail").then((res) => {
+        if (res.data.success) {
+          setUserEmail(res.data.data);
+          setLoading(false);
+          setLogin(true);
+        } else {
+          navigate("/shop");
+          setLoading(false);
+          setShow(true);
+          setLogin(false);
+        }
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  }, []);
 
   useEffect(() => {
+    // total cost
+
     const calculatedTotalCost = cart.reduce(
       (total, item) => total + parseInt(item.price) * item.quantity,
       0
     );
     const total = calculatedTotalCost + serviceFee + shipmentFee;
     setTotalCost(total);
-  }, [cart]);
 
-  useEffect(() => {
-    if (totalCost > 200) {
+    // getting  other fees
+
+    if (totalCost > 10000) {
       setShipmentFee(() => {
-        return (2 / 100) * totalCost;
+        return (1 / 100) * totalCost;
       });
     } else {
       setShipmentFee(0);
     }
-    if (totalCost > 50) {
-      setServiceFee(() => {
-        return (0.5 / 100) * totalCost;
-      });
-    } else {
-      setServiceFee(0);
-    }
-  }, [totalCost]);
-
-  useEffect(() => {
-    axios.get("/api/config").then((res) => {
-      setStripePromise(loadStripe(res.data.publishingKey));
+    setServiceFee(() => {
+      return (0.25 / 100) * totalCost;
     });
-  }, []);
 
-  const createPayment = (amount) => {
-    try {
-      axios.post("/api/create-payment-intent", { amount }).then((res) => {
-        setClientSecret(res.data.clientSecret);
-      });
-    } catch (error) {
-      console.log(error);
-    }
-  };
+    // whatsapp link
 
-  const removeFromCart = (id) => {
-    const updatedCart = cart.filter((item) => item.id !== id);
-    setCart(updatedCart);
-  };
-
-  // ordr via whatsapp
-
-  useEffect(() => {
     const phoneNumber = encodeURIComponent("+13232860934");
 
     // message
@@ -103,6 +73,8 @@ function Cart({ cart, setCart, setShow, setLogin }) {
     });
 
     message = `
+  My Address: ${userEmail}
+
   Hello,
   I'm interested in placing an order for the following item(s):
     
@@ -120,7 +92,12 @@ function Cart({ cart, setCart, setShow, setLogin }) {
     const link = `https://wa.me/${phoneNumber}/?text=${message}`;
 
     setWhatsappLink(link);
-  }, [totalCost, userEmail]);
+  }, [cart, userEmail, totalCost]);
+
+  const removeFromCart = (id) => {
+    const updatedCart = cart.filter((item) => item.id !== id);
+    setCart(updatedCart);
+  };
 
   const updateQuantity = (id, newQuantity) => {
     const updatedCart = cart.map((item) =>
@@ -133,21 +110,12 @@ function Cart({ cart, setCart, setShow, setLogin }) {
       {!cart.length > 0 ? (
         <div className="emtyCart">
           <p>
-            You have an empty cart <Link to="/shop">continue shopping</Link>{" "}
+            Add items to cart <Link to="/shop">continue shopping</Link>{" "}
           </p>
           <img src="/icons/empty cart.png" />
         </div>
       ) : (
         <div className="cartBody">
-          {showCheck && (
-            <>
-              {stripePromise && clientSecret && (
-                <Elements stripe={stripePromise} options={{ clientSecret }}>
-                  <CheckOutForm setshowCheck={setshowCheck} />
-                </Elements>
-              )}
-            </>
-          )}
           <div className="cartWrapper">
             <Link to="/shop">Continue shoping</Link>
 
@@ -180,15 +148,7 @@ function Cart({ cart, setCart, setShow, setLogin }) {
                 {totalCost.toFixed(2)}
               </p>
             </div>
-            <button
-              id="cardbtn"
-              className="checkoutbtn"
-              type="button"
-              onClick={() => {
-                createPayment(totalCost);
-                setshowCheck(true);
-              }}
-            >
+            <button id="cardbtn" className="checkoutbtn" type="button">
               Check out with card <i class="fa-solid fa-credit-card"></i>
             </button>
             <button

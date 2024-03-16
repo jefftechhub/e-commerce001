@@ -1,20 +1,16 @@
-import React, { useState } from "react";
+import React from "react";
 import Footer from "./Footer";
 import NavBar from "./NavBar";
 import { Outlet } from "react-router-dom";
-import Loading from "./Loading";
 import AddtocartComp from "./AddtocartComp";
 
 function MainComponent({
   login,
-  setLogin,
   cart,
   addtocartMssg,
   setShowAddecart,
   showaddedcart,
 }) {
-  const [loading, setLoading] = useState(false);
-
   return (
     <React.Fragment>
       {showaddedcart && (
@@ -25,7 +21,7 @@ function MainComponent({
       )}
 
       <NavBar login={login} cart={cart} />
-      {loading ? <Loading /> : <Outlet loading={loading} setLogin={setLogin} />}
+      <Outlet />
       <Footer />
     </React.Fragment>
   );

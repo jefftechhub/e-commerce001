@@ -25,6 +25,7 @@ function DashBoardNavBar({ setShow, setLogin }) {
           if (res.data.success) {
             setUser(res.data.data);
             setLoading(false);
+            setLogin(true);
             return;
           } else {
             setLoading(false);
@@ -56,7 +57,7 @@ function DashBoardNavBar({ setShow, setLogin }) {
     return <h3>{errorContent}</h3>;
   } else {
     if (user.accountType === "owner") {
-      return <OwnerDashBoard {...user} />;
+      return <OwnerDashBoard {...user} setLogin={setLogin} />;
     } else if (user.accountType === "admin") {
       return <AdminDashBoard {...user} />;
     } else {

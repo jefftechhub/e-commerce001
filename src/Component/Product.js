@@ -4,7 +4,9 @@ function ProductComp(props) {
   const { oldPrice, price, title, image, id, addtocart } = props;
   let [value, setValue] = useState(1);
 
-  const percentage = Math.floor(((oldPrice - price) / 100) * 100);
+  const percentage = Math.floor(
+    ((parseInt(oldPrice) - parseInt(price)) / parseInt(oldPrice)) * 100
+  );
 
   return (
     <div class="featuredProduct">

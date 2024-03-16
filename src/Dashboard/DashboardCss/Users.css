@@ -58,3 +58,21 @@
     width: calc(100vw - 250px);
   } */
 }
+
+@media (max-width: 500px) {
+  .userContent {
+    width: 100vw;
+    height: auto;
+  }
+
+  .userContent main {
+    gap: 10px 20px;
+  }
+
+  .userContent main h2 {
+    font-size: 0.9rem;
+  }
+  .userContent {
+    position: absolute;
+  }
+}

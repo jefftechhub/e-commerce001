@@ -17,7 +17,13 @@ function ShopComp({ collection, heading, addtocart }) {
                 <div className="singlecollection">
                   {item.oldPrice && (
                     <p className="offer">
-                      -{Math.floor(((item.oldPrice - item.price) / 100) * 100)}%
+                      -
+                      {Math.floor(
+                        ((parseInt(item.oldPrice) - parseInt(item.price)) /
+                          parseInt(item.oldPrice)) *
+                          100
+                      )}
+                      %
                     </p>
                   )}
                   <i class="fa-regular fa-heart"></i>

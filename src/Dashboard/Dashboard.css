@@ -21,6 +21,7 @@
   top: 0;
   background-color: var(--mainColor);
   min-height: 100vh;
+  height: auto;
   left: 0;
 }
 
@@ -249,6 +250,7 @@
   padding: 0 20px;
   padding-bottom: 50px;
   background-color: var(--secondColor);
+  z-index: 100;
 }
 
 .addproducts header {
@@ -642,7 +644,6 @@
   .profile {
     width: 100%;
     position: block;
-    z-index: -100;
   }
 
   .profile header {
@@ -693,6 +694,7 @@
     padding-top: 0;
     width: auto;
     overflow-x: scroll;
+    position: absolute;
   }
 
   .dashboardContent header {
@@ -745,6 +747,7 @@
     padding: 20px;
     width: auto;
     overflow-x: scroll;
+    position: absolute;
   }
 
   .singleCardRow td {
@@ -774,6 +777,7 @@
     padding: 20px;
     width: auto;
     overflow-x: scroll;
+    position: absolute;
   }
 
   .addproducts header i {

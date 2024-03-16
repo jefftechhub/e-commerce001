@@ -247,12 +247,7 @@ const addDetails = (req, res, next) => {
   }
 };
 
-function requireAuth(req, res, next) {
-  if (!req.user) {
-    return res.json({ success: false, message: "your session has expired" });
-  }
-  next();
-}
+// post products to database
 
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
@@ -290,7 +285,7 @@ app.get("/api/uploads/:imageUrl", async (req, res) => {
   res.status(200).sendFile(file);
 });
 
-///upload products detail
+//get products detail
 
 app.post("/api/uploadProduct", async (req, res) => {
   try {
@@ -365,7 +360,7 @@ app.put("/api/updateAccount/:id", async (req, res) => {
   }
 });
 
-// change status
+// change status for users
 
 app.put("/api/status/:id", async (req, res) => {
   try {
@@ -387,6 +382,8 @@ app.put("/api/status/:id", async (req, res) => {
       .json({ success: false, message: "internal server error" });
   }
 });
+
+// delete uploaded image
 
 app.delete("/api/uploads/:imageUrl", async (req, res) => {
   try {
@@ -453,7 +450,7 @@ app.post("/api/auth", async (req, res) => {
           // Passwords match
           if (findUser.status) {
             const accessToken = jwt.sign({ id: findUser._id }, "access-token", {
-              expiresIn: "5m",
+              expiresIn: "30days",
             });
             const refreshToken = jwt.sign(
               { id: findUser._id },
@@ -464,8 +461,9 @@ app.post("/api/auth", async (req, res) => {
             );
 
             res.cookie("accessToken", accessToken, {
-              maxAge: 1000 * 60 * 5,
+              maxAge: 1000 * 60 * 60 * 24 * 30,
             });
+
             res.cookie("refreshToken", refreshToken, {
               maxAge: 1000 * 60 * 60 * 24 * 30,
               httpOnly: true,
@@ -490,8 +488,6 @@ app.post("/api/auth", async (req, res) => {
     res.status(401).json({ success: false, message: "internal server error" });
   }
 });
-
-//verify user
 
 // dashboard
 

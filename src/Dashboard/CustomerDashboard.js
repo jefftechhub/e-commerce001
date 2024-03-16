@@ -2,7 +2,7 @@ import React from "react";
 import { Link, Outlet } from "react-router-dom";
 import { useSignOut } from "./useSignout";
 
-function CustomerDashBoard() {
+function CustomerDashBoard({ email, firstName, setLogin }) {
   const { logOut } = useSignOut();
 
   return (
@@ -11,8 +11,8 @@ function CustomerDashBoard() {
       <div className="profile">
         <header>
           <h1>Account</h1>
-          <h2>Welcome Onyinjo</h2>
-          <h3>onyinjopesa@gmail.com</h3>
+          <h2>Welcome {firstName}</h2>
+          <h3>{email}</h3>
         </header>
         <main>
           <Link to="/">
@@ -45,7 +45,12 @@ function CustomerDashBoard() {
             </div>
             <i class="fa-solid fa-greater-than"></i>
           </Link>
-          <Link onClick={logOut}>
+          <Link
+            onClick={() => {
+              logOut();
+              setLogin(false);
+            }}
+          >
             <div>
               <i class="fa-solid fa-right-from-bracket"></i>
               <p>sign out</p>

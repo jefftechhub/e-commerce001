@@ -25,12 +25,13 @@ import Cart from "./Cart";
 import Completion from "./Completion";
 
 function App() {
-  // this is for fixed notification
   const [cart, setCart] = useState(
     JSON.parse(localStorage.getItem("cart")) || []
   );
   const [addtocartMssg, setaddtocartMssg] = useState("");
   const [showaddedcart, setShowAddecart] = useState(false);
+  const [show, setShow] = useState(false);
+  const [login, setLogin] = useState(false);
 
   const addingToCart = (id, title, image, price) => {
     const product = { id, title, image, price, quantity: 1 };
@@ -60,9 +61,6 @@ function App() {
   useEffect(() => {
     localStorage.setItem("cart", JSON.stringify(cart));
   }, [cart]);
-
-  const [show, setShow] = useState(false);
-  const [login, setLogin] = useState(true);
 
   return (
     <React.Fragment>

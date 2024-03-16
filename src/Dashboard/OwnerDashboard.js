@@ -1,26 +1,23 @@
 import React, { useEffect, useState } from "react";
 import { Link, Outlet } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
 import { useSignOut } from "./useSignout";
-import axios from "../Axios";
 
-function AdminDashBoard({ firstName, email }) {
-  const navigate = useNavigate();
+function AdminDashBoard({ firstName, email, setLogin }) {
   const { logOut } = useSignOut();
 
   const [showContent, setShowContent] = useState(
     sessionStorage.getItem("showContent") || false
   );
 
-  useEffect(() => {
-    const handleResize = () => {
-      if (window.innerWidth > 500) {
-        setShowContent(true);
-      } else {
-        sessionStorage.setItem("showContent", showContent);
-      }
-    };
+  const handleResize = () => {
+    if (window.innerWidth > 500) {
+      setShowContent(true);
+    } else {
+      sessionStorage.setItem("showContent", showContent);
+    }
+  };
 
+  useEffect(() => {
     handleResize();
 
     window.addEventListener("resize", handleResize);
@@ -50,6 +47,7 @@ function AdminDashBoard({ firstName, email }) {
               <i class="fa-solid fa-house"></i> <p>Home</p>
             </div>
           </Link>
+
           <Link
             to="products"
             onClick={() => {
@@ -61,6 +59,7 @@ function AdminDashBoard({ firstName, email }) {
             </div>
             <i class="fa-solid fa-greater-than"></i>
           </Link>
+
           <Link
             to="users"
             onClick={() => {
@@ -72,6 +71,7 @@ function AdminDashBoard({ firstName, email }) {
             </div>
             <i class="fa-solid fa-greater-than"></i>
           </Link>
+
           <Link
             to="cards"
             onClick={() => {
@@ -112,6 +112,7 @@ function AdminDashBoard({ firstName, email }) {
             onClick={() => {
               sessionStorage.removeItem("showContent");
               logOut();
+              setLogin(false);
             }}
           >
             <div>
