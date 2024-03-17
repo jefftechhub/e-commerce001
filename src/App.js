@@ -23,6 +23,9 @@ import Wallpaper from "./Dashboard/Wallpaper";
 import Users from "./Dashboard/Users";
 import Cart from "./Cart";
 import Completion from "./Completion";
+import Terms_Conditions from "./Terms&Conditions";
+import AboutUs from "./AboutUs";
+import Contactus from "./Contactus";
 
 function App() {
   const [cart, setCart] = useState(
@@ -31,7 +34,7 @@ function App() {
   const [addtocartMssg, setaddtocartMssg] = useState("");
   const [showaddedcart, setShowAddecart] = useState(false);
   const [show, setShow] = useState(false);
-  const [login, setLogin] = useState(false);
+  const [login, setLogin] = useState(true);
 
   const addingToCart = (id, title, image, price) => {
     const product = { id, title, image, price, quantity: 1 };
@@ -104,6 +107,9 @@ function App() {
             element={<Product addtocart={addingToCart} />}
           />
           <Route path="shop" element={<Shop addtocart={addingToCart} />} />
+          <Route path="terms&conditions" element={<Terms_Conditions />} />
+          <Route path="aboutus" element={<AboutUs />} />
+          <Route path="contactus" element={<Contactus />} />
         </Route>
 
         {/* dashboard  */}

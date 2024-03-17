@@ -92,7 +92,7 @@ function Navbar({ login, cart }) {
               Shop
             </Link>
             <Link
-              to="contactUs"
+              to="contactus"
               onClick={() => {
                 setMenu(!showMenu);
               }}
@@ -100,7 +100,7 @@ function Navbar({ login, cart }) {
               contact us
             </Link>
             <Link
-              to="aboutUs"
+              to="aboutus"
               onClick={() => {
                 setMenu(!showMenu);
               }}

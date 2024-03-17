@@ -17,3 +17,10 @@
   height: 40px;
   border-color: var(--fourthColor);
 }
+
+@media (max-width: 500px) {
+  .loadingAnimation {
+    width: 30px;
+    height: 30px;
+  }
+}

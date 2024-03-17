@@ -9,7 +9,7 @@ function Footer() {
         <h2>INFORMATION</h2>
         <ul>
           <Link to="/">privacy &amp; policy</Link>
-          <Link to="/">terms &amp; condition</Link>
+          <Link to="terms&conditions">terms &amp; conditions</Link>
           <Link to="/">manufactures</Link>
         </ul>
         <form>

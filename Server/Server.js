@@ -439,7 +439,7 @@ app.post("/api/auth", async (req, res) => {
     const findUser = await Users.findOne({ email });
 
     if (!findUser) {
-      return res.json({ success: false, message: "Wrong email" });
+      return res.json({ success: false, message: "Wrong email address" });
     } else {
       bcrypt.compare(password, findUser.password, function (err, result) {
         if (err) {
