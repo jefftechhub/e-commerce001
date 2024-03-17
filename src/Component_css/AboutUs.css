@@ -37,7 +37,7 @@
 }
 
 .aboutus p {
-  font-size: 0.9rem;
+  font-size: 1rem;
 }
 span {
   font-size: 0.8rem;
@@ -74,7 +74,7 @@ span {
 
   .aboutus img {
     width: auto;
-    height: 30vh;
+    height: 40vh;
     object-fit: contain;
   }
 
@@ -92,25 +92,25 @@ span {
   }
 
   #termsHeading {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
   }
 
   .aboutus h2 {
-    font-size: 1rem;
+    font-size: 1.1rem;
   }
 
   .aboutus p {
-    font-size: 0.8rem;
+    font-size: 0.9rem;
   }
   span {
-    font-size: 0.7rem;
+    font-size: 0.8rem;
   }
 
   .aboutus .fa-circle-dot {
-    font-size: 0.7rem;
+    font-size: 0.8rem;
   }
 
   .aboutus .fa-quote-left {
-    font-size: 1.1rem;
+    font-size: 1.2rem;
   }
 }

@@ -37,7 +37,7 @@
 }
 
 .termsConditions p {
-  font-size: 0.9rem;
+  font-size: 1rem;
 }
 span {
   font-size: 0.8rem;
@@ -79,18 +79,18 @@ span {
   }
 
   #termsHeading {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
   }
 
   .termsConditions h2 {
-    font-size: 1rem;
+    font-size: 1.1rem;
   }
 
   .termsConditions p {
-    font-size: 0.8rem;
+    font-size: 0.9rem;
   }
   span {
-    font-size: 0.7rem;
+    font-size: 0.8rem;
     font-weight: 700;
   }
 }
