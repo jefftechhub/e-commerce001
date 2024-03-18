@@ -20,3 +20,6 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+
+# ssh -i "e-commerce.pem" ubuntu@ec2-16-16-253-107.eu-north-1.compute.amazonaws.com

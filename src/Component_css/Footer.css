@@ -7,8 +7,20 @@
   color: var(--mainColor);
   font-size: 1.4rem;
   font-weight: 500;
-  margin: 10px 0;
+  margin: 20px 0;
+  margin-bottom: 50px;
   text-transform: uppercase;
+  position: relative;
+}
+
+.info h2:after {
+  content: "";
+  width: 50px;
+  height: 0.5rem;
+  background-color: var(--fourthColor);
+  position: absolute;
+  left: 0;
+  bottom: -50%;
 }
 
 .info ul {
@@ -20,13 +32,25 @@
   color: var(--mainColor);
   text-decoration: none;
   text-transform: capitalize;
-  margin: 3px 0;
+  padding: 10px 0;
+  border-top: 1px solid var(--secondColor);
+}
+
+.info ul a:last-child {
+  border-bottom: 1px solid var(--secondColor);
+  margin-bottom: 20px;
 }
 
 .info form {
   display: flex;
   flex-direction: column;
   align-items: start;
+}
+
+.info form p {
+  color: var(--mainColor);
+  font-size: 1rem;
+  padding-bottom: 10px;
 }
 
 .info input {
@@ -83,6 +107,14 @@
 
   .info h2 {
     font-size: 1.1rem;
+  }
+
+  .info ul a {
+    font-size: 0.9rem;
+  }
+
+  .info form p {
+    font-size: 0.9rem;
   }
 
   .info input {

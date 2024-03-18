@@ -13,7 +13,7 @@ const jwt = require("jsonwebtoken");
 
 const stripe = require("stripe")(process.env.STRIPE_SECRETE_KEY);
 
-const { Users, Products } = require("./mongoose");
+const { Users, Products, Message } = require("./mongoose");
 mongoose.connect(process.env.MONGO_URL);
 
 app.use(
@@ -404,6 +404,17 @@ app.delete("/api/uploads/:imageUrl", async (req, res) => {
       success: false,
       message: "internal server error",
     });
+  }
+});
+
+// submit contact us message
+
+app.post("/api/contactus", async (req, res) => {
+  try {
+    await Message.create(req.body);
+    return res.status(200).json({ success: true });
+  } catch (error) {
+    return res.status(500).json({ success: false });
   }
 });
 

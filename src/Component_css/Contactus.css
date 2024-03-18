@@ -1,0 +1,155 @@
+.contactusContainer {
+  display: flex;
+  padding: 30px;
+  justify-content: end;
+  align-items: center;
+}
+
+#termsHeading {
+  font-size: 1.5rem;
+  padding: 40px 20px;
+}
+
+.contactusImage {
+  height: auto;
+  width: 40vw;
+  display: flex;
+  place-items: center;
+}
+
+.contactusImage img {
+  width: 100%;
+  object-fit: contain;
+}
+
+.contactus {
+  padding: 40px;
+  height: auto;
+  overflow: auto;
+  width: 50vw;
+  background-color: var(--secondColor);
+  border-radius: 4px;
+  position: relative;
+}
+
+.contactus label {
+  display: block;
+  font-size: 1rem;
+}
+
+.contactus label:not(:first-child) {
+  margin-top: 30px;
+  margin-bottom: 10px;
+}
+
+.contactus input {
+  display: block;
+  border: 2px solid var(--secondColor);
+  font-size: 1rem;
+  width: 50%;
+  padding: 10px 20px;
+  transition: 0s;
+}
+
+.contactus input:focus {
+  outline: none;
+  border: 2px solid var(--fourthColor);
+}
+
+.contactus textarea {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: none;
+  resize: none;
+  padding: 10px;
+  font-size: 1.1rem;
+  overflow: hidden;
+}
+
+.contactus textarea:focus {
+  outline: none;
+  height: 30vh;
+  overflow: auto;
+}
+
+.contactus button {
+  width: 50%;
+  margin-top: 30px;
+  border: none;
+  color: var(--mainColor);
+  background-color: var(--fourthColor);
+  padding: 10px 0;
+}
+
+@media (max-width: 900px) {
+  .contactusContainer {
+    flex-direction: column;
+    padding: 20px 30px;
+  }
+
+  #termsHeading {
+    padding: 30px 20px;
+  }
+
+  .contactus {
+    width: 100%;
+  }
+
+  .contactusImage {
+    height: auto;
+    width: auto;
+    justify-content: center;
+  }
+
+  .contactusImage img {
+    width: auto;
+    height: 30vh;
+    object-fit: cover;
+  }
+
+  .contactusImage {
+    padding: 0;
+    height: auto;
+    width: 100%;
+  }
+
+  .contactus label {
+    font-size: 0.9rem;
+  }
+
+  .contactus label:not(:first-child) {
+    margin-top: 20px;
+  }
+
+  .contactus input {
+    font-size: 0.9rem;
+    width: 100%;
+  }
+
+  .contactus textarea {
+    font-size: 1rem;
+  }
+
+  .contactus button {
+    width: 100%;
+  }
+}
+
+@media (max-width: 500px) {
+  .contactusContainer {
+    padding: 20px;
+  }
+
+  #termsHeading {
+    font-size: 1.3rem;
+  }
+  .contactus {
+    padding: 20px;
+  }
+
+  .contactus button {
+    margin-top: 20px;
+    padding: 8px 0;
+  }
+}

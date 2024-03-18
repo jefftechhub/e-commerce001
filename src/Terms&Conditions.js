@@ -10,7 +10,7 @@ function Terms_Conditions() {
           <img src="/icons/terms.png" />
         </div>
         <div className="termsConditions">
-          <h2>TERMS & CONDITIONS TERMS</h2>
+          <h2>TERMS & CONDITIONS</h2>
           <p>
             By reading this notice you agree to be bound by the following terms
             and conditions. Please read them carefully. Your usage of the notice

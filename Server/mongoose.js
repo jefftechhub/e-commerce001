@@ -44,11 +44,20 @@ const productsSchema = {
 };
 
 const refreshTokenSchema = {
+  names: String,
+  email: String,
+  phone: String,
+  subject: String,
+  message: String,
+};
+
+const messageSchema = {
   refreshToken: String,
 };
 
 const Users = mongoose.model("Users", userSchema);
 const RefreshToken = mongoose.model("RefreshToken", refreshTokenSchema);
-const Products = mongoose.model("Products", productsSchema);
+const Products = mongoose.model("Products", messageSchema);
+const Message = mongoose.model("Message", productsSchema);
 
-module.exports = { Users, Products, RefreshToken };
+module.exports = { Users, Products, RefreshToken, Message };

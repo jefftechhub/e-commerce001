@@ -3,7 +3,7 @@ import React from "react";
 function PopNotifiction({ noteContent, setShowNote, errorNote }) {
   setTimeout(() => {
     setShowNote(false);
-  }, 3000);
+  }, 4000);
 
   return (
     <div className={`popNote ${errorNote ? "errorNote" : "success"}`}>
