@@ -1,5 +1,5 @@
 .headList-mwitu {
-  height: 80px;
+  height: 116px;
 }
 
 .header {
@@ -13,9 +13,10 @@
   box-shadow: 1px 1px 3px var(--thirdColor);
 }
 
-.header h1 {
-  font-size: 2rem;
-  align-items: center;
+.logoHeading {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
 }
 
 .menuList {
@@ -23,6 +24,10 @@
 }
 
 .menu {
+  display: none;
+}
+
+.menuList i {
   display: none;
 }
 
@@ -165,8 +170,13 @@
     display: none;
   }
 
-  .headList-mwitu {
+  .logoHeading {
+    width: 60px;
     height: 60px;
+  }
+
+  .headList-mwitu {
+    height: 80px;
   }
 
   #loginbtn {
@@ -227,10 +237,10 @@
   .menuList {
     display: block;
     position: absolute;
-    background-color: rgba(6, 120, 11, 0.9);
+    background-color: var(--fourthColor);
     width: 70vw;
     height: 100vh;
-    top: 68px;
+    top: 100px;
     right: -100%;
   }
 
@@ -241,17 +251,22 @@
   .menuList ul {
     display: flex;
     flex-direction: column;
-    padding: 40px 20px;
-    gap: 10px;
+    gap: 0;
+  }
+
+  .menuList i {
+    padding-right: 10px;
+    display: inline;
   }
 
   .menuList a {
     color: var(--mainColor);
-    font-size: 1.3rem;
-    text-align: center;
+    font-size: 1.2rem;
     text-decoration: none;
-    text-transform: capitalize;
+    text-transform: uppercase;
     padding: 20px 0;
+    padding-left: 30px;
+    border-bottom: 1px solid var(--secondColor);
   }
 
   #cart p {

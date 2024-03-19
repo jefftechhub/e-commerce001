@@ -55,12 +55,16 @@
   padding: 20px 30px;
   display: block;
   text-decoration: none;
+  text-transform: uppercase;
   color: var(--thirdColor);
-  text-transform: capitalize;
   font-size: 0.9rem;
+  border-top: 1px solid var(--secondColor);
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+.profile main a:first-child {
+  border: none;
 }
 
 .profile main a i {

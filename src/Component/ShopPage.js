@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import "../Component_css/Shop.css";
 
 function ShopComp({ collection, heading, addtocart }) {
+  console.log(collection);
   return (
     <section>
       {collection.length > 0 && (
@@ -28,7 +29,7 @@ function ShopComp({ collection, heading, addtocart }) {
                   )}
                   <i class="fa-regular fa-heart"></i>
                   <Link to={`/product/${item.id}`}>
-                    <img src={`/${item.image[0]}`} />
+                    {item.image && <img src={`/${item.image[0]}`} />}
 
                     <h3>{item.name}</h3>
                     <div className="rating">

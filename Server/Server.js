@@ -11,9 +11,11 @@ const path = require("path");
 const fs = require("fs");
 const jwt = require("jsonwebtoken");
 
-const stripe = require("stripe")(process.env.STRIPE_SECRETE_KEY);
+const { PAYPAL_CLIENT_ID, PAYPAL_CLIENT_SECRET } = process.env;
+const base = "https://api-m.sandbox.paypal.com";
 
-const { Users, Products, Message } = require("./mongoose");
+const { Users, Products, Message, RunningOrders } = require("./mongoose");
+const { log } = require("console");
 mongoose.connect(process.env.MONGO_URL);
 
 app.use(
@@ -28,8 +30,134 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(express.static(path.join(__dirname, "build")));
 
-app.get("/api/config", async (req, res) => {
-  res.status(200).json({ publishingKey: process.env.STRIPE_PUBLIC_KEY });
+// post running orders
+
+app.post("/api/runningOrder", async (req, res) => {
+  try {
+    console.log(req.body);
+    await RunningOrders.create(req.body);
+    return res.status(200).json({ success: true });
+  } catch (error) {
+    return res.status(500).json({ success: false });
+  }
+});
+
+// paypal intergration
+
+const generateAccessToken = async () => {
+  try {
+    if (!PAYPAL_CLIENT_ID || !PAYPAL_CLIENT_SECRET) {
+      throw new Error("MISSING_API_CREDENTIALS");
+    }
+    const auth = Buffer.from(
+      PAYPAL_CLIENT_ID + ":" + PAYPAL_CLIENT_SECRET
+    ).toString("base64");
+    const response = await fetch(`${base}/v1/oauth2/token`, {
+      method: "POST",
+      body: "grant_type=client_credentials",
+      headers: {
+        Authorization: `Basic ${auth}`,
+      },
+    });
+
+    const data = await response.json();
+    return data.access_token;
+  } catch (error) {
+    console.error("Failed to generate Access Token:", error);
+  }
+};
+
+// create order
+const createOrder = async (cart) => {
+  // use the cart information passed from the front-end to calculate the purchase unit details
+  console.log(
+    "shopping cart information passed from the frontend createOrder() callback:",
+    cart
+  );
+
+  const calculatedTotalCost = cart.reduce(
+    (total, item) => total + item.price,
+    0
+  );
+
+  const accessToken = await generateAccessToken();
+  const url = `${base}/v2/checkout/orders`;
+  const payload = {
+    intent: "CAPTURE",
+    purchase_units: [
+      {
+        amount: {
+          currency_code: "USD",
+          value: calculatedTotalCost,
+        },
+      },
+    ],
+  };
+
+  const response = await fetch(url, {
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${accessToken}`,
+    },
+    method: "POST",
+    body: JSON.stringify(payload),
+  });
+
+  return handleResponse(response);
+};
+
+// capture order
+
+const captureOrder = async (orderID) => {
+  const accessToken = await generateAccessToken();
+  const url = `${base}/v2/checkout/orders/${orderID}/capture`;
+
+  const response = await fetch(url, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${accessToken}`,
+    },
+  });
+
+  return handleResponse(response);
+};
+
+async function handleResponse(response) {
+  try {
+    const jsonResponse = await response.json();
+    return {
+      jsonResponse,
+      httpStatusCode: response.status,
+    };
+  } catch (err) {
+    const errorMessage = await response.text();
+    throw new Error(errorMessage);
+  }
+}
+
+app.post("/api/my-server/create-paypal-order", async (req, res) => {
+  try {
+    // use the cart information passed from the front-end to calculate the order amount detals
+    const { cart } = req.body;
+    const { jsonResponse, httpStatusCode } = await createOrder(cart);
+    res.status(httpStatusCode).json(jsonResponse);
+  } catch (error) {
+    console.error("Failed to create order:", error);
+    res.status(500).json({ error: "Failed to create order." });
+  }
+});
+
+app.post("/api/my-server/capture-paypal-order", async (req, res) => {
+  try {
+    const { orderID } = req.body;
+    const { jsonResponse, httpStatusCode } = await captureOrder(orderID);
+    console.log(httpStatusCode);
+    res.status(httpStatusCode).json(jsonResponse);
+  } catch (error) {
+    console.error("Failed to create order:", error);
+    res.status(500).json({ error: "Failed to capture order." });
+  }
 });
 
 // verify user
@@ -67,35 +195,19 @@ const verifyUser = (req, res, next) => {
   }
 };
 
+// get users email at check out
+
 app.get("/api/getEmail", verifyUser, async (req, res) => {
   try {
     const findUser = await Users.findOne({ _id: req.body.id });
-    return res.status(200).json({ success: true, data: findUser.email });
+    return res.status(200).json({
+      success: true,
+      data: { email: findUser.email, userID: findUser._id },
+    });
   } catch (error) {
     return res
       .status(500)
       .json({ success: false, message: "internal server error" });
-  }
-});
-
-app.post("/api/create-payment-intent", async (req, res) => {
-  try {
-    console.log("intent started");
-
-    const amount = req.body.amount;
-    const paymentIntent = await stripe.paymentIntents.create({
-      currency: "usd",
-      amount: amount,
-      automatic_payment_methods: {
-        enabled: true,
-      },
-    });
-
-    return res
-      .status(200)
-      .json({ success: true, clientSecret: paymentIntent.client_secret });
-  } catch (error) {
-    return res.json({ success: false, message: "internal server error" });
   }
 });
 

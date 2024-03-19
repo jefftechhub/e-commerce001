@@ -25,7 +25,7 @@ function Navbar({ login, cart }) {
   return (
     <nav>
       <div class="header">
-        <h1>LOGO</h1>
+        <img className="logoHeading" src="/icons/LOGO.png" alt="logo" />
         <div class="cartContainer">
           <form onSubmit={submitHandler}>
             {showSearch && (
@@ -81,7 +81,7 @@ function Navbar({ login, cart }) {
                 setMenu(!showMenu);
               }}
             >
-              Home
+              <i class="fa-solid fa-house"></i> Home
             </Link>
             <Link
               to="shop"
@@ -89,7 +89,7 @@ function Navbar({ login, cart }) {
                 setMenu(!showMenu);
               }}
             >
-              Shop
+              <i class="fa-solid fa-shop"></i> Shop
             </Link>
             <Link
               to="contactus"
@@ -97,7 +97,7 @@ function Navbar({ login, cart }) {
                 setMenu(!showMenu);
               }}
             >
-              contact us
+              <i class="fa-solid fa-phone"></i> contact us
             </Link>
             <Link
               to="aboutus"
@@ -105,7 +105,7 @@ function Navbar({ login, cart }) {
                 setMenu(!showMenu);
               }}
             >
-              about us
+              <i class="fa-solid fa-users"></i> about us
             </Link>
           </ul>
         </div>

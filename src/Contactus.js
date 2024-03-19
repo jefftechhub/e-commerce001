@@ -44,7 +44,7 @@ function Contactus() {
         } else {
           axios.post("/api/contactus", contacts).then((res) => {
             if (res.data.success) {
-              setNoteContent("Message submitted successfully");
+              setNoteContent("Message sent");
               setErrorNote(false);
               setShowNote(true);
               setContancts({

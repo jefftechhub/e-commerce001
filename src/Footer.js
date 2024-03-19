@@ -6,6 +6,7 @@ function Footer() {
   return (
     <div class="footer">
       <div class="info">
+        <img className="logoFooter" src="/icons/LOGO.png" alt="logo" />
         <h2>INFORMATION</h2>
         <ul>
           <Link to="/">privacy &amp; policy</Link>

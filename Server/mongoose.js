@@ -51,13 +51,31 @@ const refreshTokenSchema = {
   message: String,
 };
 
+const runningOrdersSchema = {
+  idUSER: String,
+  products: Array,
+  date: {
+    type: Date,
+    default: Date.now,
+  },
+};
+
 const messageSchema = {
-  refreshToken: String,
+  names: String,
+  email: String,
+  phone: String,
+  subject: String,
+  message: String,
+  date: {
+    type: Date,
+    default: Date.now,
+  },
 };
 
 const Users = mongoose.model("Users", userSchema);
-const RefreshToken = mongoose.model("RefreshToken", refreshTokenSchema);
-const Products = mongoose.model("Products", messageSchema);
-const Message = mongoose.model("Message", productsSchema);
 
-module.exports = { Users, Products, RefreshToken, Message };
+const Products = mongoose.model("Products", productsSchema);
+const Message = mongoose.model("Message", messageSchema);
+const RunningOrders = mongoose.model("RunningOrders", runningOrdersSchema);
+
+module.exports = { Users, Products, Message, RunningOrders };
