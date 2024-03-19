@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import "../Component_css/Shop.css";
 
 function ShopComp({ collection, heading, addtocart }) {
-  console.log(collection);
   return (
     <section>
       {collection.length > 0 && (

@@ -150,7 +150,7 @@
 
 .loadingAnimation {
   border: 2px solid var(--fourthColor);
-  border-left: 2px solid transparent;
+  border-bottom: 2px solid transparent !important;
   margin-right: 20px;
   border-radius: 50%;
   animation: loading 1s infinite linear;

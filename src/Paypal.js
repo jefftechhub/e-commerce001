@@ -12,11 +12,9 @@ function Paypal({ cart, idUSER, setCart, setShowThanks }) {
     };
   });
 
-  const baseURL = "http://16.16.253.107";
-
   const createOrder = (data) => {
     // Order is created on the server and the order id is returned
-    return fetch(`${baseURL}/api/my-server/create-paypal-order`, {
+    return fetch("/api/my-server/create-paypal-order", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -35,7 +33,7 @@ function Paypal({ cart, idUSER, setCart, setShowThanks }) {
 
   const onApprove = (data) => {
     // Order is captured on the server and the response is returned to the browser
-    return fetch(`${baseURL}/api/my-server/capture-paypal-order`, {
+    return fetch("/api/my-server/capture-paypal-order", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
