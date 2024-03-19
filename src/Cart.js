@@ -33,17 +33,17 @@ function Cart({ cart, setCart, setShow, setLogin }) {
     try {
       setLoading(true);
       axios.get("/api/getEmail").then((res) => {
-        // if (res.data.success) {
-        //   setUserEmail(res.data.data.email);
-        //   setUserID(res.data.data.userID);
-        //   setLoading(false);
-        //   setLogin(true);
-        // } else {
-        //   navigate("/shop");
-        //   setLoading(false);
-        //   setShow(true);
-        //   setLogin(false);
-        // }
+        if (res.data.success) {
+          setUserEmail(res.data.data.email);
+          setUserID(res.data.data.userID);
+          setLoading(false);
+          setLogin(true);
+        } else {
+          navigate("/shop");
+          setLoading(false);
+          setShow(true);
+          setLogin(false);
+        }
       });
     } catch (error) {
       console.log(error);
