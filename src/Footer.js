@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import "./Component_css/Footer.css";
 import { Link } from "react-router-dom";
 import axios from "./Axios";

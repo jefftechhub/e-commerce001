@@ -79,7 +79,7 @@
 
 /* empty input  */
 .empty {
-  border: 1px solid red !important;
+  border: 2px solid red !important;
 }
 
 .input-container {

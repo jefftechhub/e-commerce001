@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { PayPalScriptProvider } from "@paypal/react-paypal-js";
 import Paypal from "./Paypal";
+import CardCheckOut from "./CardCheckOut";
 
 function Cart({ cart, setCart, setShow, setLogin }) {
   const [totalCost, setTotalCost] = useState(0);
@@ -17,6 +18,7 @@ function Cart({ cart, setCart, setShow, setLogin }) {
   const [paypalCart, setPaypalCart] = useState([]);
   const [showThanks, setShowThanks] = useState(false);
   const [userID, setUserID] = useState("");
+  const [showCardCheck, setShowCardCheck] = useState(false);
 
   // paypal instance
   const initialOptions = {
@@ -155,8 +157,13 @@ function Cart({ cart, setCart, setShow, setLogin }) {
           </div>
         ) : (
           <div className="cartBody">
+            {showCardCheck && (
+              <CardCheckOut setShowCardCheck={setShowCardCheck} />
+            )}
             <div className="cartWrapper">
-              <Link to="/shop">Continue shoping</Link>
+              <Link to="/shop" id="continueLink">
+                Continue shoping
+              </Link>
 
               {cart.map((item) => (
                 <Card
@@ -187,7 +194,14 @@ function Cart({ cart, setCart, setShow, setLogin }) {
                   {totalCost.toFixed(2)}
                 </p>
               </div>
-              <button id="cardbtn" className="checkoutbtn" type="button">
+              <button
+                id="cardbtn"
+                className="checkoutbtn"
+                type="button"
+                onClick={() => {
+                  setShowCardCheck(true);
+                }}
+              >
                 Check out with card <i class="fa-solid fa-credit-card"></i>
               </button>
 

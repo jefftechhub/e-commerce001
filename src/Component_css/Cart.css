@@ -140,19 +140,99 @@ input[type="number"]::-webkit-outer-spin-button {
   z-index: 1;
 }
 
+/* card check out  */
+
 #formPayment {
   background-color: var(--mainColor);
   padding: 30px;
   margin: 40px;
 }
 
+#formPayment input {
+  display: block;
+  border: 2px solid var(--secondColor);
+  width: 400px;
+  padding: 15px 20px;
+  margin: 10px 0;
+  transition: 0s;
+  border-radius: 4px;
+}
+
+#formPayment input[type="number"] {
+  font-size: 1.2rem;
+  padding: 10px 20px;
+}
+
+#formPayment input:focus {
+  border: 2px solid var(--fourthColor);
+  outline: none;
+}
+
+#formPayment input::placeholder {
+  font-size: 1rem;
+}
+
+#formPayment input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+#formPayment select {
+  transition: 0s;
+  display: block;
+  width: 400px;
+  padding: 15px 20px;
+  margin: 10px 0;
+  border: 2px solid var(--secondColor);
+  border-radius: 4px;
+}
+
+#formPayment select:focus {
+  border: 2px solid var(--fourthColor);
+  outline: none;
+  font-size: 1rem;
+  text-transform: capitalize;
+}
+
+#formPayment option {
+  font-size: 1.2rem;
+  text-transform: capitalize;
+}
+
+.cvv {
+  position: relative;
+}
+
+.cvv img {
+  position: absolute;
+  height: 60%;
+  width: auto;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 10px;
+}
+
+.expiry {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.expiry input {
+  width: 195px !important;
+}
+
 #submit {
-  padding: 8px 20px;
+  display: block;
+  width: 100%;
+  padding: 15px 20px;
   border: none;
   color: var(--mainColor);
   text-transform: capitalize;
   background-color: var(--fourthColor);
-  margin-top: 10px;
+  margin-top: 20px;
+  border-radius: 5px;
 }
 
 .totalextras {
@@ -181,6 +261,10 @@ input[type="number"]::-webkit-outer-spin-button {
 
 .cartWrapper a:hover {
   text-decoration: underline;
+}
+
+#continueLink {
+  color: darkblue;
 }
 
 .emtyCart {
@@ -239,6 +323,19 @@ input[type="number"]::-webkit-outer-spin-button {
   justify-content: end;
 }
 
+.empty {
+  border: 2px solid red !important;
+}
+
+.cardNumber p {
+  color: red;
+  font-size: 0.9rem;
+}
+
+.cardNumber p i {
+  padding-right: 10px;
+}
+
 @media (max-width: 1020px) {
   .cardQuantity {
     column-gap: 10px;
@@ -268,12 +365,18 @@ input[type="number"]::-webkit-outer-spin-button {
     width: 30px;
   }
 
+  .checkoutbtn {
+    padding: 15px;
+    font-size: 1rem;
+  }
+
   .checkoutbtn i {
     padding: 0 10px;
   }
 
   #cardbtn {
-    padding: 10px 0;
+    padding: 15px;
+    font-size: 1rem;
   }
 
   #formPayment {
@@ -281,8 +384,46 @@ input[type="number"]::-webkit-outer-spin-button {
     margin-bottom: 0;
   }
 
+  #formPayment input {
+    width: 100%;
+    padding: 10px 20px;
+  }
+
+  #formPayment input[type="number"] {
+    font-size: 1.1rem;
+    padding: 8px 20px;
+  }
+
+  #formPayment input::placeholder {
+    font-size: 0.9rem;
+  }
+
+  #formPayment select {
+    width: 100%;
+    padding: 10px 20px;
+    font-size: 0.9rem;
+  }
+
+  #formPayment option {
+    font-size: 1.2rem;
+    text-transform: capitalize;
+  }
+
+  .expiry input {
+    width: 49% !important;
+  }
+
+  .cvv {
+    width: 49%;
+  }
+
+  .cvv input {
+    width: 100% !important;
+  }
+
   #submit {
-    padding: 5px 15px;
+    padding: 15px;
+    font-size: 1rem;
   }
 }
 
@@ -306,10 +447,6 @@ input[type="number"]::-webkit-outer-spin-button {
 
   .checkoutbtn i {
     padding: 0 10px;
-  }
-
-  #cardbtn {
-    padding: 10px 0;
   }
 
   .cart {

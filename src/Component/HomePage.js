@@ -31,13 +31,13 @@ export const Enticement = () => {
       </Link>
       <Link to="collection/kitchen">
         <div>
-          <img src="/icons/livingroom.png" />
+          <img src="/icons/kitchen.png" />
           <p>KITCHEN</p>
         </div>
       </Link>
       <Link to="collection/bedroom">
         <div>
-          <img src="/icons/livingroom.png" />
+          <img src="/icons/bedroom.png" />
           <p>BEDROOM</p>
         </div>
       </Link>
