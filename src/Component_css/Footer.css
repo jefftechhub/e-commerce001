@@ -62,8 +62,8 @@
 
 .info input {
   width: 400px;
-  font-size: 1.2rem;
-  padding: 5px 10px;
+  font-size: 1rem;
+  padding: 10px 10px;
   background-color: transparent;
   border: 1px solid var(--secondColor);
   color: var(--mainColor);
@@ -75,7 +75,7 @@
 
 .info input::placeholder {
   text-transform: capitalize;
-  font-size: 1rem;
+  font-size: 0.8rem;
   color: var(--secondColor);
 }
 
@@ -104,6 +104,23 @@
   gap: 5px;
   color: var(--mainColor);
   font-size: 1.7rem;
+}
+
+.alertErr {
+  color: red !important;
+}
+
+.alertSucc {
+  color: var(--fourthColor) !important;
+}
+
+.alert i {
+  padding-right: 15px;
+}
+
+.alert {
+  font-size: 0.9rem !important;
+  padding: 10px 0;
 }
 
 @media (max-width: 500px) {

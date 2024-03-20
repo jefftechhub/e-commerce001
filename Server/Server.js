@@ -14,7 +14,13 @@ const jwt = require("jsonwebtoken");
 const { PAYPAL_CLIENT_ID, PAYPAL_CLIENT_SECRET } = process.env;
 const base = "https://api-m.sandbox.paypal.com";
 
-const { Users, Products, Message, RunningOrders } = require("./mongoose");
+const {
+  Users,
+  Products,
+  Message,
+  RunningOrders,
+  NewslettersEmail,
+} = require("./mongoose");
 const { log } = require("console");
 mongoose.connect(process.env.MONGO_URL);
 
@@ -29,6 +35,28 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(express.static(path.join(__dirname, "build")));
+
+// posting newsletters
+
+app.post("/api/newsletters", async (req, res) => {
+  try {
+    const email = await NewslettersEmail.findOne({ email: req.body.email });
+
+    if (!email) {
+      await NewslettersEmail.create(req.body);
+      return res.status(200).json({ success: true, message: "Sent" });
+    } else {
+      return res.json({
+        success: false,
+        message: "Email address had already been submit",
+      });
+    }
+  } catch (error) {
+    return res
+      .status(500)
+      .json({ success: false, message: "Internal server error" });
+  }
+});
 
 // post running orders
 

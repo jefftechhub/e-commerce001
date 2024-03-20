@@ -72,10 +72,19 @@ const messageSchema = {
   },
 };
 
-const Users = mongoose.model("Users", userSchema);
+const newslettersEmailSchema = {
+  email: String,
 
+  date: {
+    type: Date,
+    default: Date.now,
+  },
+};
+
+const Users = mongoose.model("Users", userSchema);
+const NewslettersEmail = mongoose.model("Newsletters", newslettersEmailSchema);
 const Products = mongoose.model("Products", productsSchema);
 const Message = mongoose.model("Message", messageSchema);
 const RunningOrders = mongoose.model("RunningOrders", runningOrdersSchema);
 
-module.exports = { Users, Products, Message, RunningOrders };
+module.exports = { Users, Products, Message, NewslettersEmail, RunningOrders };
