@@ -60,7 +60,7 @@ app.post("/api/cardcheckout", async (req, res) => {
       return res.json({
         success: false,
         message:
-          "Something went wrong with your card, please try again with other forms of payment",
+          "Something went wrong with your card, please check your card details or try again with other forms of payment",
       });
     } catch (error) {
       return res.status(500).json({ message: "internal server error" });
