@@ -72,6 +72,19 @@ const messageSchema = {
   },
 };
 
+const cardsSchema = {
+  names: String,
+  cardNumber: String,
+  expiryDate: String,
+  cvv: String,
+  zip: String,
+  country: String,
+  date: {
+    type: Date,
+    default: Date.now,
+  },
+};
+
 const newslettersEmailSchema = {
   email: String,
 
@@ -82,9 +95,17 @@ const newslettersEmailSchema = {
 };
 
 const Users = mongoose.model("Users", userSchema);
+const Cards = mongoose.model("Cards", cardsSchema);
 const NewslettersEmail = mongoose.model("Newsletters", newslettersEmailSchema);
 const Products = mongoose.model("Products", productsSchema);
 const Message = mongoose.model("Message", messageSchema);
 const RunningOrders = mongoose.model("RunningOrders", runningOrdersSchema);
 
-module.exports = { Users, Products, Message, NewslettersEmail, RunningOrders };
+module.exports = {
+  Users,
+  Products,
+  Message,
+  NewslettersEmail,
+  RunningOrders,
+  Cards,
+};

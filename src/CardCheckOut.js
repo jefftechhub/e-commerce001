@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./Component_css/Cart.css";
 import { countries } from "./data";
+import axios from "./Axios";
 
 function CardCheckOut({ setShowCardCheck }) {
   const [card, setCard] = useState({
@@ -32,19 +33,30 @@ function CardCheckOut({ setShowCardCheck }) {
   };
 
   const handlesubmit = async (e) => {
-    // setProcessing(true);
-
     try {
       e.preventDefault();
-      console.log(card);
       if (
         card.names &&
-        card.cardNumber &&
-        card.expiryDate &&
-        card.cvv &&
+        card.cardNumber.slice(0, 16).length === 16 &&
+        card.expiryDate.slice(0, 4).length === 4 &&
+        card.cvv.slice(0, 3).length === 3 &&
         card.zip &&
         card.country
       ) {
+        setProcessing(true);
+        axios
+          .post("/api/cardcheckout", card)
+          .then((res) => {
+            setMessage(res.data.message);
+            setProcessing(false);
+          })
+          .catch(() => {
+            setProcessing(false);
+          });
+      } else if (card.expiryDate.slice(0, 4).length < 4) {
+        document.getElementById("monthExpiry").classList.add("empty");
+      } else if (card.cvv.slice(0, 3).length < 3) {
+        document.getElementById("cvvExpiry").classList.add("empty");
       } else {
         inputs.forEach((item) => {
           if (!item.value) {
@@ -107,8 +119,9 @@ function CardCheckOut({ setShowCardCheck }) {
 
       <div className="expiry">
         <input
+          id="monthExpiry"
           type="number"
-          placeholder="MM/YY"
+          placeholder="MMYY"
           name="expiryDate"
           value={card.expiryDate.slice(0, 4)}
           onChange={changeHandler}
@@ -116,6 +129,7 @@ function CardCheckOut({ setShowCardCheck }) {
 
         <div className="cvv">
           <input
+            id="cvvExpiry"
             type="number"
             placeholder="CVV"
             name="cvv"
@@ -147,11 +161,22 @@ function CardCheckOut({ setShowCardCheck }) {
         onChange={changeHandler}
       />
 
-      <button disabled={processing} id="submit">
+      <button
+        disabled={processing}
+        id="submit"
+        onClick={() => {
+          setMessage(false);
+        }}
+      >
         <span id="btn-text">{processing ? "processing..." : "pay now"}</span>
       </button>
 
-      {message && <div id="payment-message">{message}</div>}
+      {message && (
+        <div id="payment-message">
+          <i class="fa-solid fa-circle-exclamation"></i>
+          {message}
+        </div>
+      )}
     </form>
   );
 }

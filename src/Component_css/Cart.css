@@ -186,13 +186,13 @@ input[type="number"]::-webkit-outer-spin-button {
   margin: 10px 0;
   border: 2px solid var(--secondColor);
   border-radius: 4px;
+  text-transform: capitalize;
 }
 
 #formPayment select:focus {
   border: 2px solid var(--fourthColor);
   outline: none;
   font-size: 1rem;
-  text-transform: capitalize;
 }
 
 #formPayment option {
@@ -233,6 +233,16 @@ input[type="number"]::-webkit-outer-spin-button {
   background-color: var(--fourthColor);
   margin-top: 20px;
   border-radius: 5px;
+}
+
+#payment-message {
+  color: red;
+  font-size: 0.9rem;
+  margin: 10px 0;
+}
+
+#payment-message i {
+  padding-right: 10px;
 }
 
 .totalextras {

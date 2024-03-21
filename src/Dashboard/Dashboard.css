@@ -376,7 +376,7 @@
 
 .imagesContainer div:first-child img {
   width: 100%;
-  object-fit: cover;
+  object-fit: contain;
   height: 100%;
   margin: 0;
 }
@@ -795,5 +795,9 @@
 
   .addproducts form h2 {
     font-size: 1.2rem;
+  }
+
+  .imageDiv {
+    height: 30vh !important;
   }
 }
