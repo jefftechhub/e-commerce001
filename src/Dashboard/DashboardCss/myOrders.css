@@ -1,0 +1,29 @@
+.order_container {
+  width: calc(100vw - 350px);
+  position: relative;
+  min-height: 100vh;
+  border-left: 2px solid var(--secondColor);
+  z-index: -10;
+}
+
+.emptyOrders {
+  display: grid;
+  grid-template-columns: repeat(1, 100%);
+  justify-items: center;
+  padding: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.emptyOrders img {
+  width: auto;
+  height: 60%;
+  object-fit: cover;
+}
+
+.emptyOrders p {
+  font-size: 1.2rem;
+  font-weight: 700;
+}

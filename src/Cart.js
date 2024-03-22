@@ -210,6 +210,7 @@ function Cart({ cart, setCart, setShow, setLogin }) {
                 setCart={setCart}
                 setShowThanks={setShowThanks}
                 idUSER={userID}
+                totalCost={totalCost}
               />
 
               <button className="checkoutbtn" type="button">

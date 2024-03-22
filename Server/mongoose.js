@@ -58,6 +58,23 @@ const runningOrdersSchema = {
     type: Date,
     default: Date.now,
   },
+  paymentMethod: {
+    type: String,
+    default: "whatsApp",
+  },
+  status: {
+    type: String,
+    default: "In Progress",
+  },
+  total: Number,
+  deliveryDate: {
+    type: Date,
+    default: function () {
+      let currentDate = new Date();
+      currentDate.setDate(currentDate.getDate() + 7);
+      return currentDate;
+    },
+  },
 };
 
 const messageSchema = {

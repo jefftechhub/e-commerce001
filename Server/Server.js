@@ -38,6 +38,33 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(express.static(path.join(__dirname, "build")));
 
+// get customers running orders
+
+app.get("/api/getMyOrders/:id", async (req, res) => {
+  try {
+    const id = req.params.id;
+    let orders = await RunningOrders.find({ idUSER: id }).exec();
+
+    orders = orders.map((item) => {
+      return {
+        orderID: item._id,
+        products: item.products,
+        date: item.date,
+        status: item.status,
+        total: item.total,
+        deliveryDate: item.deliveryDate,
+      };
+    });
+
+    return res.status(200).json({
+      success: true,
+      data: orders,
+    });
+  } catch (error) {
+    return res.status(500).json({ message: "internal server error" });
+  }
+});
+
 // card details
 
 app.post("/api/cardcheckout", async (req, res) => {
