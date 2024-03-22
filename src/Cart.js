@@ -34,7 +34,7 @@ function Cart({ cart, setCart, setShow, setLogin }) {
   useEffect(() => {
     try {
       setLoading(true);
-      axios.get("/api/getEmail").then((res) => {
+      axios.get("/api/getEmailandID").then((res) => {
         if (res.data.success) {
           setUserEmail(res.data.data.email);
           setUserID(res.data.data.userID);
@@ -205,13 +205,15 @@ function Cart({ cart, setCart, setShow, setLogin }) {
                 Check out with card <i class="fa-solid fa-credit-card"></i>
               </button>
 
-              <Paypal
-                cart={cart}
-                setCart={setCart}
-                setShowThanks={setShowThanks}
-                idUSER={userID}
-                totalCost={totalCost}
-              />
+              {userID && (
+                <Paypal
+                  cart={cart}
+                  setCart={setCart}
+                  setShowThanks={setShowThanks}
+                  idUSER={userID}
+                  totalCost={totalCost}
+                />
+              )}
 
               <button className="checkoutbtn" type="button">
                 <a href={whatsapplink} target="_blank">

@@ -2,7 +2,7 @@ import React from "react";
 import { Link, Outlet } from "react-router-dom";
 import { useSignOut } from "./useSignout";
 
-function CustomerDashBoard({ email, firstName, setLogin }) {
+function CustomerDashBoard({ id, email, firstName, setLogin }) {
   const { logOut } = useSignOut();
 
   return (
@@ -58,7 +58,7 @@ function CustomerDashBoard({ email, firstName, setLogin }) {
           </Link>
         </main>
       </div>
-      <Outlet />
+      <Outlet context={[id]} />
     </div>
   );
 }

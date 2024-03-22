@@ -3,7 +3,6 @@
   position: relative;
   min-height: 100vh;
   border-left: 2px solid var(--secondColor);
-  z-index: -10;
 }
 
 .emptyOrders {
@@ -26,4 +25,516 @@
 .emptyOrders p {
   font-size: 1.2rem;
   font-weight: 700;
+}
+
+.orders {
+  padding: 30px 50px;
+  background-color: var(--secondColor);
+  min-height: 100vh;
+}
+
+.order_container a {
+  display: none;
+}
+
+.orders #header {
+  padding: 30px 0;
+  font-size: 2rem;
+}
+
+.orders #header i {
+  padding-right: 15px;
+}
+
+.orders #subheading {
+  font-size: 1.3rem;
+  font-weight: 400;
+  margin-bottom: 70px;
+  position: relative;
+}
+
+.orders #subheading::after {
+  content: "";
+  width: 60px;
+  position: absolute;
+  height: 0.3rem;
+  background-color: var(--fourthColor);
+  bottom: -70%;
+  left: 0;
+}
+
+.singleOrderSummary {
+  width: 80%;
+  margin: 20px 0;
+}
+
+.singleOrderSummary:nth-child(odd) {
+  background-color: var(--mainColor);
+}
+
+.singleOrderSummary div:first-child {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 30px;
+}
+
+.singleOrderSummary div:first-child:hover {
+  background-color: #e5e5e5;
+}
+
+.singleOrderSummary div:first-child h2 {
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+.singleOrderSummary button {
+  padding: 0;
+  border: none;
+  font-size: 0.9rem;
+  border-bottom: 1px solid var(--fourthColor);
+  background-color: transparent;
+}
+
+.singleOrderSummary div:last-child {
+  width: 100%;
+  position: relative;
+  height: 4px;
+  background-color: var(--fifthColor);
+}
+
+.singleOrderSummary div:last-child p {
+  width: 50px;
+  height: 100%;
+  border-radius: 50%;
+  background-color: var(--fourthColor);
+  animation: runningOrder 4s infinite linear;
+  position: absolute;
+}
+
+@keyframes runningOrder {
+  0% {
+    left: 0%;
+  }
+
+  100% {
+    left: calc(100% - 50px);
+  }
+}
+
+.singleContainer {
+  background-color: rgba(0, 0, 0, 0.7);
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  z-index: 100;
+  position: absolute;
+}
+
+.singleOrder {
+  background-color: var(--mainColor);
+  padding: 30px 50px;
+  border-radius: 5px;
+}
+
+.singleOrder header {
+  padding: 20px 0;
+}
+
+.singleOrder header h1 {
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  margin: 10px 0;
+}
+
+.singleOrder header h2 {
+  font-size: 1rem;
+  margin: 10px 0;
+}
+
+.singleOrder header h2 span {
+  background-color: var(--fourthColor);
+  color: var(--mainColor);
+  padding: 3px 10px;
+  border-radius: 2px;
+  font-size: 0.8rem;
+}
+
+.singleOrder header div h2 {
+  font-size: 0.8rem;
+  color: #8a8787;
+  padding-right: 10px;
+}
+
+.singleOrder header div h2:last-child {
+  color: var(--fourthColor);
+  border-left: 2px solid #8a8787;
+  padding-left: 10px;
+}
+
+.singleOrder header div h2:last-child i {
+  padding-right: 10px;
+}
+
+.singleOrder header div {
+  display: flex;
+}
+
+.singleOrder main {
+  padding: 20px 0;
+  border: 2px solid var(--secondColor);
+  border-left: none;
+  border-right: none;
+  width: 550px;
+}
+
+.singleOrder main div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px 0;
+}
+
+.singleOrder main div div:first-child img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border: 1px solid var(--secondColor);
+  border-radius: 5px;
+}
+
+.singleOrder main div div:first-child h3 {
+  font-size: 0.9rem;
+  font-weight: 400;
+  padding-top: 10px;
+}
+
+.singleOrder main div div:first-child {
+  display: flex;
+  column-gap: 10px;
+  align-items: start;
+}
+
+.singleOrder main div div:last-child {
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  row-gap: 5px;
+}
+
+.singleOrder main div div:last-child h4 {
+  font-size: 1.1rem;
+}
+
+.singleOrder main div div:last-child p {
+  font-size: 0.9rem;
+  color: #8a8787;
+}
+
+.deliveryEnd {
+  padding: 20px 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+.deliveryEnd div:first-child h3 {
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.deliveryEnd div:first-child h4 {
+  text-transform: capitalize;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.deliveryEnd div:last-child h2 {
+  font-size: 1.2rem;
+  text-transform: uppercase;
+}
+
+.deliveryEnd div:last-child h3 {
+  text-transform: capitalize;
+  font-size: 1rem;
+  font-weight: 500;
+  margin: 10px 0;
+}
+
+.deliveryEnd div:last-child p:last-child {
+  font-weight: 700;
+  margin-top: 5px;
+}
+
+.ordersloadingAnimationContainer {
+  background-color: var(--mainColor);
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* tablet */
+
+@media (max-width: 1000px) {
+  .order_container {
+    width: calc(100vw - 250px);
+    border: none;
+  }
+
+  .emptyOrders {
+    z-index: -100;
+  }
+
+  .emptyOrders img {
+    height: 30%;
+  }
+
+  .orders {
+    padding: 30px 20px;
+  }
+
+  .order_container a {
+    display: none;
+  }
+
+  .orders #header {
+    padding: 30px 0;
+    font-size: 1.6rem;
+  }
+
+  .orders #header i {
+    padding-right: 10px;
+  }
+
+  .orders #subheading {
+    font-size: 1.2rem;
+  }
+
+  .orders #subheading::after {
+    width: 50px;
+  }
+
+  .singleOrderSummary {
+    width: 100%;
+  }
+
+  .singleOrderSummary div:first-child {
+    padding: 20px;
+  }
+
+  .singleOrderSummary div:first-child h2 {
+    font-size: 0.7rem;
+  }
+
+  .singleOrder {
+    padding: 30px 20px;
+    width: 90%;
+  }
+
+  .singleOrder header h1 {
+    font-size: 1rem;
+  }
+
+  .singleOrder header div h2 {
+    font-size: 0.8rem;
+    color: #8a8787;
+    padding-right: 0;
+  }
+
+  .singleOrder header div h2:last-child {
+    padding-left: 0;
+    border: none;
+  }
+
+  .singleOrder header div h2:last-child i {
+    padding-right: 10px;
+  }
+
+  .singleOrder header div {
+    flex-direction: column;
+  }
+
+  .singleOrder main {
+    width: 100%;
+  }
+
+  .singleOrder main div div:first-child h3 {
+    font-size: 0.8rem;
+  }
+
+  .singleOrder main div {
+    align-items: start;
+  }
+
+  .singleOrder main div div:last-child h4 {
+    font-size: 1rem;
+  }
+
+  .deliveryEnd div:first-child h3 {
+    font-size: 1.1rem;
+  }
+
+  .deliveryEnd div:last-child h2 {
+    font-size: 1.1rem;
+  }
+}
+
+/* phones   */
+
+@media (max-width: 500px) {
+  .order_container {
+    width: calc(100vw);
+    border-left: none;
+  }
+
+  .emptyOrders {
+    display: grid;
+    grid-template-columns: repeat(1, 100%);
+    justify-items: center;
+    align-items: center;
+    padding: 20px;
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--mainColor);
+  }
+
+  .emptyOrders img {
+    width: 100vw;
+    height: 60%;
+    object-fit: contain;
+  }
+
+  .emptyOrders p {
+    font-size: 1rem;
+  }
+
+  .orders {
+    padding: 30px 20px;
+    min-height: 100vh;
+  }
+
+  .order_container a {
+    display: block;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-size: 1.3rem;
+    color: var(--thirdColor);
+    padding: 5px 0;
+  }
+
+  .orders #header {
+    padding: 10px 0;
+    font-size: 1.3rem;
+    margin-top: 30px;
+  }
+
+  .orders #header i {
+    padding-right: 10px;
+  }
+
+  .orders #subheading {
+    font-size: 1.1rem;
+    margin: 20px 0;
+    margin-bottom: 40px;
+    position: relative;
+  }
+
+  .orders #subheading::after {
+    width: 40px;
+    height: 0.2rem;
+  }
+
+  .singleOrderSummary {
+    width: 100%;
+    margin: 20px 0;
+  }
+
+  .singleOrderSummary div:first-child {
+    padding: 10px;
+  }
+
+  #noPrdoducts {
+    display: none;
+  }
+
+  .singleOrderSummary div:first-child h2 {
+    font-size: 0.8rem;
+  }
+
+  .singleOrderSummary div:last-child p {
+    animation: runningOrder 3s infinite linear;
+  }
+
+  .singleContainer {
+    width: 100%;
+    top: 0;
+    left: 0;
+    display: block;
+  }
+
+  .singleOrder {
+    padding: 40px 20px;
+    border-radius: 5px;
+    width: 100%;
+  }
+
+  .singleOrder header h1 {
+    font-size: 1.1rem;
+  }
+
+  .singleOrder header h2 {
+    font-size: 0.9rem;
+  }
+
+  .singleOrder header div h2:last-child {
+    color: var(--fourthColor);
+    border-left: none;
+    padding-left: 0;
+  }
+
+  .singleOrder header div {
+    flex-direction: column;
+  }
+
+  .singleOrder main {
+    width: 100%;
+  }
+
+  .singleOrder main div {
+    align-items: start;
+  }
+
+  .singleOrder main div div:first-child img {
+    width: 80px;
+    height: 70px;
+    object-fit: cover;
+  }
+
+  .singleOrder main div div:first-child h3 {
+    font-size: 0.8rem;
+  }
+
+  .singleOrder main div div:last-child h4 {
+    font-size: 1rem;
+  }
+
+  .deliveryEnd div:first-child h3 {
+    font-size: 1.1rem;
+  }
+
+  .deliveryEnd div:last-child h2 {
+    font-size: 1.1rem;
+  }
+
+  .deliveryEnd div:last-child h3 {
+    text-transform: capitalize;
+    font-size: 0.9rem;
+  }
 }

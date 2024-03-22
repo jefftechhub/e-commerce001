@@ -53,6 +53,7 @@ app.get("/api/getMyOrders/:id", async (req, res) => {
         status: item.status,
         total: item.total,
         deliveryDate: item.deliveryDate,
+        paymentMethod: item.paymentMethod,
       };
     });
 
@@ -282,7 +283,7 @@ const verifyUser = (req, res, next) => {
 
 // get users email at check out
 
-app.get("/api/getEmail", verifyUser, async (req, res) => {
+app.get("/api/getEmailandID", verifyUser, async (req, res) => {
   try {
     const findUser = await Users.findOne({ _id: req.body.id });
     return res.status(200).json({
