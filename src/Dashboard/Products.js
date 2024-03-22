@@ -14,8 +14,6 @@ function Products() {
     }
   }, [data]);
 
-  console.log("called");
-
   return (
     <React.Fragment>
       <div className="dashboardContent">

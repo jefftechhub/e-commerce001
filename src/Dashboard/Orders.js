@@ -148,6 +148,9 @@ const SingleOrderComp = ({
 }) => {
   const orderedDate = stringDate(date);
   const dateDelivered = stringDate(deliveryDate);
+  products.map((item) => {
+    return console.log(item.image);
+  });
 
   return (
     <div className="singleOrder">
@@ -175,7 +178,7 @@ const SingleOrderComp = ({
           return (
             <div key={item.id}>
               <div>
-                <img src={item.image} />
+                <img src={`/${item.image}`} />
                 <h3>{item.title}</h3>
               </div>
               <div>
