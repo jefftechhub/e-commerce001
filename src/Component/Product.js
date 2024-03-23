@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 
 function ProductComp(props) {
-  const { oldPrice, price, title, image, id, addtocart } = props;
+  const { oldPrice, price, title, image, id, addtocart, addingToWishlist } =
+    props;
   let [value, setValue] = useState(1);
 
   const percentage = Math.floor(

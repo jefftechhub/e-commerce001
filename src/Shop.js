@@ -3,7 +3,7 @@ import ShopPage from "./Component/ShopPage";
 import "./Component_css/Shop.css";
 import { useGet } from "./useGet";
 
-function Shop({ addtocart }) {
+function Shop({ addtocart, addingToWishlist }) {
   const [livingRoom, setLivingRoom] = useState([]);
   const [bedRoom, setBedRoom] = useState([]);
   const [bestDeals, setBestDeals] = useState([]);
@@ -38,30 +38,35 @@ function Shop({ addtocart }) {
             collection={livingRoom}
             heading={"livingroom"}
             addtocart={addtocart}
+            addingToWishlist={addingToWishlist}
           />
 
           <ShopPage
             collection={bedRoom}
             heading={"bedroom"}
             addtocart={addtocart}
+            addingToWishlist={addingToWishlist}
           />
 
           <ShopPage
             collection={recommended}
             heading={"recommended for you"}
             addtocart={addtocart}
+            addingToWishlist={addingToWishlist}
           />
 
           <ShopPage
             collection={kitchen}
             heading={"kitchen"}
             addtocart={addtocart}
+            addingToWishlist={addingToWishlist}
           />
 
           <ShopPage
             collection={bestDeals}
             heading={"best deals"}
             addtocart={addtocart}
+            addingToWishlist={addingToWishlist}
           />
         </div>
       )}

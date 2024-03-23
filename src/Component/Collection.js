@@ -2,7 +2,16 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 export const CollectionComp = (props) => {
-  const { oldPrice, price, image, name, id, title, addtocart } = props;
+  const {
+    oldPrice,
+    price,
+    image,
+    name,
+    id,
+    title,
+    addtocart,
+    addingToWishlist,
+  } = props;
 
   return (
     <div className="singlecollection">
@@ -11,7 +20,12 @@ export const CollectionComp = (props) => {
           -{Math.floor(((oldPrice - price) / 100) * 100)}%
         </p>
       )}
-      <i class="fa-regular fa-heart"></i>
+      <i
+        class="fa-regular fa-heart"
+        onClick={() => {
+          addingToWishlist(id, title, image[0], price);
+        }}
+      ></i>
       <Link to={`/product/${id}`}>
         {image && <img src={`/${image[0]}`} />}
 

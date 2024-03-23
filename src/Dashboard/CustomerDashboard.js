@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link, Outlet } from "react-router-dom";
 import { useSignOut } from "./useSignout";
 
@@ -33,9 +33,9 @@ function CustomerDashBoard({ id, email, firstName, setLogin }) {
             </div>
             <i class="fa-solid fa-greater-than"></i>
           </Link>
-          <Link to="savedItems">
+          <Link to="wishlist">
             <div>
-              <i class="fa-solid fa-heart"></i> <p>saved items</p>
+              <i class="fa-solid fa-heart"></i> <p>Wishlist</p>
             </div>
             <i class="fa-solid fa-greater-than"></i>
           </Link>

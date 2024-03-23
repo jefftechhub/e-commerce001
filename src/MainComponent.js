@@ -3,20 +3,30 @@ import Footer from "./Footer";
 import NavBar from "./NavBar";
 import { Outlet } from "react-router-dom";
 import AddtocartComp from "./AddtocartComp";
+import AddtoWishlistComp from "./AddtoWishlistComp";
 
 function MainComponent({
   login,
   cart,
   addtocartMssg,
-  setShowAddecart,
   showaddedcart,
+  addtowishlistMssg,
+  showaddedwishlist,
+  setShowAddedcart,
+  setShowAddewishlist,
 }) {
   return (
     <React.Fragment>
       {showaddedcart && (
         <AddtocartComp
           addtocartMssg={addtocartMssg}
-          setShowAddecart={setShowAddecart}
+          setShowAddedcart={setShowAddedcart}
+        />
+      )}
+      {showaddedwishlist && (
+        <AddtoWishlistComp
+          addtowishlistMssg={addtowishlistMssg}
+          setShowAddewishlist={setShowAddewishlist}
         />
       )}
 

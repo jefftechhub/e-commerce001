@@ -51,7 +51,15 @@ export const Enticement = () => {
   );
 };
 
-export const Products = ({ _id, oldPrice, price, image, title, addtocart }) => {
+export const Products = ({
+  _id,
+  oldPrice,
+  price,
+  image,
+  title,
+  addtocart,
+  addingToWishlist,
+}) => {
   const percentage = Math.floor(
     ((parseInt(oldPrice) - parseInt(price)) / parseInt(oldPrice)) * 100
   );
@@ -59,7 +67,12 @@ export const Products = ({ _id, oldPrice, price, image, title, addtocart }) => {
   return (
     <div class="singleProduct">
       {oldPrice && <p className="offer">-{percentage}%</p>}
-      <i class="fa-regular fa-heart"></i>
+      <i
+        class="fa-regular fa-heart"
+        onClick={() => {
+          addingToWishlist(_id, title, image[0], price);
+        }}
+      ></i>
       <i
         class="fa-solid fa-plus"
         onClick={() => {

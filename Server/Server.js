@@ -38,6 +38,19 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(express.static(path.join(__dirname, "build")));
 
+// get my vouchers
+
+app.get("/api/getMyVouchers/:id", async (req, res) => {
+  try {
+    return res.status(200).json({
+      success: true,
+      data: [],
+    });
+  } catch (error) {
+    return res.status(500).json({ message: "internal server error" });
+  }
+});
+
 // get customers running orders
 
 app.get("/api/getMyOrders/:id", async (req, res) => {

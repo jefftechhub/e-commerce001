@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 import "./Component_css/Product.css";
 import { useGet } from "./useGet";
 
-function Product({ addtocart }) {
+function Product({ addtocart, addingToWishlist }) {
   const [product, setProduct] = useState({});
   const { id } = useParams();
 
@@ -24,7 +24,11 @@ function Product({ addtocart }) {
         </div>
       ) : (
         <div className="product">
-          <ProductComp {...product} addtocart={addtocart} />
+          <ProductComp
+            {...product}
+            addtocart={addtocart}
+            addingToWishlist={addingToWishlist}
+          />
         </div>
       )}
     </React.Fragment>

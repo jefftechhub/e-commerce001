@@ -1,8 +1,8 @@
 import React from "react";
 
-function AddtocartComp({ addtocartMssg, setShowAddecart }) {
+function AddtocartComp({ addtocartMssg, setShowAddedcart }) {
   setTimeout(() => {
-    setShowAddecart(false);
+    setShowAddedcart(false);
   }, 2000);
 
   return (

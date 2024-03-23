@@ -9,7 +9,7 @@ import {
 import { useOffer, useFeatured, useTopProducts } from "./useGet";
 import "./Component_css/Homepage.css";
 
-function Home({ addtocart }) {
+function Home({ addtocart, addingToWishlist }) {
   const [offerProducts, setOfferProducts] = useState([]);
   const [featuredProduct, setFeaturedProduct] = useState({});
   const [topProducts, setTopProducts] = useState([]);
@@ -50,7 +50,13 @@ function Home({ addtocart }) {
             </header>
             <div class="products">
               {topProducts.map((item) => {
-                return <Products {...item} addtocart={addtocart} />;
+                return (
+                  <Products
+                    {...item}
+                    addtocart={addtocart}
+                    addingToWishlist={addingToWishlist}
+                  />
+                );
               })}
             </div>
           </div>

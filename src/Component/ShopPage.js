@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "../Component_css/Shop.css";
 
-function ShopComp({ collection, heading, addtocart }) {
+function ShopComp({ collection, heading, addtocart, addingToWishlist }) {
   return (
     <section>
       {collection.length > 0 && (
@@ -26,7 +26,17 @@ function ShopComp({ collection, heading, addtocart }) {
                       %
                     </p>
                   )}
-                  <i class="fa-regular fa-heart"></i>
+                  <i
+                    class="fa-regular fa-heart"
+                    onClick={() => {
+                      addingToWishlist(
+                        item.id,
+                        item.title,
+                        item.image[0],
+                        item.price
+                      );
+                    }}
+                  ></i>
                   <Link to={`/product/${item.id}`}>
                     {item.image && <img src={`/${item.image[0]}`} />}
 

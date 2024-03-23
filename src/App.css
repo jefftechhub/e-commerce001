@@ -158,7 +158,8 @@
 
 /* add to cart message  */
 
-.addtocartComp {
+.addtocartComp,
+.addtowishlistComp {
   position: fixed;
   background-color: var(--fourthColor);
   border: none;

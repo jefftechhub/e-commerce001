@@ -14,7 +14,7 @@ import FixedNotification from "./FixedNotification";
 import DashBoardNavBar from "./Dashboard/DashboardNavBar";
 import Orders from "./Dashboard/Orders";
 import AccountManagement from "./Dashboard/AccountManagement";
-import SavedItems from "./Dashboard/SavedItems";
+import Wishlist from "./Dashboard/Wishlist";
 import Vouchers from "./Dashboard/Vouchers";
 import Products from "./Dashboard/Products";
 import Cards from "./Dashboard/Cards";
@@ -28,11 +28,13 @@ import AboutUs from "./AboutUs";
 import Contactus from "./Contactus";
 
 function App() {
+  // add items to cart
+
   const [cart, setCart] = useState(
     JSON.parse(localStorage.getItem("cart")) || []
   );
   const [addtocartMssg, setaddtocartMssg] = useState("");
-  const [showaddedcart, setShowAddecart] = useState(false);
+  const [showaddedcart, setShowAddedcart] = useState(false);
   const [show, setShow] = useState(false);
   const [login, setLogin] = useState(true);
 
@@ -49,7 +51,7 @@ function App() {
 
     if (isPresent) {
       setaddtocartMssg("Already added to cart");
-      setShowAddecart(true);
+      setShowAddedcart(true);
       const updatedCart = cart.map((item) =>
         item.id === id ? { ...item, quantity: item.quantity + 1 } : item
       );
@@ -57,13 +59,46 @@ function App() {
     } else {
       setCart([...cart, product]);
       setaddtocartMssg("Added to cart");
-      setShowAddecart(true);
+      setShowAddedcart(true);
     }
   };
 
   useEffect(() => {
     localStorage.setItem("cart", JSON.stringify(cart));
   }, [cart]);
+
+  // add items to wish list
+
+  const [wishlist, setWishlist] = useState(
+    JSON.parse(localStorage.getItem("wishlist")) || []
+  );
+
+  const [addtowishlistMssg, setaddtowishlistMssg] = useState("");
+  const [showaddedwishlist, setShowAddewishlist] = useState(false);
+
+  const addingToWishlist = (id, title, image, price) => {
+    const product = { id, title, image, price };
+    let isPresent = false;
+
+    wishlist.forEach((item) => {
+      if (item.id === id) {
+        isPresent = true;
+      }
+    });
+
+    if (isPresent) {
+      setaddtowishlistMssg("Already added to wishlist");
+      setShowAddewishlist(true);
+    } else {
+      setWishlist([...wishlist, product]);
+      setaddtowishlistMssg("Added to wishlist");
+      setShowAddewishlist(true);
+    }
+  };
+
+  useEffect(() => {
+    localStorage.setItem("wishlist", JSON.stringify(wishlist));
+  }, [wishlist]);
 
   return (
     <React.Fragment>
@@ -80,12 +115,23 @@ function App() {
               setLogin={setLogin}
               cart={cart}
               addtocartMssg={addtocartMssg}
-              setShowAddecart={setShowAddecart}
               showaddedcart={showaddedcart}
+              setShowAddedcart={setShowAddedcart}
+              addtowishlistMssg={addtowishlistMssg}
+              showaddedwishlist={showaddedwishlist}
+              setShowAddewishlist={setShowAddewishlist}
             />
           }
         >
-          <Route index={true} element={<Home addtocart={addingToCart} />} />
+          <Route
+            index={true}
+            element={
+              <Home
+                addtocart={addingToCart}
+                addingToWishlist={addingToWishlist}
+              />
+            }
+          />
           <Route
             path="cart"
             element={
@@ -100,13 +146,31 @@ function App() {
           <Route path="completion" element={<Completion />} />
           <Route
             path="collection/:collection"
-            element={<Collections addtocart={addingToCart} />}
+            element={
+              <Collections
+                addtocart={addingToCart}
+                addingToWishlist={addingToWishlist}
+              />
+            }
           />
           <Route
             path="product/:id"
-            element={<Product addtocart={addingToCart} />}
+            element={
+              <Product
+                addtocart={addingToCart}
+                addingToWishlist={addingToWishlist}
+              />
+            }
           />
-          <Route path="shop" element={<Shop addtocart={addingToCart} />} />
+          <Route
+            path="shop"
+            element={
+              <Shop
+                addtocart={addingToCart}
+                addingToWishlist={addingToWishlist}
+              />
+            }
+          />
           <Route path="terms&conditions" element={<Terms_Conditions />} />
           <Route path="aboutus" element={<AboutUs />} />
           <Route path="contactus" element={<Contactus />} />
@@ -122,7 +186,7 @@ function App() {
           <Route path="orders" element={<Orders />} />
           <Route path="products" element={<Products />} />
           <Route path="accountManagement" element={<AccountManagement />} />
-          <Route path="savedItems" element={<SavedItems />} />
+          <Route path="wishlist" element={<Wishlist />} />
           <Route path="cards" element={<Cards />} />
           <Route path="vouchers" element={<Vouchers />} />
           <Route path="addproducts" element={<AddProducts />} />

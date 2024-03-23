@@ -5,7 +5,7 @@ import { useGet } from "./useGet";
 
 import "./Component_css/Collection.css";
 
-function Collections({ addtocart }) {
+function Collections({ addtocart, addingToWishlist }) {
   const { collection } = useParams();
   const [collections, setCollections] = useState([]);
   const [viewAlso, setViewAlso] = useState([]);
@@ -34,7 +34,13 @@ function Collections({ addtocart }) {
           <div className="collectionsContainer">
             <div className="colletionGrid">
               {collections.map((item) => {
-                return <CollectionComp {...item} addtocart={addtocart} />;
+                return (
+                  <CollectionComp
+                    {...item}
+                    addtocart={addtocart}
+                    addingToWishlist={addingToWishlist}
+                  />
+                );
               })}
             </div>
             <h2>View Also</h2>
