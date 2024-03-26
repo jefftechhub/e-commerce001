@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import LoginComp from "./Component/LoginComp";
 import "./Component_css/Login.css";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "./Axios";
 
 function Login({ setLogin }) {
+  sessionStorage.removeItem("otpSent");
+
   const navigate = useNavigate();
   const [userValues, setUserValues] = useState({
     email: "",
@@ -15,6 +17,9 @@ function Login({ setLogin }) {
   const [noteContent, setNoteContent] = useState("");
   const [errorNote, setErrorNote] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [verifyNote, setVerifyNote] = useState(false);
+  const [verifyNoteMssg, setVerifyNoteMssg] = useState("");
+  const [userID, setUserID] = useState("");
 
   const inputs = document.querySelectorAll("input");
 
@@ -59,11 +64,26 @@ function Login({ setLogin }) {
                 setLoading(false);
                 setLogin(true);
                 navigate("/");
-              } else {
-                setNoteContent(res.data.message);
+
+                return;
+              }
+
+              if (!res.data.success) {
                 setLoading(false);
+                setNoteContent(res.data.message);
                 setShowNote(true);
                 setErrorNote(true);
+
+                return;
+              }
+
+              if (!res.data.verify) {
+                setUserID(res.data.userID);
+                setVerifyNoteMssg(res.data.message);
+                setLoading(false);
+                setVerifyNote(true);
+
+                return;
               }
             })
             .catch((error) => {
@@ -95,16 +115,35 @@ function Login({ setLogin }) {
   };
 
   return (
-    <LoginComp
-      {...userValues}
-      loading={loading}
-      submitHandler={submitHandler}
-      changeHandler={changeHandler}
-      showNote={showNote}
-      setShowNote={setShowNote}
-      noteContent={noteContent}
-      errorNote={errorNote}
-    />
+    <>
+      {verifyNote && (
+        <div className="verifyNote">
+          <div>
+            <button
+              type="button"
+              onClick={() => {
+                setVerifyNote(false);
+              }}
+            >
+              not now
+            </button>
+            <p>{verifyNoteMssg}</p>
+
+            <Link to={`/verifyEmail/${userID}`}>ok</Link>
+          </div>
+        </div>
+      )}
+      <LoginComp
+        {...userValues}
+        loading={loading}
+        submitHandler={submitHandler}
+        changeHandler={changeHandler}
+        showNote={showNote}
+        setShowNote={setShowNote}
+        noteContent={noteContent}
+        errorNote={errorNote}
+      />
+    </>
   );
 }
 

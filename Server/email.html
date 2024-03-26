@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Email Verification</title>
+    <style>
+      /* Define styles */
+
+      * {
+        box-sizing: border-box;
+      }
+
+      .container p span {
+        font-size: 1rem;
+      }
+
+      .logo {
+        display: block;
+
+        margin: 20px 0;
+      }
+
+      .footer {
+        border-top: 1px solid #e5e5e5;
+        padding: 20px 0;
+      }
+    </style>
+  </head>
+  <body
+    style="
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+    "
+  >
+    <div style="width: 100%; padding: 20px 0">
+      <img
+        class="logo"
+        style="width: 60px; height: auto; object-fit: cover"
+        src="api/uploads/subLOGO.png"
+        alt="Logo"
+      />
+
+      <h2 style="font-size: 1.5rem; color: darkgreen">
+        Your verification code
+      </h2>
+      <p style="font-size: 0.8rem">Hello {{name}},</p>
+      <p style="font-size: 0.8rem; padding-bottom: 20px">
+        Your verification code is
+        <strong><span>{{verificationCode}}</span></strong> and will expire
+        within 10 minutes. For your security do not share it with anyone.
+      </p>
+      <div class="footer">
+        <p style="font-size: 0.7rem; color: #434343">
+          This email is sent by Argyle Comfy Furnitures. Please do not reply to
+          this email.
+        </p>
+        <p style="font-size: 0.6rem; color: #434343">
+          &copy; 2024 Argyle Comfy Furniture. All rights reserved.
+        </p>
+      </div>
+    </div>
+  </body>
+</html>

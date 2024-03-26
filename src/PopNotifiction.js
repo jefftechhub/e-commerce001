@@ -6,22 +6,19 @@ function PopNotifiction({ noteContent, setShowNote, errorNote }) {
   }, 4000);
 
   return (
-    <div className={`popNote ${errorNote ? "errorNote" : "success"}`}>
-      <p>
-        {errorNote ? (
-          <i class="fa-solid fa-exclamation"></i>
-        ) : (
-          <i class="fa-solid fa-check"></i>
-        )}
-
-        {noteContent}
-        <i
-          class="fa-solid fa-x"
-          onClick={() => {
-            setShowNote(false);
-          }}
-        ></i>
-      </p>
+    <div className={`popNotification ${errorNote ? "errorNote" : "success"}`}>
+      {/* {errorNote ? (
+        <i class="fa-solid fa-exclamation"></i>
+      ) : (
+        <i class="fa-solid fa-check"></i>
+      )} */}
+      <p>{noteContent}</p>
+      {/* <i
+        class="fa-solid fa-x"
+        onClick={() => {
+          setShowNote(false);
+        }}
+      ></i> */}
     </div>
   );
 }

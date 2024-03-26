@@ -22,7 +22,7 @@ const stringDate = (date) => {
   ];
 
   const month = getDate.getMonth();
-  const day = getDate.getDay();
+  const day = getDate.getDate();
   const year = getDate.getFullYear();
 
   return `${monthString[month]} ${day}, ${year}`;

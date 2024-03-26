@@ -1,11 +1,10 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import SignupComp from "./Component/SignupComp";
 import "./Component_css/Signup.css";
 import axios from "./Axios";
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 function Signup() {
-  const navigate = useNavigate();
   const [userValues, setUserValues] = useState({
     firstName: "",
     lastName: "",
@@ -17,8 +16,17 @@ function Signup() {
   const [noteContent, setNoteContent] = useState("");
   const [errorNote, setErrorNote] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [userID, setUserID] = useState(sessionStorage.getItem("userID") || "");
+  const [verificationNote, setverificationNote] = useState(
+    sessionStorage.getItem("verificationNote") || "false"
+  );
 
   const inputs = document.querySelectorAll("input");
+
+  useEffect(() => {
+    sessionStorage.setItem("verificationNote", verificationNote);
+    sessionStorage.setItem("userID", userID);
+  }, [userID, verificationNote]);
 
   const changeHandler = (e) => {
     const value = e.target.value;
@@ -76,13 +84,9 @@ function Signup() {
                     password: "",
                     confirmPassword: "",
                   });
-
-                  setNoteContent(res.data.message);
                   setLoading(false);
-                  setShowNote(true);
-                  setErrorNote(false);
-
-                  // navigate("/login");
+                  setUserID(res.data.id);
+                  setverificationNote("true");
                 } else {
                   setNoteContent(res.data.message);
                   setLoading(false);
@@ -128,17 +132,47 @@ function Signup() {
   };
 
   return (
-    <SignupComp
-      {...userValues}
-      loading={loading}
-      submitHandler={submitHandler}
-      changeHandler={changeHandler}
-      showNote={showNote}
-      setShowNote={setShowNote}
-      noteContent={noteContent}
-      errorNote={errorNote}
-    />
+    <>
+      {verificationNote === "true" && (
+        <VerificationNote
+          setverificationNote={setverificationNote}
+          userID={userID}
+        />
+      )}
+      <SignupComp
+        {...userValues}
+        loading={loading}
+        submitHandler={submitHandler}
+        changeHandler={changeHandler}
+        showNote={showNote}
+        setShowNote={setShowNote}
+        noteContent={noteContent}
+        errorNote={errorNote}
+      />
+    </>
   );
 }
+
+const VerificationNote = ({ userID, setverificationNote }) => {
+  return (
+    <div className="verifyNote">
+      <div>
+        <button
+          type="button"
+          onClick={() => {
+            setverificationNote(false);
+          }}
+        >
+          not now
+        </button>
+        <p>
+          Your registration was succesfully. Please verify your email address
+        </p>
+
+        {userID && <Link to={`/verifyEmail/${userID}`}>ok</Link>}
+      </div>
+    </div>
+  );
+};
 
 export default Signup;

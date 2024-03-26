@@ -10,11 +10,13 @@ const multer = require("multer");
 const path = require("path");
 const fs = require("fs");
 const jwt = require("jsonwebtoken");
+const nodemailer = require("nodemailer");
 
 const { PAYPAL_CLIENT_ID, PAYPAL_CLIENT_SECRET } = process.env;
 const base = "https://api-m.sandbox.paypal.com";
 
 const {
+  Otp,
   Cards,
   Users,
   Products,
@@ -22,8 +24,6 @@ const {
   RunningOrders,
   NewslettersEmail,
 } = require("./mongoose");
-const { log } = require("console");
-const internal = require("stream");
 mongoose.connect(process.env.MONGO_URL);
 
 app.use(
@@ -629,6 +629,135 @@ app.post("/api/contactus", async (req, res) => {
   }
 });
 
+// forgot password
+
+// verify email
+
+app.post("/api/verifyEmail", async (req, res) => {
+  try {
+    const user = await Users.findOne({ email: req.body.email });
+
+    if (!user) {
+      return res.json({ success: false, message: "user does not exist" });
+    } else {
+      return res.json({ success: true, userID: user._id });
+    }
+  } catch (error) {}
+});
+
+// nodemailer
+
+app.get("/api/sendOTP/:id", async (req, res) => {
+  try {
+    const id = req.params.id;
+
+    await Otp.deleteMany({ userID: id });
+
+    const user = await Users.findOne({ _id: id });
+
+    const transporter = nodemailer.createTransport({
+      host: "smtp.gmail.com",
+      port: 587,
+      secure: false,
+      auth: {
+        user: process.env.GMAIL_ACCOUNT,
+        pass: process.env.GMAIL_APP_PASS,
+      },
+    });
+
+    function capitalizeFirstLetter(string) {
+      return string.charAt(0).toUpperCase() + string.slice(1);
+    }
+
+    const name = capitalizeFirstLetter(user.lastName);
+
+    let htmlContent = fs.readFileSync(
+      path.join(__dirname, "email.html"),
+      "utf8"
+    );
+
+    htmlContent = htmlContent.replace("{{name}}", name);
+
+    function generate() {
+      return Math.floor(Math.random() * 9000 + 1000);
+    }
+
+    const otp = generate();
+
+    await Otp.create({ userID: user.id, otp });
+
+    htmlContent = htmlContent.replace("{{verificationCode}}", otp);
+
+    async function main() {
+      // send mail with defined transport object
+      const info = await transporter.sendMail({
+        from: `"Argyle Comfy Funiture" <${process.env.GMAIL_ACCOUNT}>`,
+        to: user.email,
+        subject: "Email Verification",
+        html: htmlContent,
+      });
+    }
+
+    main().catch(console.error);
+    return res
+      .status(200)
+      .json({ success: true, message: "Your Verification code was sent" });
+  } catch (error) {
+    return res.status(500).json({ message: "internal server error" });
+  }
+});
+
+// verify otp
+
+app.post("/api/verifyOtp", async (req, res) => {
+  const { otp, id } = req.body;
+
+  if (!otp || !id) {
+    return res.json({
+      success: false,
+      message: " please log in or sign up to continue ",
+    });
+  } else {
+    const otps = await Otp.find({ userID: id }).exec();
+
+    if (otps.length < 1) {
+      return res.json({
+        success: false,
+        message:
+          "Invalid verification code. Please log in or sign up to continue",
+      });
+    } else {
+      const item_stored = otps.find((item) => item.otp === otp);
+      if (item_stored) {
+        let expiry = new Date(item_stored.date).getTime() + 1000 * 60 * 10;
+
+        let hasExpired = expiry < Date.now();
+
+        if (!hasExpired) {
+          await Users.findOneAndUpdate({ _id: id }, { isVerified: true });
+
+          await Otp.deleteMany({ userID: id });
+
+          return res.json({
+            success: true,
+            message: "Your verification was successfull",
+          });
+        } else {
+          return res.json({
+            success: false,
+            message: "Verification code has expired",
+          });
+        }
+      } else {
+        return res.json({
+          success: false,
+          message: "Wrong verification code",
+        });
+      }
+    }
+  }
+});
+
 // sign up
 
 app.post("/api/signup", addDetails, async (req, res) => {
@@ -642,14 +771,43 @@ app.post("/api/signup", addDetails, async (req, res) => {
       req.body.password = hashedPassword;
 
       await Users.create(req.body);
-      res
-        .status(200)
-        .json({ success: true, message: "user added succesfully" });
+      const user = await Users.findOne({ email: req.body.email });
+
+      return res.status(200).json({
+        success: true,
+        message: "user added succesfully",
+        id: user._id,
+      });
     } else {
       res.status(200).json({ success: false, message: "email exist" });
     }
   } catch (error) {
     res.json({ success: false, message: "internal server error" });
+  }
+});
+
+// reset password
+
+app.post("/api/resetPassword", async (req, res) => {
+  try {
+    const { password, id } = req.body;
+
+    const user = await Users.findOne({ _id: id });
+
+    if (!user) {
+      return res.json({ success: false, message: "user does not exist" });
+    } else {
+      const salt = await bcrypt.genSalt(10);
+      const hashedPassword = await bcrypt.hash(password, salt);
+
+      await Users.findOneAndUpdate({ _id: id }, { password: hashedPassword });
+
+      return res
+        .status(200)
+        .json({ success: true, message: "Password successfully updated" });
+    }
+  } catch (error) {
+    return res.status(500).json({ message: "internal server error" });
   }
 });
 
@@ -670,7 +828,7 @@ app.post("/api/auth", async (req, res) => {
             .json({ success: false, message: "internal server error" });
         } else if (result) {
           // Passwords match
-          if (findUser.status) {
+          if (findUser.isVerified) {
             const accessToken = jwt.sign({ id: findUser._id }, "access-token", {
               expiresIn: "30days",
             });
@@ -696,9 +854,10 @@ app.post("/api/auth", async (req, res) => {
             return res.status(200).json({ login: true });
           } else {
             return res.status(200).json({
-              success: false,
-              message:
-                "this account is blocked, contact support for more  info",
+              success: true,
+              verify: false,
+              userID: findUser._id,
+              message: "verify your email address to continue",
             });
           }
         } else {

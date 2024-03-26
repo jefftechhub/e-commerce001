@@ -29,66 +29,85 @@ function LoginComp(props) {
 
   return (
     <div className="containerLogin">
-      <Link to="/" id="homeink">
-        home
-      </Link>
-      <form noValidate onSubmit={submitHandler}>
-        {showNote && (
-          <PopNotifiction
-            setShowNote={setShowNote}
-            noteContent={noteContent}
-            errorNote={errorNote}
-          />
-        )}
-
-        <input
-          type="email"
-          name="email"
-          placeholder="Email Address"
-          value={email}
-          onChange={changeHandler}
-          autocomplete="off"
-        />
-
-        <div className="input-container">
-          <input
-            id="password"
-            type="password"
-            name="password"
-            placeholder="password"
-            value={password}
-            onChange={changeHandler}
-            autocomplete="off"
-          />
-
-          {showPassword ? (
-            <i
-              class="fa-solid fa-eye-slash"
-              onClick={(e) => {
-                togglePasswordVisibility(e);
-                setShowPassword(false);
-              }}
-            ></i>
-          ) : (
-            <i
-              class="fa-solid fa-eye"
-              onClick={(e) => {
-                togglePasswordVisibility(e);
-                setShowPassword(true);
-              }}
-            ></i>
+      <nav>
+        <img src="/subLOGO.png" alt="logo" />
+      </nav>
+      <main>
+        <img src="/icons/login.png" />
+        <form noValidate onSubmit={submitHandler}>
+          {showNote && (
+            <PopNotifiction
+              setShowNote={setShowNote}
+              noteContent={noteContent}
+              errorNote={errorNote}
+            />
           )}
-        </div>
+          <h1>Log in</h1>
+          <h2>Glad to see you again!</h2>
 
-        <button disabled={loading} type="submit">
-          {loading ? "loading..." : "Log in"}
-        </button>
+          <div>
+            <i class="fa-solid fa-envelope"></i>
+            <input
+              type="email"
+              name="email"
+              placeholder="Email Address"
+              value={email}
+              onChange={changeHandler}
+              autocomplete="off"
+            />
+          </div>
 
-        <div className="loginLinks">
-          <Link>Forgot password?</Link>
-          <Link to="/signup">Don't have an account?</Link>
-        </div>
-      </form>
+          <div className="passwordField">
+            <i class="fa-solid fa-lock"></i>
+            <input
+              id="password"
+              type="password"
+              name="password"
+              placeholder="password"
+              value={password}
+              onChange={changeHandler}
+              autocomplete="off"
+            />
+
+            {showPassword ? (
+              <i
+                class="fa-solid fa-eye-slash"
+                onClick={(e) => {
+                  togglePasswordVisibility(e);
+                  setShowPassword(false);
+                }}
+              ></i>
+            ) : (
+              <i
+                class="fa-solid fa-eye"
+                onClick={(e) => {
+                  togglePasswordVisibility(e);
+                  setShowPassword(true);
+                }}
+              ></i>
+            )}
+          </div>
+
+          <button disabled={loading} type="submit">
+            {loading ? "loading..." : "Log in"}
+          </button>
+
+          <Link to="/forgotPassword">Forgot password?</Link>
+
+          <div className="loginLinks">
+            <p>
+              Don't have an account yet?
+              <Link to="/signup">Create an account</Link>
+            </p>
+            <Link to="/">Continue without logging in</Link>
+
+            <p>
+              By logging in, you agree to our Terms and Conditions and Privacy
+              Policies
+            </p>
+          </div>
+        </form>
+      </main>
     </div>
   );
 }

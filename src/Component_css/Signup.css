@@ -1,32 +1,66 @@
 .containerSignup {
-  display: grid;
-  grid-template-columns: repeat(1, 40vw);
+  height: 100vh;
+  display: flex;
   justify-content: center;
-  align-content: start;
-  padding-top: 10px;
-  background: linear-gradient(to top right, var(--fifthColor), #e3d287);
-  width: 100%;
-  min-height: 100vh;
+  align-items: center;
 }
 
-#homeink {
-  background-color: var(--fourthColor);
-  padding: 5px 0;
-  text-decoration: none;
-  text-transform: capitalize;
-  border-radius: 4px;
-  width: 100px;
-  text-align: center;
-  color: var(--mainColor);
+.containerSignup nav {
+  padding: 20px 30px;
+  position: fixed;
+  width: 100%;
+  background-color: var(--mainColor);
+  top: 0;
+  z-index: 100;
+}
+
+.containerSignup nav img {
+  width: 100%;
+  height: 100px;
+  object-fit: contain;
+}
+
+.containerSignup main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  min-width: 70%;
+  gap: 30px;
+  box-shadow: 1px 1px 8px var(--secondColor);
+}
+
+.containerSignup img {
+  width: 40%;
+  height: 100%;
+  object-fit: contain;
 }
 
 .containerSignup form {
-  background-color: var(--mainColor);
-  padding: 50px;
-  margin-top: 30px;
-  border-radius: 5px;
-  margin-bottom: 20px;
+  padding: 50px 0;
   position: relative;
+}
+
+.containerSignup form h1 {
+  text-transform: capitalize;
+  font-size: 2rem;
+  margin-bottom: 30px;
+}
+
+.namesDiv {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: auto;
+}
+
+.namesDiv div {
+  width: 49%;
+}
+
+.namesDiv div label {
+  display: block;
 }
 
 .containerSignup input {
@@ -38,6 +72,11 @@
   border-radius: 4px;
   border: 1px solid var(--secondColor);
   transition: 0s;
+  display: block;
+}
+
+.containerSignup div:first-child div input {
+  display: block;
 }
 
 .containerSignup input::placeholder {
@@ -52,14 +91,16 @@
 }
 
 .containerSignup button {
-  padding: 5px 30px;
+  padding: 10px 0;
   color: var(--mainColor);
-  background-color: var(--fourthColor);
+  background: var(--buttonColor);
   border: none;
   border-radius: 3px;
   margin-top: 5px;
   display: block;
   margin: 20px 0;
+  width: 50%;
+  font-size: 1rem;
 }
 
 .containerSignup label {
@@ -67,14 +108,6 @@
   font-size: 1rem;
   display: block;
   text-transform: capitalize;
-}
-
-.containerSignup a {
-  color: var(--thirdColor);
-  text-decoration: underline;
-  font-size: 0.7rem;
-  cursor: pointer;
-  margin-top: 10px;
 }
 
 /* empty input  */
@@ -96,8 +129,30 @@
   color: var(--fourthColor);
   font-size: 0.8rem;
 }
-.input-container input {
-  padding-right: 50px;
+
+.containerSignup form a {
+  margin-bottom: 70px;
+  text-decoration: none;
+  color: darkblue;
+  font-size: 1.2rem;
+}
+
+.containerSignup form p {
+  margin-bottom: 40px;
+}
+
+.signupLinks {
+  padding: 30px 0;
+}
+
+.signupLinks a {
+  margin: 0 !important;
+  font-size: 1rem !important;
+  text-decoration: underline !important;
+}
+
+.signupLinks p {
+  font-size: 0.8rem;
 }
 
 /* loading animation  */
@@ -119,48 +174,67 @@
   height: 1.2rem;
 }
 
+/* verify note is styled in login.css file  */
+
 @media (max-width: 800px) {
   .containerSignup {
-    grid-template-columns: repeat(1, 90vw);
-    padding-top: 20px;
+    display: block;
   }
 
-  #homeink {
-    width: 80px;
+  .containerSignup nav img {
+    height: 80px;
+    display: block;
+  }
+
+  .containerSignup main {
+    display: block;
+    box-shadow: none;
+    padding: 0 30px;
+    margin-top: 100px;
+  }
+
+  .containerSignup img {
+    display: none;
   }
 
   .containerSignup form {
-    padding: 40px 20px;
-    margin-top: 20px;
+    padding: 20px 0;
   }
 
-  .containerSignup input {
-    font-size: 0.9rem;
-    padding: 10px 20px;
+  .containerSignup form h1 {
+    font-size: 1.5rem;
   }
 
   .containerSignup input::placeholder {
-    font-size: 0.8rem;
-  }
-
-  .containerSignup a {
-    font-size: 0.8rem;
+    font-size: 0.7rem;
   }
 
   .containerSignup button {
-    padding: 5px 20px;
-    margin-bottom: 10px;
+    padding: 8px 0;
+    margin-top: 20px;
+    width: 100%;
+    font-size: 0.9rem;
   }
 
-  .containerSignup label {
+  .containerSignup form a {
+    margin-bottom: 50px;
+    font-size: 0.9rem;
+  }
+
+  .containerSignup form p {
+    margin-bottom: 50px;
+    font-size: 0.9rem;
+  }
+
+  .signupLinks {
+    padding: 20px 0;
+  }
+
+  .signupLinks a {
+    font-size: 0.8rem !important;
+  }
+
+  .signupLinks p {
     font-size: 0.8rem;
-  }
-
-  .input-container {
-    width: auto;
-  }
-
-  .input-container input {
-    padding-right: 50px;
   }
 }

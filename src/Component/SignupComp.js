@@ -31,112 +31,133 @@ function SignupComp(props) {
 
   return (
     <div className="containerSignup">
-      <Link to="/" id="homeink">
-        home
-      </Link>
-      <form onSubmit={submitHandler} noValidate>
-        {showNote && (
-          <PopNotification
-            noteContent={noteContent}
-            setShowNote={setShowNote}
-            errorNote={errorNote}
-          />
-        )}
-        <label for="firstName">first name</label>
-        <input
-          id="firstName"
-          type="text"
-          name="firstName"
-          value={firstName}
-          onChange={changeHandler}
-          autocomplete="off"
-        />
+      <nav>
+        <img src="/subLOGO.png" alt="logo" />
+      </nav>
+      <main>
+        <img src="/icons/signup.png" />
+        <form onSubmit={submitHandler} noValidate>
+          <h1>Register</h1>
+          {showNote && (
+            <PopNotification
+              noteContent={noteContent}
+              setShowNote={setShowNote}
+              errorNote={errorNote}
+            />
+          )}
 
-        <label for="lastName">last name</label>
-        <input
-          id="lastName"
-          type="text"
-          name="lastName"
-          value={lastName}
-          onChange={changeHandler}
-          autocomplete="off"
-        />
+          <div className="namesDiv">
+            <div>
+              <label for="firstName">first name</label>
+              <input
+                id="firstName"
+                type="text"
+                name="firstName"
+                value={firstName}
+                onChange={changeHandler}
+                autocomplete="off"
+              />
+            </div>
+            <div>
+              <label for="lastName">last name</label>
+              <input
+                id="lastName"
+                type="text"
+                name="lastName"
+                value={lastName}
+                onChange={changeHandler}
+                autocomplete="off"
+              />
+            </div>
+          </div>
 
-        <label for="email">email address</label>
-        <input
-          id="email"
-          type="email"
-          name="email"
-          value={email}
-          onChange={changeHandler}
-          autocomplete="off"
-        />
-
-        <label for="password">Password</label>
-        <div className="input-container">
+          <label for="email">email address</label>
           <input
-            id="password"
-            type="password"
-            name="password"
-            value={password}
+            id="email"
+            type="email"
+            name="email"
+            value={email}
             onChange={changeHandler}
             autocomplete="off"
           />
 
-          {passShow ? (
-            <i
-              class="fa-solid fa-eye-slash"
-              onClick={(e) => {
-                togglePasswordVisibility(e);
-                setPassShow(false);
-              }}
-            ></i>
-          ) : (
-            <i
-              class="fa-solid fa-eye"
-              onClick={(e) => {
-                togglePasswordVisibility(e);
-                setPassShow(true);
-              }}
-            ></i>
-          )}
-        </div>
+          <label for="password">Password</label>
+          <div className="input-container">
+            <input
+              id="password"
+              type="password"
+              name="password"
+              value={password}
+              onChange={changeHandler}
+              autocomplete="off"
+            />
 
-        <label for="confirmPassword">confirm password</label>
-        <div className="input-container">
-          <input
-            id="cornfirmPassword"
-            type="password"
-            name="confirmPassword"
-            value={confirmPassword}
-            onChange={changeHandler}
-            autocomplete="off"
-          />
-          {confirnPassShow ? (
-            <i
-              class="fa-solid fa-eye-slash"
-              onClick={(e) => {
-                togglePasswordVisibility(e);
-                setConfirmShow(false);
-              }}
-            ></i>
-          ) : (
-            <i
-              class="fa-solid fa-eye"
-              onClick={(e) => {
-                togglePasswordVisibility(e);
-                setConfirmShow(true);
-              }}
-            ></i>
-          )}
-        </div>
+            {passShow ? (
+              <i
+                class="fa-solid fa-eye-slash"
+                onClick={(e) => {
+                  togglePasswordVisibility(e);
+                  setPassShow(false);
+                }}
+              ></i>
+            ) : (
+              <i
+                class="fa-solid fa-eye"
+                onClick={(e) => {
+                  togglePasswordVisibility(e);
+                  setPassShow(true);
+                }}
+              ></i>
+            )}
+          </div>
 
-        <button disabled={loading} type="submit">
-          {loading ? "loading..." : "Sign up"}
-        </button>
+          <label for="confirmPassword">confirm password</label>
+          <div className="input-container">
+            <input
+              id="cornfirmPassword"
+              type="password"
+              name="confirmPassword"
+              value={confirmPassword}
+              onChange={changeHandler}
+              autocomplete="off"
+            />
+            {confirnPassShow ? (
+              <i
+                class="fa-solid fa-eye-slash"
+                onClick={(e) => {
+                  togglePasswordVisibility(e);
+                  setConfirmShow(false);
+                }}
+              ></i>
+            ) : (
+              <i
+                class="fa-solid fa-eye"
+                onClick={(e) => {
+                  togglePasswordVisibility(e);
+                  setConfirmShow(true);
+                }}
+              ></i>
+            )}
+          </div>
 
-        <Link to="/login">Continue to log in</Link>
-      </form>
+          <button disabled={loading} type="submit">
+            {loading ? "loading..." : "Sign up"}
+          </button>
+
+          <p>
+            Already have an account? <Link to="/login">log in</Link>
+          </p>
+
+          <div className="signupLinks">
+            <Link to="/">Continue without signing up</Link>
+
+            <p>
+              By clicking sign up, you agree to our Terms and Conditions and
+              Privacy Policies
+            </p>
+          </div>
+        </form>
+      </main>
     </div>
   );
 }

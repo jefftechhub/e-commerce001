@@ -22,6 +22,10 @@ const userSchema = {
     type: String,
     default: "",
   },
+  isVerified: {
+    type: Boolean,
+    default: false,
+  },
 };
 
 const productsSchema = {
@@ -40,6 +44,15 @@ const productsSchema = {
   status: {
     type: Boolean,
     default: false,
+  },
+};
+
+const otpSchema = {
+  userID: String,
+  otp: String,
+  date: {
+    type: Date,
+    default: Date.now,
   },
 };
 
@@ -112,6 +125,7 @@ const newslettersEmailSchema = {
 };
 
 const Users = mongoose.model("Users", userSchema);
+const Otp = mongoose.model("Otp", otpSchema);
 const Cards = mongoose.model("Cards", cardsSchema);
 const NewslettersEmail = mongoose.model("Newsletters", newslettersEmailSchema);
 const Products = mongoose.model("Products", productsSchema);
@@ -125,4 +139,5 @@ module.exports = {
   NewslettersEmail,
   RunningOrders,
   Cards,
+  Otp,
 };

@@ -10,6 +10,8 @@ import { useOffer, useFeatured, useTopProducts } from "./useGet";
 import "./Component_css/Homepage.css";
 
 function Home({ addtocart, addingToWishlist }) {
+  sessionStorage.removeItem("otpSent");
+
   const [offerProducts, setOfferProducts] = useState([]);
   const [featuredProduct, setFeaturedProduct] = useState({});
   const [topProducts, setTopProducts] = useState([]);

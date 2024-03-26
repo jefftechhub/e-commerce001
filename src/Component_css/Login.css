@@ -1,28 +1,83 @@
 .containerLogin {
-  display: grid;
-  grid-template-columns: repeat(1, 40vw);
+  height: 100vh;
+  display: flex;
   justify-content: center;
-  align-content: start;
-  padding-top: 100px;
-  background: linear-gradient(to top right, var(--fifthColor), #e3d287);
+  align-items: center;
+}
+
+.containerLogin nav {
+  padding: 20px 30px;
+  position: fixed;
   width: 100%;
-  min-height: 100vh;
+  background-color: var(--mainColor);
+  top: 0;
+  z-index: 100;
+}
+
+.containerLogin nav img {
+  width: 100%;
+  height: 100px;
+  object-fit: contain;
+}
+
+.containerLogin main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  min-width: 70%;
+  gap: 30px;
+  box-shadow: 1px 1px 8px var(--secondColor);
+}
+
+.containerLogin img {
+  width: 40%;
+  height: 100%;
+  object-fit: contain;
 }
 
 .containerLogin form {
-  background-color: var(--mainColor);
-  padding: 50px;
-  margin-top: 30px;
-  border-radius: 5px;
-  margin-bottom: 20px;
+  padding: 50px 0;
+  position: relative;
+}
+
+.containerLogin form h1 {
+  text-transform: capitalize;
+  font-size: 2rem;
+}
+
+.containerLogin form h2 {
+  font-size: 1.2rem;
+  margin: 10px 0;
+  font-weight: 400;
+}
+
+.containerLogin form div {
+  position: relative;
+  margin: 10px 0;
+}
+
+.containerLogin form div i {
+  position: absolute;
+  top: 33%;
+  width: 20px;
+  height: 100%;
+  color: var(--fourthColor);
+}
+
+.containerLogin form div i:not(.passwordField i:last-child) {
+  left: 18px;
+}
+
+.passwordField i:last-child {
+  right: 15px;
 }
 
 .containerLogin input {
   width: 100%;
   font-size: 1rem;
-  padding: 8px 20px;
+  padding: 8px 40px;
   font-size: 1rem;
-  margin: 5px 0;
   border-radius: 4px;
   border: 1px solid var(--secondColor);
   transition: 0s;
@@ -39,39 +94,86 @@
 }
 
 .containerLogin button {
-  padding: 5px 30px;
+  padding: 10px 0;
   color: var(--mainColor);
-  background-color: var(--fourthColor);
+  background: var(--buttonColor);
   border: none;
   border-radius: 3px;
   margin-top: 5px;
   display: block;
   margin: 20px 0;
-}
-
-#checkbox {
-  width: auto;
-  margin: 20px 0;
-  display: inline-block;
-  margin-right: 5px;
-}
-
-label {
+  width: 50%;
   font-size: 1rem;
-  text-transform: capitalize;
 }
 
-.containerLogin p,
-.containerLogin a {
-  color: var(--thirdColor);
-  text-decoration: underline;
-  font-size: 0.7rem;
-  cursor: pointer;
+.containerLogin form a {
+  margin-bottom: 70px;
+  text-decoration: none;
+  color: darkblue;
+  font-size: 1.2rem;
+  display: block;
 }
 
 .loginLinks {
+  border-top: 2px solid var(--secondColor);
+  padding: 40px 0;
+}
+
+.loginLinks a {
+  margin: 0 !important;
+  font-size: 1rem !important;
+  text-decoration: underline !important;
+}
+
+.loginLinks p a {
+  display: inline;
+  margin-left: 10px !important;
+}
+
+.loginLinks p {
+  font-size: 1rem;
+}
+
+.loginLinks p:last-child {
+  font-size: 0.8rem;
+  margin-top: 20px;
+}
+
+.verifyNote {
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.6);
+  width: 100%;
+  height: 100%;
+  z-index: 1000;
   display: flex;
-  column-gap: 20px;
+  justify-content: center;
+  align-items: center;
+}
+
+.verifyNote div {
+  background-color: var(--mainColor);
+  padding: 30px 20px;
+  border-radius: 5px;
+}
+
+.verifyNote div button {
+  text-transform: capitalize;
+  text-decoration: underline;
+  border: none;
+  background-color: transparent;
+}
+
+.verifyNote div a {
+  padding: 5px;
+  color: var(--mainColor);
+  background-color: var(--fourthColor);
+  text-decoration: none;
+  margin-top: 10px;
+  display: inline-block;
+}
+
+.verifyNote div p {
+  padding: 10px 0;
 }
 
 /* loading animation  */
@@ -94,40 +196,66 @@ label {
 }
 
 @media (max-width: 800px) {
-  .containerLogin {
-    grid-template-columns: repeat(1, 90vw);
-    padding-top: 80px;
+  .containerSignup {
+    display: block;
+  }
+  .containerLogin nav img {
+    width: 100%;
+    height: 80px;
   }
 
-  #homeink {
-    width: 80px;
+  .containerLogin main {
+    display: block;
+    border-radius: 0;
+    padding: 0 30px;
+    margin-top: 100px;
+    box-shadow: none;
+  }
+
+  .containerLogin main img {
+    display: none;
   }
 
   .containerLogin form {
-    padding: 40px 20px;
-    margin-top: 20px;
-    position: relative;
+    padding: 20px 0;
+    padding-bottom: 0;
   }
 
-  .containerLogin input {
-    font-size: 0.9rem;
-    padding: 10px 20px;
+  .containerLogin form h1 {
+    font-size: 1.5rem;
+  }
+
+  .containerLogin form h2 {
+    font-size: 1rem;
+    margin-bottom: 20px;
   }
 
   .containerLogin input::placeholder {
-    font-size: 0.8rem;
+    font-size: 0.7rem;
   }
 
   .containerLogin button {
-    padding: 5px 20px;
-    margin-bottom: 10px;
+    padding: 8px 0;
+    margin-top: 20px;
+    width: 100%;
+    font-size: 0.9rem;
   }
 
-  .containerLogin a {
-    font-size: 0.8rem;
+  .containerLogin form a {
+    margin-bottom: 50px;
+    font-size: 0.9rem;
   }
 
-  .containerLogin label {
+  .loginLinks {
+    border-top: 1px solid var(--secondColor);
+    padding: 20px 0;
+  }
+
+  .loginLinks a {
+    font-size: 0.8rem !important;
+  }
+
+  .loginLinks p {
     font-size: 0.8rem;
   }
 }

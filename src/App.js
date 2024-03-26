@@ -10,6 +10,8 @@ import Shop from "./Shop";
 import Login from "./Login";
 import Signup from "./Signup";
 import FixedNotification from "./FixedNotification";
+import VerifyEmail from "./VerifyEmail";
+import ForgotPassword from "./ForgotPassword";
 
 import DashBoardNavBar from "./Dashboard/DashboardNavBar";
 import Orders from "./Dashboard/Orders";
@@ -106,6 +108,8 @@ function App() {
       <Routes>
         <Route path="/login" element={<Login setLogin={setLogin} />} />
         <Route path="/signup" element={<Signup />} />
+        <Route path="/forgotPassword" element={<ForgotPassword />} />
+        <Route path="/verifyEmail/:id" element={<VerifyEmail />} />
 
         <Route
           path="/"

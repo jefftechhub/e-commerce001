@@ -4,6 +4,7 @@
   --thirdColor: #000000;
   --fourthColor: #006400;
   --fifthColor: #f17c0f;
+  --buttonColor: linear-gradient(#006400, #3b8252);
 }
 
 * {
@@ -63,19 +64,24 @@
 .popNote {
   background-color: var(--mainColor);
   position: absolute;
-  font-size: 0.9rem;
   top: 10px;
   left: 50%;
   transform: translateX(-50%);
   padding: 15px 20px;
   text-transform: capitalize;
-  border-radius: 0;
+  border-radius: 4px;
+  z-index: 100;
+}
+
+.popNotification {
+  position: absolute;
+  padding: 10px;
   animation: notification 0.3s ease-in-out 2;
 }
 
 .errorNote {
-  color: red;
-  border: 1px solid red;
+  color: var(--mainColor);
+  background-color: rgba(206, 47, 47, 0.7);
 }
 
 .success {
@@ -83,11 +89,9 @@
   border: 1px solid var(--fourthColor);
 }
 
-.popNote p {
-  text-decoration: none !important;
-  display: flex;
-  align-items: center;
-  column-gap: 20px;
+.popNotification p {
+  font-size: 0.9rem;
+  text-transform: capitalize;
 }
 
 .fa-x {
