@@ -875,7 +875,9 @@ app.post("/api/auth", async (req, res) => {
 app.get("/api/dashboard", verifyUser, async (req, res) => {
   try {
     const id = req.body.id;
+    console.log(id);
     let user = await Users.findOne({ _id: id });
+    console.log(user);
 
     if (user) {
       user = {
