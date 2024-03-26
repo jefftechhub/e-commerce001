@@ -877,13 +877,18 @@ app.get("/api/dashboard", verifyUser, async (req, res) => {
     const id = req.body.id;
     let user = await Users.findOne({ _id: id });
 
-    user = {
-      firstName: user.firstName,
-      email: user.email,
-      id: user._id,
-      accountType: user.accountType,
-    };
-    return res.status(200).json({ success: true, data: user });
+    if (user) {
+      user = {
+        firstName: user.firstName,
+        email: user.email,
+        id: user._id,
+        accountType: user.accountType,
+      };
+
+      return res.status(200).json({ success: true, data: user });
+    } else {
+      return res.json({ success: false });
+    }
   } catch (error) {
     return res
       .status(500)
