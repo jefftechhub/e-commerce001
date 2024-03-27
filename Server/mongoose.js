@@ -14,10 +14,6 @@ const userSchema = {
     type: Date,
     default: Date.now,
   },
-  status: {
-    type: Boolean,
-    default: true,
-  },
   location: {
     type: String,
     default: "",
