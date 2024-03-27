@@ -6,7 +6,7 @@
 }
 
 .containerSignup nav {
-  padding: 20px 30px;
+  padding: 0 10px;
   position: fixed;
   width: 100%;
   background-color: var(--mainColor);
@@ -16,7 +16,7 @@
 
 .containerSignup nav img {
   width: 100%;
-  height: 100px;
+  height: 80px;
   object-fit: contain;
 }
 
@@ -27,7 +27,7 @@
   border-radius: 5px;
   min-width: 70%;
   gap: 30px;
-  box-shadow: 1px 1px 8px var(--secondColor);
+  margin-top: 110px;
 }
 
 .containerSignup img {
@@ -37,14 +37,14 @@
 }
 
 .containerSignup form {
-  padding: 50px 0;
+  padding: 30px 0;
   position: relative;
 }
 
 .containerSignup form h1 {
   text-transform: capitalize;
   font-size: 2rem;
-  margin-bottom: 30px;
+  margin-bottom: 10px;
 }
 
 .namesDiv {
@@ -131,18 +131,17 @@
 }
 
 .containerSignup form a {
-  margin-bottom: 70px;
   text-decoration: none;
   color: darkblue;
   font-size: 1.2rem;
 }
 
 .containerSignup form p {
-  margin-bottom: 40px;
+  margin-bottom: 10px;
 }
 
 .signupLinks {
-  padding: 30px 0;
+  padding: 10px 0;
 }
 
 .signupLinks a {
@@ -222,12 +221,12 @@
   }
 
   .containerSignup form p {
-    margin-bottom: 50px;
+    margin-bottom: 10px;
     font-size: 0.9rem;
   }
 
   .signupLinks {
-    padding: 20px 0;
+    padding: 10px 0;
   }
 
   .signupLinks a {
