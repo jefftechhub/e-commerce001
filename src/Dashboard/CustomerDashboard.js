@@ -39,12 +39,7 @@ function CustomerDashBoard({ id, email, firstName, setLogin }) {
             </div>
             <i class="fa-solid fa-greater-than"></i>
           </Link>
-          <Link to="accountManagement">
-            <div>
-              <i class="fa-solid fa-address-card"></i> <p>Account management</p>
-            </div>
-            <i class="fa-solid fa-greater-than"></i>
-          </Link>
+
           <Link
             onClick={() => {
               logOut();
